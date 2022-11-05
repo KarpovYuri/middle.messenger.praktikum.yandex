@@ -1,11 +1,11 @@
 # Мессенджер
 
 * Макет в Figma: []()
-* Опубликованное в Netlify приложение: []()
+* Опубликованное в Netlify приложение: [https://amazing-syrniki-922dd2.netlify.app](https://amazing-syrniki-922dd2.netlify.app)
 
 ## Описание
 
-Самостоятельная проектная работа, выполняемая в рамках обучения на курсе [Мидл фронтенд-разработчик](https://praktikum.yandex.ru/middle-frontend/) от [Яндекс.Практикум](https://praktikum.yandex.ru).
+Самостоятельная проектная работа, выполненная в рамках обучения на курсе [Мидл фронтенд-разработчик](https://praktikum.yandex.ru/middle-frontend/)  [Яндекс.Практикума](https://praktikum.yandex.ru).
 
 ## Спринт 1
 
@@ -47,4 +47,4 @@ npm run start
 
 **Мессенджер**
 
-- [Ссылка на приложение]()
+- [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
