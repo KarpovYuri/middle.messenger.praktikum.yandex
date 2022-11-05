@@ -9,10 +9,10 @@
 
 ## Спринт 1
 
-https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/1
+* [Pull Request](https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/1)
 * Свёрстан макет приложения 'Мессенджер' в Figma. [Ссылка на макет]()
 * Настроена сборка с использованием [Parcel](https://parceljs.org/) и раздача статики сервером на Express
-* Свёрстаны основные страницы приложения с использованием шаблонизатора
+* Свёрстаны основные страницы приложения с использованием шаблонизатора [Handlebars](https://handlebarsjs.com/)
 * Приложение автоматически деплоится на [Netlify](https://www.netlify.com/) из ветки `deploy`. [Ссылка на приложение]()
 
 ## Установка и запуск
