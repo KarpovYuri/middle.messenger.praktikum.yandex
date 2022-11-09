@@ -4,7 +4,7 @@
   "description": "Проектная работа 1. Мидл фронтенд разработчик",
   "scripts": {
     "build": "parcel build ./static/index.html",
-    "dev": "parcel ./static/index.html --open",
+    "dev": "parcel ./static/index.html --open --port 3000 --no-cache",
     "start": "npm run build & node ./src/server.js"
   },
   "repository": {

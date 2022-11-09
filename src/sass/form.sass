@@ -1,0 +1,97 @@
+@import '../sass/mixins'
+
+.form
+  @include general
+  &__title
+    font-weight: 400
+    font-size: 20px
+    margin: 0
+  &__fieldset
+    padding: 0
+    margin: 50px 0 0
+    min-width: 460px
+    border: none
+    &_form_register
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      min-width: 960px
+      column-gap: 40px
+  &__field
+    margin-top: 32px
+    border: none
+    display: flex
+    flex-direction: column
+    &:first-child
+      margin-top: 0
+    &_form_register
+      &:nth-child(2)
+        margin-top: 0
+  &__label
+    font-weight: 700
+    font-size: 18px
+    color: #727272
+  &__input
+    padding: 26px 30px
+    margin-top: 16px
+    border: none
+    font-size: 20px
+    line-height: 24px
+    background: none
+    border: 2px solid #34323d
+    border-radius: 8px
+    color: grey
+    &:focus
+      outline: 2px solid #12b2e4
+      &::placeholder
+        opacity: 0
+        transition: opacity 0.25s ease
+    &::placeholder
+      color: #fff
+      opacity: 1
+      transition: opacity 0.25s ease
+  &__input-error
+    font-weight: 400
+    font-size: 10px
+    line-height: 12px
+    color: red
+    margin-top: 10px
+    min-height: 47px
+    text-align: center
+    padding: 5px
+    border-radius: 8px
+    box-sizing: border-box
+    display: flex
+    justify-content: center
+    align-items: center
+    display: none
+  &__btn
+    height: 80px
+    width: 460px
+    background-color: #12b2e4
+    margin-top: 30px
+    border-radius: 10px
+    color: #fff
+    font-size: 22px
+    letter-spacing: 0.02em
+    transition: transform 0.25s, opacity 0.25s
+    cursor: pointer
+    border: none
+    &:hover
+      transform: scale(.97)
+      opacity: .8
+  &__link-wrapper
+    margin: 20px 0 0
+    text-align: center
+    font-weight: 400
+    font-size: 16px
+    color: grey
+    letter-spacing: normal
+    display: flex
+    flex-direction: column
+    gap: 15px
+  &__link
+    text-decoration: none
+    color: #12b2e4
+    transition: transform 0.25s
+    &:hover
+      transform: scale(1.5)
