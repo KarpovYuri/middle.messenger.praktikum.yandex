@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль</title>
+  <link rel="stylesheet" href="../vendor/normalize.css">
+  <link rel="stylesheet" href="../vendor/fonts.sass">
+  <link rel="stylesheet" href="../sass/form.sass">
+</head>
+
+<body>
+  <form class="form">
+    <div class="avatar">
+      <img src="https://pictures.s3.yandex.net/frontend-developer/common/ava.jpg" alt="Аватар" class="avatar__img">
+      <button type="button" aria-label="Кнопка редактирования Аватара" class="avatar__button"></button>
+    </div>
+    <h1 class="form__title">Профиль</h1>
+    <fieldset class="form__fieldset form__fieldset_form_register">
+      <div class="form__field form__field_form_register">
+        <label for="first_name" class="form__label">First Name</label>
+        <input type="text" id="first-name" name="first_name" class="form__input" placeholder="Вася" autoComplete="off"
+          required disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+      <div class="form__field form__field_form_register">
+        <label for="second_name" class="form__label">Second Name</label>
+        <input type="text" id="second-name" name="second_name" class="form__input" placeholder="Форточкин"
+          autoComplete="off" required disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+      <div class="form__field form__field_form_register">
+        <label for="display_name" class="form__label">Display Name</label>
+        <input type="text" id="display_name" name="display_name" class="form__input" placeholder="Василь Василич"
+          autoComplete="off" required disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+      <div class="form__field form__field_form_register">
+        <label for="login" class="form__label">Login</label>
+        <input type="text" id="login" name="login" class="form__input" placeholder="Vasy" autoComplete="off" required
+          disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+      <div class="form__field form__field_form_register">
+        <label for="email" class="form__label">E-mail</label>
+        <input type="email" id="email" name="email" class="form__input" placeholder="vasy@bk.ru" autoComplete="off"
+          required disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+      <div class="form__field form__field_form_register">
+        <label for="phone" class="form__label">Phone</label>
+        <input type="phone" id="phone" name="phone" class="form__input" placeholder="+7-777-777-77-77"
+          autoComplete="off" required disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+      <div class="form__field form__field_form_register">
+        <label for="oldPassword" class="form__label">Old Password</label>
+        <input type="password" id="oldPassword" name="oldPassword" class="form__input" placeholder="********"
+          autoComplete="off" required disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+      <div class="form__field form__field_form_register">
+        <label for="newPassword" class="form__label">New Password</label>
+        <input type="password" id="newPassword" name="newPassword" class="form__input" placeholder="Новый пароль"
+          autoComplete="off" required disabled />
+        <span class="form__input-error">Ошибка</span>
+      </div>
+    </fieldset>
+    <button type="submit" class="form__btn hide">Сохранить</button>
+    <p class="form__link-wrapper">
+      <a class="form__link" href="#">Редактировать</a>
+      <a class="form__link" href="../../static/index.html">Выйти</a>
+    </p>
+  </form>
+</body>
+
+</html>
