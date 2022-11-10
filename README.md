@@ -1,7 +1,7 @@
 # Мессенджер
 
-* Макет в Figma: []()
-* Опубликованное в Netlify приложение: [https://amazing-syrniki-922dd2.netlify.app](https://amazing-syrniki-922dd2.netlify.app)
+* Макет в Figma: [Ссылка на макет](https://www.figma.com/file/k9as4XTLEBJwQ8zgFJw2RK/Chat_Karpov?node-id=0%3A1)
+* Опубликованное в Netlify приложение: [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
 
 ## Описание
 
@@ -10,10 +10,10 @@
 ## Спринт 1
 
 * [Pull Request](https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/1)
-* Свёрстан макет приложения 'Мессенджер' в Figma. [Ссылка на макет]()
+* Свёрстан макет приложения 'Мессенджер' в Figma. [Ссылка на макет](https://www.figma.com/file/k9as4XTLEBJwQ8zgFJw2RK/Chat_Karpov?node-id=0%3A1)
 * Настроена сборка с использованием [Parcel](https://parceljs.org/) и раздача статики сервером на Express
 * Свёрстаны основные страницы приложения с использованием шаблонизатора [Handlebars](https://handlebarsjs.com/)
-* Приложение автоматически деплоится на [Netlify](https://www.netlify.com/) из ветки `deploy`. [Ссылка на приложение]()
+* Приложение автоматически деплоится на [Netlify](https://www.netlify.com/) из ветки `deploy`. [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
 
 ## Установка и запуск
 
