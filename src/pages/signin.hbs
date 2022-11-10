@@ -1,3 +1,12 @@
+---
+title: "Авторизация"
+submit: "Войти"
+error-text: "Ошибка"
+url: "./signup.hbs"
+url-title: "Ещё не зарегистрированы?"
+url-text: "Регистрация"
+---
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -5,7 +14,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Авторизация</title>
+  <title>{{title}}</title>
   <link rel="stylesheet" href="../vendor/normalize.css">
   <link rel="stylesheet" href="../vendor/fonts.sass">
   <link rel="stylesheet" href="../sass/form.sass">
@@ -13,25 +22,25 @@
 
 <body class="root">
   <form class="form">
-    <h1 class="form__title">Авторизация</h1>
+    <h1 class="form__title">{{title}}</h1>
     <fieldset class="form__fieldset">
       <div class="form__field">
         <label for="login" class="form__label">Login</label>
         <input type="text" id="login" name="login" class="form__input" placeholder="Логин" autoComplete="off"
           required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
       <div class="form__field">
         <label for="password" class="form__label">Password</label>
         <input type="password" id="password" name="password" class="form__input" placeholder="Пароль" autoComplete="off"
           required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
     </fieldset>
-    <button type="submit" class="form__btn">Войти</button>
+    <button type="submit" class="form__btn">{{submit}}</button>
     <p class="form__link-wrapper">
-      Ещё не зарегистрированы?
-      <a class="form__link" href="../pages/signup.html">Регистрация</a>
+      {{url-title}}
+      <a class="form__link" href={{url}}>{{url-text}}</a>
     </p>
   </form>
 </body>

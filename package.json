@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Проектная работа 1. Мидл фронтенд разработчик",
   "scripts": {
-    "build": "parcel build ./static/index.html",
-    "dev": "parcel ./static/index.html --open --port 3000 --no-cache",
+    "build": "parcel build ./src/pages/index.hbs",
+    "dev": "parcel ./src/pages/index.hbs --open --port 3000 --no-cache",
     "start": "npm run build & node ./src/server.js"
   },
   "repository": {

@@ -1,3 +1,12 @@
+---
+title: "Регистрация"
+submit: "Зарегистрироваться"
+error-text: "Ошибка"
+url: "./signin.hbs"
+url-title: "Уже зарегистрированы?"
+url-text: "Вход"
+---
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -5,7 +14,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Регистрация</title>
+  <title>{{title}}</title>
   <link rel="stylesheet" href="../vendor/normalize.css">
   <link rel="stylesheet" href="../vendor/fonts.sass">
   <link rel="stylesheet" href="../sass/form.sass">
@@ -13,49 +22,49 @@
 
 <body class="root">
   <form class="form">
-    <h1 class="form__title">Регистрация</h1>
+    <h1 class="form__title">{{title}}</h1>
     <fieldset class="form__fieldset form__fieldset_form_register">
       <div class="form__field form__field_form_register">
         <label for="first_name" class="form__label">First Name</label>
         <input type="text" id="first-name" name="first_name" class="form__input" placeholder="Имя" autoComplete="off"
           required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
       <div class="form__field form__field_form_register">
         <label for="second_name" class="form__label">Second Name</label>
         <input type="text" id="second-name" name="second_name" class="form__input" placeholder="Фамилия"
           autoComplete="off" required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
       <div class="form__field form__field_form_register">
         <label for="login" class="form__label">Login</label>
         <input type="text" id="login" name="login" class="form__input" placeholder="Логин" autoComplete="off"
           required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
       <div class="form__field form__field_form_register">
         <label for="email" class="form__label">E-mail</label>
         <input type="email" id="email" name="email" class="form__input" placeholder="E-mail" autoComplete="off"
           required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
       <div class="form__field form__field_form_register">
         <label for="password" class="form__label">Password</label>
         <input type="password" id="password" name="password" class="form__input" placeholder="Пароль" autoComplete="off"
           required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
       <div class="form__field form__field_form_register">
         <label for="phone" class="form__label">Phone</label>
         <input type="phone" id="phone" name="phone" class="form__input" placeholder="Телефон" autoComplete="off"
           required />
-        <span class="form__input-error">Ошибка</span>
+        <span class="form__input-error">{{error-text}}</span>
       </div>
     </fieldset>
-    <button type="submit" class="form__btn">Зарегистрироваться</button>
+    <button type="submit" class="form__btn">{{submit}}</button>
     <p class="form__link-wrapper">
-      Уже зарегистрированы?
-      <a class="form__link" href="../pages/sigin.html">Вход</a>
+      {{url-title}}
+      <a class="form__link" href={{url}}>{{url-text}}</a>
     </p>
   </form>
 </body>

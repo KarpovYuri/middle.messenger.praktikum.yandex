@@ -1,3 +1,8 @@
+---
+title: "Мессенджер"
+url: "./index.hbs"
+---
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -5,7 +10,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ошибка 500</title>
+  <title>{{title}}</title>
   <link rel="stylesheet" href="../vendor/normalize.css">
   <link rel="stylesheet" href="../vendor/fonts.sass">
   <link rel="stylesheet" href="../sass/error-page.sass">
@@ -14,10 +19,10 @@
 <body class="root">
   <section id="root" class="error-page">
     <div class="error-page__container">
-      <h1 class="error-page__title">500</h1>
-      <p class="error-page__description">Ошибка сервера</p>
+      <h1 class="error-page__title">чатик</h1>
+      <p class="error-page__description">Скоро будет...</p>
     </div>
-    <a class="error-page__link" href="../../static/index.html">Назад</a>
+    <a class="error-page__link" href={{url}}>Назад</a>
   </section>
 </body>
 
