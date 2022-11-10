@@ -1,5 +1,7 @@
 @import '../sass/mixins'
 
+.root
+  @include root
 .form
   @include general
   &__title
@@ -21,6 +23,7 @@
     border: none
     display: flex
     flex-direction: column
+    position: relative
     &:first-child
       margin-top: 0
     &_form_register
@@ -49,18 +52,26 @@
       color: #fff
       opacity: 1
       transition: opacity 0.25s ease
+    &_error
+      border: 2px solid #df4863
+      &::placeholder
+        color: #df4863
+      &:focus
+        outline: none
   &__input-error
-    font-weight: 400
-    font-size: 10px
-    line-height: 12px
-    color: red
-    margin-top: 10px
-    min-height: 47px
-    text-align: center
-    padding: 5px
+    position: absolute
+    background-color: #df4863
+    color: #fff
+    left: 20px
+    right: 20px
+    top: 92px
+    min-height: 48px
     border-radius: 8px
     box-sizing: border-box
-    display: flex
+    padding: 5px
+    font-weight: 400
+    font-size: 14px
+    line-height: 19px
     justify-content: center
     align-items: center
     display: none
@@ -68,7 +79,7 @@
     height: 80px
     width: 460px
     background-color: #12b2e4
-    margin-top: 30px
+    margin-top: 50px
     border-radius: 10px
     color: #fff
     font-size: 22px
@@ -80,7 +91,7 @@
       transform: scale(.97)
       opacity: .8
   &__link-wrapper
-    margin: 20px 0 0
+    margin: 40px 0 0
     text-align: center
     font-weight: 400
     font-size: 16px
@@ -97,6 +108,8 @@
       transform: scale(1.5)
 .hide
   display: none
+.show
+  display: flex
 .avatar
   position: relative
   margin-bottom: 30px
@@ -131,3 +144,15 @@
     transition: opacity .25s
     &:hover
       opacity: 1
+
+@media (max-width: 1024px)
+  .form
+    &__fieldset
+      &_form_register
+        display: flex
+        flex-direction: column
+        min-width: 460px
+    &__field
+      &_form_register
+        &:nth-child(2)
+          margin-top: 32px
