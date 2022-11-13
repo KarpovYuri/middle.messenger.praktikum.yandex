@@ -1,0 +1,77 @@
+---
+title: "Регистрация"
+submit: "Зарегистрироваться"
+url: "./signin.hbs"
+url-title: "Уже зарегистрированы?"
+url-text: "Вход"
+fields:
+  - name: "first_name"
+    class: "form__field_form_register"
+    label: "First Name"
+    type: "text"
+    placeholder: "Имя"
+    error-text: "Ошибка"
+  - name: "second_name"
+    class: "form__field_form_register"
+    label: "Second Name"
+    type: "text"
+    placeholder: "Фамилия"
+    error-text: "Ошибка"
+  - name: "login"
+    class: "form__field_form_register"
+    label: "Login"
+    type: "text"
+    placeholder: "Логин"
+    error-text: "Ошибка"
+  - name: "email"
+    class: "form__field_form_register"
+    label: "E-mail"
+    type: "email"
+    placeholder: "E-mail"
+    error-text: "Ошибка"
+  - name: "password"
+    class: "form__field_form_register"
+    label: "Password"
+    type: "password"
+    placeholder: "Пароль"
+    error-text: "Ошибка"
+  - name: "phone"
+    class: "form__field_form_register"
+    label: "Phone"
+    type: "phone"
+    placeholder: "Телефон"
+    error-text: "Ошибка"
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="../vendor/normalize.css">
+  <link rel="stylesheet" href="../vendor/fonts.sass">
+  <link rel="stylesheet" href="../sass/form.sass">
+</head>
+
+<body class="root">
+  <main>
+    <form class="form">
+      <h1 class="form__title">{{title}}</h1>
+      <fieldset class="form__fieldset form__fieldset_form_register">
+        {{#each fields}}
+        {{>input name=name classAdd=class label=label type=type placeholder=placeholder error=error-text}}
+        {{/each}}
+      </fieldset>
+      {{>button submit=submit}}
+      <p class="form__link-wrapper">
+        {{url-title}}
+        <a class="form__link" href={{url}}>{{url-text}}</a>
+      </p>
+    </form>
+  </main>
+</body>
+
+</html>

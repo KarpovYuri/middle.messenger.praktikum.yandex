@@ -1,0 +1,95 @@
+---
+title: "Профиль"
+btn-class: "hide"
+submit: "Сохранить"
+error-text: "Ошибка"
+url: "./index.hbs"
+url-text1: "Редактировать"
+url-text2: "Выйти"
+fields:
+  - name: "first_name"
+    class: "form__field_form_register"
+    label: "First Name"
+    type: "text"
+    placeholder: "Вася"
+    error-text: "Ошибка"
+  - name: "second_name"
+    class: "form__field_form_register"
+    label: "Second Name"
+    type: "text"
+    placeholder: "Форточкин"
+    error-text: "Ошибка"
+  - name: "display_name"
+    class: "form__field_form_register"
+    label: "Display Name"
+    type: "text"
+    placeholder: "Василич"
+    error-text: "Ошибка"
+  - name: "login"
+    class: "form__field_form_register"
+    label: "Login"
+    type: "text"
+    placeholder: "Vasy"
+    error-text: "Ошибка"
+  - name: "email"
+    class: "form__field_form_register"
+    label: "E-mail"
+    type: "email"
+    placeholder: "vasy@bk.ru"
+    error-text: "Ошибка"
+  - name: "phone"
+    class: "form__field_form_register"
+    label: "Phone"
+    type: "phone"
+    placeholder: "+7-777-777-77-77"
+    error-text: "Ошибка"
+  - name: "oldPassword"
+    class: "form__field_form_register"
+    label: "Old Password"
+    type: "password"
+    placeholder: "********"
+    error-text: "Ошибка"
+  - name: "newPassword"
+    class: "form__field_form_register"
+    label: "New Password"
+    type: "password"
+    placeholder: "Новый пароль"
+    error-text: "Ошибка"
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="../vendor/normalize.css">
+  <link rel="stylesheet" href="../vendor/fonts.sass">
+  <link rel="stylesheet" href="../sass/form.sass">
+</head>
+
+<body class="root">
+  <main>
+    <form class="form">
+      <div class="avatar">
+        <img src="https://pictures.s3.yandex.net/frontend-developer/common/ava.jpg" alt="Аватар" class="avatar__img">
+        <button type="button" aria-label="Кнопка редактирования Аватара" class="avatar__button"></button>
+      </div>
+      <h1 class="form__title">{{title}}</h1>
+      <fieldset class="form__fieldset form__fieldset_form_register" disabled>
+        {{#each fields}}
+        {{>input name=name classAdd=class label=label type=type placeholder=placeholder error=error-text}}
+        {{/each}}
+      </fieldset>
+      {{>button classAdd=btn-class submit=submit}}
+      <p class="form__link-wrapper">
+        <a class="form__link" href="#">{{url-text1}}</a>
+        <a class="form__link" href={{url}}>{{url-text2}}</a>
+      </p>
+    </form>
+  </main>
+</body>
+
+</html>

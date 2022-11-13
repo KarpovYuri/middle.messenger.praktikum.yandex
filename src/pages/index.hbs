@@ -1,0 +1,44 @@
+---
+title: "Главная"
+fields:
+  - url: "./signin.hbs"
+    url-text: "Авторизация"
+  - url: "./signup.hbs"
+    url-text: "Регистрация"
+  - url: "./profile.hbs"
+    url-text: "Профиль"
+  - url: "./chat.hbs"
+    url-text: "Мессенджер"
+  - url: "./error-page-404.hbs"
+    url-text: "Ошибка 404"
+  - url: "./error-page-500.hbs"
+    url-text: "Ошибка 500"
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="../vendor/normalize.css">
+  <link rel="stylesheet" href="../vendor/fonts.sass">
+  <link rel="stylesheet" href="../sass/index.sass">
+</head>
+
+<body class="root">
+  <main id="root" class="main">
+    <h1 class="main__title">Страницы</h1>
+    <nav class="main__navigation">
+      <ul class="main__links">
+        {{#each fields}}
+        {{>link name=name label=label type=type placeholder=placeholder error=error-text}}
+        {{/each}}
+      </ul>
+    </nav>
+  </main>
+</body>
+
+</html>
