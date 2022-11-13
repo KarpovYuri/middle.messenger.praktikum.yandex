@@ -32,7 +32,7 @@
   &__label
     font-weight: 700
     font-size: 18px
-    color: #727272
+    color: $second-color
   &__input
     padding: 26px 30px
     margin-top: 16px
@@ -40,28 +40,28 @@
     font-size: 20px
     line-height: 24px
     background: none
-    border: 2px solid #34323d
+    border: 2px solid $second-bg-color
     border-radius: 8px
-    color: grey
+    color: $white-color
     &:focus
-      outline: 2px solid #12b2e4
+      outline: 2px solid $main-color
       &::placeholder
         opacity: 0
         transition: opacity 0.25s ease
     &::placeholder
-      color: #fff
+      color: $white-color
       opacity: 1
       transition: opacity 0.25s ease
     &_error
-      border: 2px solid #df4863
+      border: 2px solid $error-color
       &::placeholder
-        color: #df4863
+        color: $error-color
       &:focus
         outline: none
   &__input-error
     position: absolute
-    background-color: #df4863
-    color: #fff
+    background-color: $error-color
+    color: $white-color
     left: 20px
     right: 20px
     top: 92px
@@ -78,10 +78,10 @@
   &__btn
     height: 80px
     width: 460px
-    background-color: #12b2e4
+    background-color: $main-color
     margin-top: 50px
     border-radius: 10px
-    color: #fff
+    color: $white-color
     font-size: 22px
     letter-spacing: 0.02em
     transition: transform 0.25s, opacity 0.25s
@@ -102,7 +102,7 @@
     gap: 15px
   &__link
     text-decoration: none
-    color: #12b2e4
+    color: $main-color
     transition: transform 0.25s
     &:hover
       transform: scale(1.5)
@@ -121,7 +121,7 @@
     object-fit: cover
     object-position: center
     border-radius: 16px
-    border: 3px solid #34373e
+    border: 3px solid $second-bg-color
     box-sizing: border-box
   &__button
     background-color: rgba(0,0,0,.5)
