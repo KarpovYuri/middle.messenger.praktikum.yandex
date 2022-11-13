@@ -1,5 +1,18 @@
 ---
 title: "Главная"
+fields:
+  - url: "./signin.hbs"
+    url-text: "Авторизация"
+  - url: "./signup.hbs"
+    url-text: "Регистрация"
+  - url: "./profile.hbs"
+    url-text: "Профиль"
+  - url: "./chat.hbs"
+    url-text: "Мессенджер"
+  - url: "./error-page-404.hbs"
+    url-text: "Ошибка 404"
+  - url: "./error-page-500.hbs"
+    url-text: "Ошибка 500"
 ---
 
 <!DOCTYPE html>
@@ -19,12 +32,11 @@ title: "Главная"
   <main id="root" class="main">
     <h1 class="main__title">Страницы</h1>
     <nav class="main__navigation">
-      <a class="main__link" href="./signin.hbs">Авторизация</a>
-      <a class="main__link" href="./signup.hbs">Регистрация</a>
-      <a class="main__link" href="./profile.hbs">Профиль</a>
-      <a class="main__link" href="./chat.hbs">Мессенджер</a>
-      <a class="main__link" href="./error-page-404.hbs">Ошибка 404</a>
-      <a class="main__link" href="./error-page-500.hbs">Ошибка 500</a>
+      <ul class="main__links">
+        {{#each fields}}
+        {{>link name=name label=label type=type placeholder=placeholder error=error-text}}
+        {{/each}}
+      </ul>
     </nav>
   </main>
 </body>

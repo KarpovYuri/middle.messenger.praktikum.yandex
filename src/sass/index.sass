@@ -1,4 +1,5 @@
 @import '../sass/mixins'
+
 .root
   @include root
 .main
@@ -10,13 +11,17 @@
   &__title
     font-weight: 400
     margin: 0 0 15px
+  &__links
+    list-style: none
+    margin: 0
+    padding: 0
   &__link
     height: 40px
     margin-top: 15px
     display: flex
     justify-content: center
     align-items: center
-    color: #12b2e4
+    color: $main-color
     text-decoration: none
     font-size: 18px
     letter-spacing: 0.02em

@@ -1,10 +1,46 @@
 ---
 title: "Регистрация"
 submit: "Зарегистрироваться"
-error-text: "Ошибка"
 url: "./signin.hbs"
 url-title: "Уже зарегистрированы?"
 url-text: "Вход"
+fields:
+  - name: "first_name"
+    class: "form__field_form_register"
+    label: "First Name"
+    type: "text"
+    placeholder: "Имя"
+    error-text: "Ошибка"
+  - name: "second_name"
+    class: "form__field_form_register"
+    label: "Second Name"
+    type: "text"
+    placeholder: "Фамилия"
+    error-text: "Ошибка"
+  - name: "login"
+    class: "form__field_form_register"
+    label: "Login"
+    type: "text"
+    placeholder: "Логин"
+    error-text: "Ошибка"
+  - name: "email"
+    class: "form__field_form_register"
+    label: "E-mail"
+    type: "email"
+    placeholder: "E-mail"
+    error-text: "Ошибка"
+  - name: "password"
+    class: "form__field_form_register"
+    label: "Password"
+    type: "password"
+    placeholder: "Пароль"
+    error-text: "Ошибка"
+  - name: "phone"
+    class: "form__field_form_register"
+    label: "Phone"
+    type: "phone"
+    placeholder: "Телефон"
+    error-text: "Ошибка"
 ---
 
 <!DOCTYPE html>
@@ -21,52 +57,21 @@ url-text: "Вход"
 </head>
 
 <body class="root">
-  <form class="form">
-    <h1 class="form__title">{{title}}</h1>
-    <fieldset class="form__fieldset form__fieldset_form_register">
-      <div class="form__field form__field_form_register">
-        <label for="first_name" class="form__label">First Name</label>
-        <input type="text" id="first-name" name="first_name" class="form__input" placeholder="Имя" autoComplete="off"
-          required />
-        <span class="form__input-error">{{error-text}}</span>
-      </div>
-      <div class="form__field form__field_form_register">
-        <label for="second_name" class="form__label">Second Name</label>
-        <input type="text" id="second-name" name="second_name" class="form__input" placeholder="Фамилия"
-          autoComplete="off" required />
-        <span class="form__input-error">{{error-text}}</span>
-      </div>
-      <div class="form__field form__field_form_register">
-        <label for="login" class="form__label">Login</label>
-        <input type="text" id="login" name="login" class="form__input" placeholder="Логин" autoComplete="off"
-          required />
-        <span class="form__input-error">{{error-text}}</span>
-      </div>
-      <div class="form__field form__field_form_register">
-        <label for="email" class="form__label">E-mail</label>
-        <input type="email" id="email" name="email" class="form__input" placeholder="E-mail" autoComplete="off"
-          required />
-        <span class="form__input-error">{{error-text}}</span>
-      </div>
-      <div class="form__field form__field_form_register">
-        <label for="password" class="form__label">Password</label>
-        <input type="password" id="password" name="password" class="form__input" placeholder="Пароль" autoComplete="off"
-          required />
-        <span class="form__input-error">{{error-text}}</span>
-      </div>
-      <div class="form__field form__field_form_register">
-        <label for="phone" class="form__label">Phone</label>
-        <input type="phone" id="phone" name="phone" class="form__input" placeholder="Телефон" autoComplete="off"
-          required />
-        <span class="form__input-error">{{error-text}}</span>
-      </div>
-    </fieldset>
-    <button type="submit" class="form__btn">{{submit}}</button>
-    <p class="form__link-wrapper">
-      {{url-title}}
-      <a class="form__link" href={{url}}>{{url-text}}</a>
-    </p>
-  </form>
+  <main>
+    <form class="form">
+      <h1 class="form__title">{{title}}</h1>
+      <fieldset class="form__fieldset form__fieldset_form_register">
+        {{#each fields}}
+        {{>input name=name classAdd=class label=label type=type placeholder=placeholder error=error-text}}
+        {{/each}}
+      </fieldset>
+      {{>button submit=submit}}
+      <p class="form__link-wrapper">
+        {{url-title}}
+        <a class="form__link" href={{url}}>{{url-text}}</a>
+      </p>
+    </form>
+  </main>
 </body>
 
 </html>

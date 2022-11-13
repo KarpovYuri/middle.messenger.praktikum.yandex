@@ -2,7 +2,6 @@
 title: "Ошибка 500"
 error-title: "500"
 error-desc: "Ошибка сервера"
-url: "./index.hbs"
 ---
 
 <!DOCTYPE html>
@@ -19,13 +18,9 @@ url: "./index.hbs"
 </head>
 
 <body class="root">
-  <section id="root" class="error-page">
-    <div class="error-page__container">
-      <h1 class="error-page__title">{{error-title}}</h1>
-      <p class="error-page__description">{{error-desc}}</p>
-    </div>
-    <a class="error-page__link" href={{url}}>Назад</a>
-  </section>
+  <main id="root" class="error-page">
+    {{>error error-title=error-title error-desc=error-desc}}
+  </main>
 </body>
 
 </html>
