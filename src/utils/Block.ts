@@ -1,12 +1,12 @@
-import { EventBus } from "./EventBus";
-import { nanoid } from "nanoid";
+import EventBus from './EventBus';
+import { nanoid } from 'nanoid';
 
 class Block<TProps extends Record<string, any> = any> {
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render"
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render'
   } as const;
 
   public id = nanoid(6);
@@ -18,7 +18,7 @@ class Block<TProps extends Record<string, any> = any> {
 
   constructor(tagName = 'div', propsWithChildren: TProps) {
     const eventBus = new EventBus();
-    const { props, children} = this._getChildrenAndProps(propsWithChildren);
+    const { props, children } = this._getChildrenAndProps(propsWithChildren);
 
     this._meta = { tagName, props: props as TProps };
     this.children = children;
@@ -29,7 +29,7 @@ class Block<TProps extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _getChildrenAndProps(childrenAndProps: TProps): { props: TProps, children: Record<string, Block>} {
+  private _getChildrenAndProps(childrenAndProps: TProps): { props: TProps, children: Record<string, Block> } {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block> = {};
 
@@ -45,7 +45,7 @@ class Block<TProps extends Record<string, any> = any> {
   }
 
   private _addEvents() {
-    const {events = {}} = this.props as TProps & {events: Record<string, () => void>};
+    const { events = {} } = this.props as TProps & { events: Record<string, () => void> };
 
     Object.keys(events).forEach(eventName => {
       this._element?.addEventListener(eventName, events[eventName]);
@@ -70,13 +70,13 @@ class Block<TProps extends Record<string, any> = any> {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  protected init() {}
+  protected init() { }
 
   private _componentDidMount() {
     this.componentDidMount();
   }
 
-  protected componentDidMount() {}
+  protected componentDidMount() { }
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -84,7 +84,7 @@ class Block<TProps extends Record<string, any> = any> {
   }
 
   private _componentDidUpdate(oldProps: TProps, newProps: TProps) {
-    if(this.componentDidUpdate(oldProps, newProps)) {
+    if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
@@ -117,7 +117,7 @@ class Block<TProps extends Record<string, any> = any> {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
-      contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
+      contextAndStubs[name] = `<div data-id='${component.id}'></div>`;
     });
 
     const html = template(contextAndStubs);
@@ -125,7 +125,7 @@ class Block<TProps extends Record<string, any> = any> {
     temp.innerHTML = html;
 
     Object.entries(this.children).forEach(([_, component]) => {
-      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
+      const stub = temp.content.querySelector(`[data-id='${component.id}']`);
       if (!stub) return;
       component.getContent()?.append(...Array.from(stub.childNodes));
       stub.replaceWith(component.getContent()!);
@@ -147,13 +147,13 @@ class Block<TProps extends Record<string, any> = any> {
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop: string, value) {
-        const oldTarget = {...target};
+        const oldTarget = { ...target };
         target[prop as keyof TProps] = value;
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target );
+        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
       deleteProperty() {
-        throw new Error("Нет доступа");
+        throw new Error('Нет доступа');
       }
     });
   }
@@ -163,11 +163,11 @@ class Block<TProps extends Record<string, any> = any> {
   }
 
   public show() {
-    this.getContent()!.style.display = "block";
+    this.getContent()!.style.display = 'block';
   }
 
   public hide() {
-    this.getContent()!.style.display = "none";
+    this.getContent()!.style.display = 'none';
   }
 }
 

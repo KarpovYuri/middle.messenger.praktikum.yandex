@@ -1,4 +1,4 @@
-export class EventBus {
+class EventBus {
 
   private readonly listeners: Record<string, ((...args: unknown[]) => void)[]> = {};
 
@@ -28,3 +28,5 @@ export class EventBus {
     }
   }
 }
+
+export default EventBus;
