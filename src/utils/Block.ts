@@ -93,7 +93,7 @@ class Block<TProps extends Record<string, any> = any> {
     return true;
   }
 
-  public setProps = (nextProps: any) => {
+  public setProps = (nextProps: TProps) => {
     if (!nextProps) return;
     Object.assign(this.props, nextProps);
   }
@@ -138,7 +138,7 @@ class Block<TProps extends Record<string, any> = any> {
     return this.element;
   }
 
-  private _makePropsProxy(props: any) {
+  private _makePropsProxy(props: TProps) {
     const self = this;
 
     return new Proxy(props, {
