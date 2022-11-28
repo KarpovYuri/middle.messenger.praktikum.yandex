@@ -1,0 +1,59 @@
+@import '../../sass/_variables'
+
+.field
+  margin-top: 32px
+  border: none
+  display: flex
+  flex-direction: column
+  position: relative
+  &:first-child
+    margin-top: 0
+  &_form_register
+    &:nth-child(2)
+      margin-top: 0
+  &__label
+    font-weight: 700
+    font-size: 18px
+    color: $second-color
+  &__input
+    padding: 26px 30px
+    margin-top: 16px
+    border: none
+    font-size: 20px
+    line-height: 24px
+    background: none
+    border: 2px solid $second-bg-color
+    border-radius: 8px
+    color: $white-color
+    &:focus
+      outline: 2px solid $main-color
+      &::placeholder
+        opacity: 0
+        transition: opacity 0.25s ease
+    &::placeholder
+      color: $white-color
+      opacity: 1
+      transition: opacity 0.25s ease
+    &_error
+      border: 2px solid $error-color
+      &::placeholder
+        color: $error-color
+      &:focus
+        outline: none
+  &__input-error
+    position: absolute
+    background-color: $error-color
+    color: $white-color
+    left: 20px
+    right: 20px
+    top: 92px
+    min-height: 48px
+    border-radius: 8px
+    box-sizing: border-box
+    padding: 5px
+    font-weight: 400
+    font-size: 14px
+    line-height: 19px
+    justify-content: center
+    align-items: center
+    display: none

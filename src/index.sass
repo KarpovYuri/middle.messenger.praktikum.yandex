@@ -1,6 +1,8 @@
-@import '../sass/variables'
+@import './sass/_variables'
 
-@mixin general
+.root
+  background-color: $main-bg-color
+.main
   font-family: 'Roboto', serif
   color: white
   display: flex
@@ -11,5 +13,3 @@
   box-sizing: border-box
   min-height: 100vh
   min-width: 576px
-@mixin root
-  background-color: $main-bg-color

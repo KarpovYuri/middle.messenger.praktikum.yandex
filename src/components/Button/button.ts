@@ -1,12 +1,9 @@
 import Block from '../../utils/Block';
 import template from './button.hbs';
-import styles from './button.sass';
-
-console.log(styles.button)
+import  './button.sass';
 
 type ButtonProps = {
   type?: string;
-  className?: string;
   label: string;
   events: {
     click: () => void;
@@ -15,7 +12,7 @@ type ButtonProps = {
 
 export class Button extends Block<ButtonProps> {
   constructor(props: ButtonProps) {
-    super({ type: 'button', className: 'button', ...props });
+    super({ type: 'button', ...props });
   }
 
   render() {

@@ -1,4 +1,4 @@
-import { Signin } from './pages/Signin/index';
+import { Signin } from './pages/Signin/signin';
 
 
 window.addEventListener('DOMContentLoaded', () => {
