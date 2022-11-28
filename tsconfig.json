@@ -3,14 +3,21 @@
     "files": true
   },
   "compilerOptions": {
-    "outDir": "dist",
     "target": "es2016",
-    "declaration": false,
     "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "outDir": "dist",
+    "declaration": false,
     "strictNullChecks": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "lib": [
+      "ESNext",
+      "DOM",
+    ]
   }
 }
