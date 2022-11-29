@@ -28,6 +28,11 @@ export class IndexPage extends Block {
       url: '/404.html',
       linkText: 'Ошибка 404'
     });
+
+    this.children.link500 = new NavLink({
+      url: '/500.html',
+      linkText: 'Ошибка 500'
+    });
   }
 
   render() {

@@ -1,11 +1,12 @@
+@import '../../assets/sass/_mixins'
+
 .main
   &__navigation
-    display: flex
-    flex-direction: column
-    align-items: center
+    @include fieldset
   &__title
     font-weight: 400
     margin: 0 0 15px
+    text-align: center
   &__links
     list-style: none
     margin: 0
