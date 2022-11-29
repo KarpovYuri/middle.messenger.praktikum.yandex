@@ -1,5 +1,6 @@
 import Block from '../../utils/Block';
 import template from './indexPage.hbs';
+import { Title } from '../../components/Title/title';
 import { NavLink } from '../../components/NavLink/navLink';
 import './indexPage.sass';
 
@@ -9,6 +10,10 @@ export class IndexPage extends Block {
   }
 
   init() {
+    this.children.title = new Title({
+      title: 'Страницы'
+    });
+
     this.children.linkSignin = new NavLink({
       url: '/signin.html',
       linkText: 'Авторизация'

@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './signinPage.hbs';
-import { FormTitle } from '../../components/FormTitle/formTitle';
+import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
@@ -12,7 +12,7 @@ export class Signin extends Block {
   }
 
   init() {
-    this.children.formTitle = new FormTitle({
+    this.children.title = new Title({
       title: 'Авторизация'
     });
 
