@@ -54,6 +54,16 @@ npm run dev
 npm run start
 ```
 
+Проверка кода на синтаксические и стилистические ошибки:
+
+```bash
+npm run lint
+```
+
+```bash
+npm run stylelint
+```
+
 **Мессенджер**
 
 - [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
