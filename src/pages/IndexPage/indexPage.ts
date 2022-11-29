@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import template from './indexPage.hbs';
 import { Title } from '../../components/Title/title';
 import { NavLink } from '../../components/NavLink/navLink';
-import './indexPage.sass';
+import './indexPage.scss';
 
 export class IndexPage extends Block {
   constructor() {

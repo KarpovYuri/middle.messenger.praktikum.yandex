@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './button.hbs';
-import  './button.sass';
+import  './button.scss';
 
 type ButtonProps = {
   type?: string;

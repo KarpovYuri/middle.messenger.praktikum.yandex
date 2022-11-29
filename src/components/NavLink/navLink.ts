@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './navLink.hbs';
-import  './navLink.sass';
+import  './navLink.scss';
 
 type NavLinkProps = {
   url: string;

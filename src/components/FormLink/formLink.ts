@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './formLink.hbs';
-import  './formLink.sass';
+import  './formLink.scss';
 
 type FormLinkProps = {
   urlTitle: string;

@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './error.hbs';
-import  './error.sass';
+import  './error.scss';
 
 type ErrorProps = {
   errorTitle: string;

@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import template from './404Page.hbs';
 import { Error } from '../../components/Error/error';
 import { NavLink } from '../../components/NavLink/navLink';
-import './404Page.sass';
+import './404Page.scss';
 
 export class ErrorPage extends Block {
   constructor() {

@@ -4,7 +4,7 @@ import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
-import './signinPage.sass';
+import './signinPage.scss';
 
 export class Signin extends Block {
   constructor() {

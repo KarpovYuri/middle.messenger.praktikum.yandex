@@ -4,7 +4,7 @@ import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
-import './profilePage.sass';
+import './profilePage.scss';
 
 export class Profile extends Block {
   constructor() {
@@ -20,7 +20,7 @@ export class Profile extends Block {
       label: 'First Name',
       name: 'first_name',
       type: 'text',
-      placeholder: 'Вася',
+      placeholder: 'Александр',
       classModifier: 'field_columns_two'
     });
 
@@ -28,7 +28,7 @@ export class Profile extends Block {
       label: 'Second Name',
       name: 'second_name',
       type: 'text',
-      placeholder: 'Форточкин',
+      placeholder: 'Белый',
       classModifier: 'field_columns_two'
     });
 
@@ -36,7 +36,7 @@ export class Profile extends Block {
       label: 'Display Name',
       name: 'display_name',
       type: 'text',
-      placeholder: 'Василич',
+      placeholder: 'Доцент',
       classModifier: 'field_columns_two'
     });
 
@@ -44,7 +44,7 @@ export class Profile extends Block {
       label: 'Login',
       name: 'login',
       type: 'text',
-      placeholder: 'Vasy',
+      placeholder: 'Docent',
       classModifier: 'field_columns_two'
     });
 
@@ -52,7 +52,7 @@ export class Profile extends Block {
       label: 'E-mail',
       name: 'email',
       type: 'text',
-      placeholder: 'vasy@bk.ru',
+      placeholder: 'docent@bk.ru',
       classModifier: 'field_columns_two'
     });
 

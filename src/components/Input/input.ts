@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './input.hbs';
-import  './input.sass';
+import  './input.scss';
 
 type InputProps = {
   name: string;
