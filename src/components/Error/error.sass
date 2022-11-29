@@ -1,9 +1,6 @@
-@import '../sass/mixins'
+@import '../../assets/sass/_variables'
 
-.root
-  @include root
-.error-page
-  @include general
+.error
   &__container
     background-color: $error-color
     border-radius: 50%
@@ -16,6 +13,7 @@
     padding: 30px
     box-sizing: border-box
     position: relative
+    margin-bottom: 100px
     &::before
       position: absolute
       content: ' '
@@ -36,15 +34,3 @@
     font-weight: 400
     font-size: 16px
     line-height: 19px
-  &__link
-    cursor: pointer
-    margin: 100px 0 0
-    text-align: center
-    font-weight: 400
-    font-size: 18px
-    line-height: 24px
-    color: $main-color
-    text-decoration: none
-    transition: transform 0.25s
-    &:hover
-      transform: scale(1.5)

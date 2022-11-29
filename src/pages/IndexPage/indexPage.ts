@@ -23,6 +23,11 @@ export class IndexPage extends Block {
       url: '/profile.html',
       linkText: 'Профиль'
     });
+
+    this.children.link404 = new NavLink({
+      url: '/404.html',
+      linkText: 'Ошибка 404'
+    });
   }
 
   render() {
