@@ -20,14 +20,16 @@ export class Signin extends Block {
       label: 'Login',
       name: 'login',
       type: 'text',
-      placeholder: 'Логин'
+      placeholder: 'Логин',
+      classModifier: ''
     });
 
     this.children.password = new Input({
       label: 'Password',
       name: 'password',
       type: 'password',
-      placeholder: 'Пароль'
+      placeholder: 'Пароль',
+      classModifier: ''
     });
 
     this.children.button = new Button({

@@ -7,6 +7,7 @@ type InputProps = {
   label: string;
   type: string;
   placeholder: string;
+  classModifier: string;
 }
 
 export class Input extends Block<InputProps> {

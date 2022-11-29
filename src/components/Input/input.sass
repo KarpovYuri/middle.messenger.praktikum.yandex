@@ -8,7 +8,7 @@
   position: relative
   &:first-child
     margin-top: 0
-  &_form_register
+  &_columns_two
     &:nth-child(2)
       margin-top: 0
   &__label
@@ -57,3 +57,9 @@
     justify-content: center
     align-items: center
     display: none
+
+@media (max-width: 1024px)
+  .field
+    &_columns_two
+      &:nth-child(2)
+        margin-top: 32px

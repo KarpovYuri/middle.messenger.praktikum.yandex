@@ -9,9 +9,14 @@ export class IndexPage extends Block {
   }
 
   init() {
-    this.children.linkLogin = new NavLink({
+    this.children.linkSignin = new NavLink({
       url: '/signin.html',
       linkText: 'Авторизация'
+    });
+
+    this.children.linkSignup = new NavLink({
+      url: '/signup.html',
+      linkText: 'Регистрация'
     });
   }
 
