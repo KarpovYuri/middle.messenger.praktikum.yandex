@@ -20,8 +20,6 @@ export class IndexPage extends Block {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
   const homePage = new IndexPage();
   document.querySelector('#app')!.append(homePage.getContent()!);
   homePage.dispatchComponentDidMount();
-});

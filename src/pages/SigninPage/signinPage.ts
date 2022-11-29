@@ -1,9 +1,10 @@
 import Block from '../../utils/Block';
-import template from './signin.hbs';
-import { Button } from '../../components/Button/button';
-import { Input } from '../../components/Input/input';
+import template from './signinPage.hbs';
 import { FormTitle } from '../../components/FormTitle/formTitle';
-import './signin.sass';
+import { Input } from '../../components/Input/input';
+import { Button } from '../../components/Button/button';
+import { FormLink } from '../../components/FormLink/formLink';
+import './signinPage.sass';
 
 export class Signin extends Block {
   constructor() {
@@ -34,6 +35,12 @@ export class Signin extends Block {
       events: {
         click: () => console.log('clicked'),
       },
+    });
+
+    this.children.formLink = new FormLink({
+      urlTitle: 'Ещё не зарегистрированы?',
+      urlText: 'Регистрация',
+      url: "/signup.html"
     });
   }
 
