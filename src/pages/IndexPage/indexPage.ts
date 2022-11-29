@@ -18,6 +18,11 @@ export class IndexPage extends Block {
       url: '/signup.html',
       linkText: 'Регистрация'
     });
+
+    this.children.linkProfile = new NavLink({
+      url: '/profile.html',
+      linkText: 'Профиль'
+    });
   }
 
   render() {
@@ -25,6 +30,6 @@ export class IndexPage extends Block {
   }
 }
 
-  const homePage = new IndexPage();
-  document.querySelector('#app')!.append(homePage.getContent()!);
-  homePage.dispatchComponentDidMount();
+  const indexPage = new IndexPage();
+  document.querySelector('#app')!.append(indexPage.getContent()!);
+  indexPage.dispatchComponentDidMount();

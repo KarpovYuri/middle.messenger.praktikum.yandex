@@ -1,26 +1,26 @@
 import Block from '../../utils/Block';
-import template from './signupPage.hbs';
+import template from './profilePage.hbs';
 import { FormTitle } from '../../components/FormTitle/formTitle';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
-import './signupPage.sass';
+import './profilePage.sass';
 
-export class Signin extends Block {
+export class Profile extends Block {
   constructor() {
     super({});
   }
 
   init() {
     this.children.formTitle = new FormTitle({
-      title: 'Регистрация'
+      title: 'Профиль'
     });
 
     this.children.firstName = new Input({
       label: 'First Name',
       name: 'first_name',
       type: 'text',
-      placeholder: 'Имя',
+      placeholder: 'Вася',
       classModifier: 'field_columns_two'
     });
 
@@ -28,7 +28,15 @@ export class Signin extends Block {
       label: 'Second Name',
       name: 'second_name',
       type: 'text',
-      placeholder: 'Фамилия',
+      placeholder: 'Форточкин',
+      classModifier: 'field_columns_two'
+    });
+
+    this.children.displayName = new Input({
+      label: 'Display Name',
+      name: 'display_name',
+      type: 'text',
+      placeholder: 'Василич',
       classModifier: 'field_columns_two'
     });
 
@@ -36,7 +44,7 @@ export class Signin extends Block {
       label: 'Login',
       name: 'login',
       type: 'text',
-      placeholder: 'Логин',
+      placeholder: 'Vasy',
       classModifier: 'field_columns_two'
     });
 
@@ -44,15 +52,7 @@ export class Signin extends Block {
       label: 'E-mail',
       name: 'email',
       type: 'text',
-      placeholder: 'E-mail',
-      classModifier: 'field_columns_two'
-    });
-
-    this.children.password = new Input({
-      label: 'Password',
-      name: 'password',
-      type: 'password',
-      placeholder: 'Пароль',
+      placeholder: 'vasy@bk.ru',
       classModifier: 'field_columns_two'
     });
 
@@ -60,21 +60,37 @@ export class Signin extends Block {
       label: 'Phone',
       name: 'phone',
       type: 'phone',
-      placeholder: 'Телефон',
+      placeholder: '+7-777-777-77-77',
+      classModifier: 'field_columns_two'
+    });
+
+    this.children.oldPassword = new Input({
+      label: 'Old Password',
+      name: 'old_password',
+      type: 'password',
+      placeholder: '********',
+      classModifier: 'field_columns_two'
+    });
+
+    this.children.newPassword = new Input({
+      label: 'New Password',
+      name: 'new_password',
+      type: 'password',
+      placeholder: 'Пароль',
       classModifier: 'field_columns_two'
     });
 
     this.children.button = new Button({
-      label: 'Зарегистрироваться',
+      label: 'Сохранить',
       events: {
         click: () => console.log('clicked'),
       },
     });
 
     this.children.formLink = new FormLink({
-      urlTitle: 'Уже зарегистрированы?',
-      urlText: 'Вход',
-      url: "./signin.html"
+      urlTitle: 'Внесите изменения и сохраните.',
+      urlText: 'Выйти',
+      url: "./index.html"
     });
   }
 
@@ -83,6 +99,6 @@ export class Signin extends Block {
   }
 }
 
-  const signup = new Signin();
-  document.querySelector('#app')!.append(signup.getContent()!);
-  signup.dispatchComponentDidMount();
+  const profile = new Profile();
+  document.querySelector('#app')!.append(profile.getContent()!);
+  profile.dispatchComponentDidMount();
