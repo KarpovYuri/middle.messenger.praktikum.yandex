@@ -1,11 +1,11 @@
-import queryString = require('query-string');
-
 enum METHOD {
   GET = 'GET',
   POST = 'POST',
   PUT = 'PUT',
   DELETE = 'DELETE',
 }
+
+type Data = Record<string, string | number>;
 
 type Options = {
   method: METHOD;
@@ -14,6 +14,14 @@ type Options = {
 
 type OptionsWithoutMethod = Omit<Options, 'method'>;
 
+const queryString = (data: Data) => {
+  if (data) {
+    return Object.entries(data).reduce((accumulator, [key, currentValue], currentIndex, array) => {
+      return `${accumulator}${key}=${currentValue}${currentIndex < array.length - 1 ? '&' : ''}`;
+    }, '?');
+  }
+  return '';
+}
 class HTTPTransport {
 
   public get(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
@@ -35,16 +43,15 @@ class HTTPTransport {
   request(url: string, options: Options): Promise<XMLHttpRequest> {
     const { method, data } = options;
 
-    // Если метод = GET преобразовать data в query string
     const stringified = (method === METHOD.GET)
-      ? queryString.stringify(data as Record<string, string | number>) : '';
+      ? queryString(data as Data) : '';
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url + stringified);
       xhr.setRequestHeader('Content-Type', 'text/plain');
 
-      xhr.onload = function() {
+      xhr.onload = function () {
         resolve(xhr);
       };
 

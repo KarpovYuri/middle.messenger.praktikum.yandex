@@ -29,6 +29,11 @@ export class IndexPage extends Block {
       linkText: 'Профиль'
     });
 
+    this.children.linkChat = new NavLink({
+      url: '/chat.html',
+      linkText: 'Чатик'
+    });
+
     this.children.link404 = new NavLink({
       url: '/404.html',
       linkText: 'Ошибка 404'

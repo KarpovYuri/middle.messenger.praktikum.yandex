@@ -1,18 +1,18 @@
 import Block from '../../utils/Block';
-import template from './500Page.hbs';
+import template from './chatPage.hbs';
 import { Error } from '../../components/Error/error';
 import { NavLink } from '../../components/NavLink/navLink';
-import './500Page.scss';
+import './chatPage.scss';
 
-export class ErrorPage extends Block {
+export class ChatPage extends Block {
   constructor() {
     super({});
   }
 
   init() {
-    this.children.error500 = new Error({
-      errorTitle: '500',
-      errorDesc: 'Ошибка сервера'
+    this.children.chat = new Error({
+      errorTitle: '404',
+      errorDesc: 'Скоро здесь будет чатик'
     });
 
     this.children.linkBack = new NavLink({
@@ -26,6 +26,6 @@ export class ErrorPage extends Block {
   }
 }
 
-  const errorPage = new ErrorPage();
-  document.querySelector('#app')!.append(errorPage.getContent()!);
-  errorPage.dispatchComponentDidMount();
+  const chatPage = new ChatPage();
+  document.querySelector('#app')!.append(chatPage.getContent()!);
+  chatPage.dispatchComponentDidMount();

@@ -26,6 +26,6 @@ export class ErrorPage extends Block {
   }
 }
 
-  const indexPage = new ErrorPage();
-  document.querySelector('#app')!.append(indexPage.getContent()!);
-  indexPage.dispatchComponentDidMount();
+  const errorPage = new ErrorPage();
+  document.querySelector('#app')!.append(errorPage.getContent()!);
+  errorPage.dispatchComponentDidMount();
