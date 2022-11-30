@@ -21,7 +21,7 @@
     text-align: right;
     font-size: 16px;
     line-height: 20px;
-    background-image: url(../../assets/images/edit-icon-grey.svg);
+    background-image: url("../../assets/images/edit-icon-grey.svg");
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position: 100%;
@@ -46,7 +46,7 @@
     line-height: 48px;
     border-radius: 24px;
     padding: 0 16px 0 48px;
-    background-image: url(../../assets/images/find-icon.svg);
+    background-image: url("../../assets/images/find-icon.svg");
     background-size: 24px 24px;
     background-repeat: no-repeat;
     background-position: 16px;
@@ -114,7 +114,7 @@
 
   &__btn {
     background: none;
-    background-image: url(../../assets/images/btn-menu.svg);
+    background-image: url("../../assets/images/btn-menu.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 22px 22px;
@@ -135,7 +135,7 @@
 .message-list {
   display: flex;
   flex-direction: column-reverse;
-  align-items:flex-end;
+  align-items: flex-end;
   flex-grow: 1;
   gap: 10px;
   overflow-y: auto;
@@ -148,7 +148,7 @@
 .message {
   display: flex;
   flex-direction: column;
-  align-self:flex-start;
+  align-self: flex-start;
   max-width: 640px;
   background-color: $second-bg-color;
   padding: 10px 26px;
@@ -176,7 +176,7 @@
     align-self: flex-end;
 
     &_place_right {
-      background-image: url(../../assets/images/read-icon.svg);
+      background-image: url("../../assets/images/read-icon.svg");
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 20px 14px;
@@ -196,7 +196,7 @@
 
   &__menu-btn {
     background: none;
-    background-image: url(../../assets/images/file-menu-icon.svg);
+    background-image: url("../../assets/images/file-menu-icon.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 36px 36px;
@@ -207,7 +207,7 @@
     transition: background-image 0.25s;
 
     &:hover {
-      background-image: url(../../assets/images/file-menu-icon-active.svg);
+      background-image: url("../../assets/images/file-menu-icon-active.svg");
     }
   }
 
@@ -246,7 +246,7 @@
 
   &__send-btn {
     background: none;
-    background-image: url(../../assets/images/send-message-icon.svg);
+    background-image: url("../../assets/images/send-message-icon.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 36px 36px;
@@ -259,67 +259,5 @@
     &:hover {
       opacity: 0.5;
     }
-  }
-}
-
-.user-card {
-  display: grid;
-  grid-template-columns: 58px 1fr min-content;
-  grid-template-rows: 22px repeat(2, 18px);
-  border-bottom: 1px solid $second-bg-color;
-  padding: 18px 0;
-  column-gap: 10px;
-
-  &__avatar {
-    background-color: $second-bg-color;
-    border-radius: 14px;
-    grid-column: 1;
-    grid-area: 1 / 1 / 4 / 2;
-  }
-
-  &__name {
-    grid-area: 1 / 2;
-    margin: 0;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 700;
-  }
-
-  &__data {
-    grid-area: 1 / 3;
-    font-size: 12px;
-    font-weight: 700;
-    color: $second-color;
-    justify-self: flex-end;
-  }
-
-  &__message {
-    grid-area: 2 / 2 / 4 / 3;
-    margin: 0;
-    font-size: 13px;
-    line-height: 18px;
-    color: $second-color;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  &__qty-msg {
-    grid-area: 2 / 3 / 4 / 4;
-    place-self: center end;
-    background-color: $main-color;
-    border-radius: 9px;
-    text-align: center;
-    font-size: 12px;
-    padding: 2px;
-    line-height: 18px;
-    color: $main-bg-color;
-    min-width: 18px;
-    padding: 0 6px;
-    font-size: 12px;
-    line-height: 18px;
-    box-sizing: border-box;
-    font-weight: 700;
   }
 }
