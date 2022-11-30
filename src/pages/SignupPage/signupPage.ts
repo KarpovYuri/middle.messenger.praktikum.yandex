@@ -67,7 +67,7 @@ export class Signin extends Block {
     this.children.button = new Button({
       label: 'Зарегистрироваться',
       events: {
-        click: () => console.log('clicked'),
+        click: () => this.handleClick(),
       },
     });
 

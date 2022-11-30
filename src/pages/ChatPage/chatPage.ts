@@ -2,6 +2,7 @@ import Block from '../../utils/Block';
 import template from './chatPage.hbs';
 import { UserCard } from '../../components/UserCard/userCard';
 import { Message } from '../../components/Message/message';
+import { Button } from '../../components/Button/button';
 import './chatPage.scss';
 
 export class ChatPage extends Block {
@@ -156,6 +157,14 @@ export class ChatPage extends Block {
       500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с
       собой забрали только кассеты с пленкой.`,
       timeMessage: '8:55'
+    });
+
+    this.children.button = new Button({
+      label: '',
+      className: 'message-enter__send-btn',
+      events: {
+        click: () => this.handleClick(),
+      },
     });
   }
 

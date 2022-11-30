@@ -4,6 +4,7 @@ import  './button.scss';
 
 type ButtonProps = {
   type?: string;
+  className?: string;
   label: string;
   events: {
     click: () => void;
@@ -12,7 +13,7 @@ type ButtonProps = {
 
 export class Button extends Block<ButtonProps> {
   constructor(props: ButtonProps) {
-    super({ type: 'button', ...props });
+    super({ type: 'button', className: 'button', ...props });
   }
 
   render() {

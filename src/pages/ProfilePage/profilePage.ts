@@ -83,7 +83,7 @@ export class Profile extends Block {
     this.children.button = new Button({
       label: 'Сохранить',
       events: {
-        click: () => console.log('clicked'),
+        click: () => this.handleClick(),
       },
     });
 

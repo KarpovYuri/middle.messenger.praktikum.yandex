@@ -35,7 +35,7 @@ export class Signin extends Block {
     this.children.button = new Button({
       label: 'Войти',
       events: {
-        click: () => console.log('clicked'),
+        click: () => this.handleClick(),
       },
     });
 
@@ -54,3 +54,4 @@ export class Signin extends Block {
   const signin = new Signin();
   document.querySelector('#app')!.append(signin.getContent()!);
   signin.dispatchComponentDidMount();
+
