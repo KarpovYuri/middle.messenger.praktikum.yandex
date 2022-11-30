@@ -89,8 +89,8 @@ export class Profile extends Block {
 
     this.children.formLink = new FormLink({
       urlTitle: 'Внесите изменения и сохраните.',
-      urlText: 'Выйти',
-      url: "./index.html"
+      urlText: 'Назад',
+      url: "./chat.html"
     });
   }
 

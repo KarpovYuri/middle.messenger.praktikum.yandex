@@ -16,3 +16,34 @@
   min-height: 100vh;
   min-width: 576px;
 }
+
+.padding-0 {
+  padding: 0;
+  min-width: 1024px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 4px;
+  background-color: $second-color;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $main-color;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+* {
+  scrollbar-color: $second-color transparent;
+  scrollbar-width: thin;
+}
