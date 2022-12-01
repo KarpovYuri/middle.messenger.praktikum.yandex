@@ -15,9 +15,5 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "lib": [
-      "ESNext",
-      "DOM",
-    ]
   }
 }
