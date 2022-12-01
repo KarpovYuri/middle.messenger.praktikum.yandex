@@ -6,14 +6,20 @@ type ButtonProps = {
   type?: string;
   className?: string;
   label: string;
+  disabled?: string;
   events: {
-    click: () => void;
+    click: (evt: Event) => void
   };
 }
 
 export class Button extends Block<ButtonProps> {
   constructor(props: ButtonProps) {
-    super({ type: 'button', className: 'button', ...props });
+    super({
+      type: 'button',
+      className: 'button inactive',
+      disabled: 'disabled',
+      ...props
+     });
   }
 
   render() {

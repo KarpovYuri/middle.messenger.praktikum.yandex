@@ -62,16 +62,17 @@
   }
 
   &__input-error {
+    text-align: center;
     position: absolute;
     background-color: $error-color;
     color: $white-color;
     left: 20px;
     right: 20px;
-    top: 92px;
+    top: 96px;
     min-height: 48px;
     border-radius: 8px;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 5px 10px;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
@@ -89,4 +90,8 @@
       }
     }
   }
+}
+
+.active {
+  display: flex;
 }

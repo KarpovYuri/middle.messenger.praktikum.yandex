@@ -13,8 +13,24 @@
   border: none;
   cursor: pointer;
 
+  &__inactive {
+    opacity: 0.5;
+    cursor: default;
+  }
+
   &:hover {
     transform: scale(0.97);
     opacity: 0.8;
+  }
+}
+
+.inactive {
+  opacity: 0.15;
+  cursor: default;
+  background-color: $second-color;
+
+  &:hover {
+    transform: scale(1);
+    opacity: 0.15;
   }
 }

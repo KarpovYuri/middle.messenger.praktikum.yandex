@@ -162,8 +162,10 @@ export class ChatPage extends Block {
     this.children.button = new Button({
       label: '',
       className: 'message-enter__send-btn',
+      type: 'submit',
+      disabled: '',
       events: {
-        click: () => this.handleClick(),
+        click: (evt: Event) => this.handleClick(evt),
       },
     });
   }

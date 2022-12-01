@@ -21,7 +21,9 @@ export class Signin extends Block {
       name: 'login',
       type: 'text',
       placeholder: 'Логин',
-      classModifier: ''
+      classModifier: '',
+      validation: 'minlength="3" maxlength="20" pattern="^(?=.*[a-zA-Z])[a-zA-Z0-9_-]+$"',
+      errorMessage: 'Латиница, может содержать цифры, но не состоять из них, (допустимы дефис и нижнее подчёркивание)',
     });
 
     this.children.password = new Input({
@@ -29,13 +31,16 @@ export class Signin extends Block {
       name: 'password',
       type: 'password',
       placeholder: 'Пароль',
-      classModifier: ''
+      classModifier: '',
+      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
+      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
     });
 
     this.children.button = new Button({
       label: 'Войти',
+      type: 'submit',
       events: {
-        click: () => this.handleClick(),
+        click: (evt: Event) => this.handleClick(evt),
       },
     });
 

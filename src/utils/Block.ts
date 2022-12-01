@@ -31,16 +31,6 @@ class Block<TProps extends Record<string, unknown> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  // Сбор и вывод данных формы в консоль
-  public handleClick() {
-    const fields: any = Array.from(document.querySelectorAll('.input'));
-    const formData = fields.reduce((acc: Record<string, string>, field: HTMLInputElement) => {
-      acc[field.name] = field.value;
-      return acc;
-    }, {});
-    console.log(formData);
-  }
-
   _getChildrenAndProps(childrenAndProps: TProps): { props: TProps, children: Record<string, Block>} {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block> = {};
@@ -186,6 +176,17 @@ class Block<TProps extends Record<string, unknown> = any> {
 
   hide() {
     this.getContent()!.style.display = "none";
+  }
+
+  public handleClick(evt: Event) {
+    evt.preventDefault();
+    const fields: any = Array.from(document.querySelectorAll('.input'));
+    const formData = fields.reduce((acc: Record<string, string>, field: HTMLInputElement) => {
+      acc[field.name] = field.value;
+      field.value = '';
+      return acc;
+    }, {});
+    console.log(formData);
   }
 }
 

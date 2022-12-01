@@ -21,7 +21,9 @@ export class Signin extends Block {
       name: 'first_name',
       type: 'text',
       placeholder: 'Имя',
-      classModifier: 'field_columns_two'
+      classModifier: 'field_columns_two',
+      validation: 'pattern="^[А-ЯЁA-Z]{1,}[а-яёa-z-]+$"',
+      errorMessage: 'Латиница или кириллица, первая буква заглавня, без пробелов, цифр и спецсимволов (допустим только дефис)',
     });
 
     this.children.secondName = new Input({
@@ -29,7 +31,9 @@ export class Signin extends Block {
       name: 'second_name',
       type: 'text',
       placeholder: 'Фамилия',
-      classModifier: 'field_columns_two'
+      classModifier: 'field_columns_two',
+      validation: 'pattern="^[А-ЯЁA-Z]{1,}[а-яёa-z-]+$"',
+      errorMessage: 'Латиница или кириллица, первая буква заглавня, без пробелов, цифр и спецсимволов (допустим только дефис)',
     });
 
     this.children.login = new Input({
@@ -37,7 +41,9 @@ export class Signin extends Block {
       name: 'login',
       type: 'text',
       placeholder: 'Логин',
-      classModifier: 'field_columns_two'
+      classModifier: 'field_columns_two',
+      validation: 'minlength="3" maxlength="20" pattern="^(?=.*[a-zA-Z])[a-zA-Z0-9_-]+$"',
+      errorMessage: 'Латиница, может содержать цифры, но не состоять из них, (допустимы дефис и нижнее подчёркивание)',
     });
 
     this.children.email = new Input({
@@ -45,7 +51,9 @@ export class Signin extends Block {
       name: 'email',
       type: 'text',
       placeholder: 'E-mail',
-      classModifier: 'field_columns_two'
+      classModifier: 'field_columns_two',
+      validation: 'pattern="^[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}$"',
+      errorMessage: 'Латиница, может включать цифры и спецсимволы вроде дефиса, обязательно должна быть «собака»',
     });
 
     this.children.password = new Input({
@@ -53,7 +61,9 @@ export class Signin extends Block {
       name: 'password',
       type: 'password',
       placeholder: 'Пароль',
-      classModifier: 'field_columns_two'
+      classModifier: 'field_columns_two',
+      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
+      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
     });
 
     this.children.phone = new Input({
@@ -61,13 +71,16 @@ export class Signin extends Block {
       name: 'phone',
       type: 'phone',
       placeholder: 'Телефон',
-      classModifier: 'field_columns_two'
+      classModifier: 'field_columns_two',
+      validation: 'pattern="^\\+?[0-9]{10,15}$"',
+      errorMessage: 'От 10 до 15 символов, состоит из цифр, может начинаться с символа плюс.',
     });
 
     this.children.button = new Button({
       label: 'Зарегистрироваться',
+      type: 'submit',
       events: {
-        click: () => this.handleClick(),
+        click: (evt: Event) => this.handleClick(evt),
       },
     });
 
