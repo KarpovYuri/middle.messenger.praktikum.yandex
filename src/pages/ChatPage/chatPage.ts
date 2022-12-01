@@ -3,6 +3,7 @@ import template from './chatPage.hbs';
 import { UserCard } from '../../components/UserCard/userCard';
 import { Message } from '../../components/Message/message';
 import { Button } from '../../components/Button/button';
+import handleSubmit from '../../utils/handleSubmit';
 import './chatPage.scss';
 
 export class ChatPage extends Block {
@@ -165,7 +166,7 @@ export class ChatPage extends Block {
       type: 'submit',
       disabled: '',
       events: {
-        click: (evt: Event) => this.handleClick(evt),
+        click: (evt: Event) => handleSubmit(evt),
       },
     });
   }

@@ -4,6 +4,7 @@ import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
+import handleSubmit from '../../utils/handleSubmit';
 import './signupPage.scss';
 
 export class Signin extends Block {
@@ -80,7 +81,7 @@ export class Signin extends Block {
       label: 'Зарегистрироваться',
       type: 'submit',
       events: {
-        click: (evt: Event) => this.handleClick(evt),
+        click: (evt: Event) => handleSubmit(evt),
       },
     });
 

@@ -1,5 +1,6 @@
 import Block from '../../utils/Block';
 import template from './input.hbs';
+import validateForm from '../../utils/validateForm';
 import './input.scss';
 
 type InputProps = {
@@ -31,9 +32,9 @@ export class Input extends Block<InputProps> {
   private _validateInput() {
     const inputElement: HTMLInputElement | null | undefined = this.getContent()?.querySelector('.field__input');
     const errorElement = this.getContent()?.querySelector('.field__input-error');
-    const validity = inputElement?.checkValidity();
+    const isValid = inputElement?.checkValidity();
 
-    if (!validity) {
+    if (!isValid) {
       const errorMessage = inputElement!.validationMessage;
       const customErrorMessage = inputElement!.dataset.errortext;
       errorElement!.textContent = customErrorMessage || errorMessage;
@@ -44,21 +45,7 @@ export class Input extends Block<InputProps> {
       errorElement?.classList.remove('active');
       inputElement?.classList.remove('field__input_error');
     }
-    this._validateForm();
-  }
-
-  _validateForm() {
-    const formElement: HTMLInputElement | null = document.querySelector('.form');
-    const submitButton: HTMLButtonElement | null | undefined = formElement?.querySelector('[type=submit]');
-    const isValid = formElement?.checkValidity();
-
-    if (isValid) {
-      submitButton!.disabled = false;
-      submitButton?.classList.remove('inactive');
-    } else  {
-      submitButton!.disabled = true;
-      submitButton?.classList.add('inactive');
-    }
+    validateForm();
   }
 
   render() {

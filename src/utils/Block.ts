@@ -178,16 +178,6 @@ class Block<TProps extends Record<string, unknown> = any> {
     this.getContent()!.style.display = "none";
   }
 
-  public handleClick(evt: Event) {
-    evt.preventDefault();
-    const fields: any = Array.from(document.querySelectorAll('.input'));
-    const formData = fields.reduce((acc: Record<string, string>, field: HTMLInputElement) => {
-      acc[field.name] = field.value;
-      field.value = '';
-      return acc;
-    }, {});
-    console.log(formData);
-  }
 }
 
 export default Block;

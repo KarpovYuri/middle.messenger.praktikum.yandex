@@ -4,6 +4,7 @@ import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
+import handleSubmit from '../../utils/handleSubmit';
 import './profilePage.scss';
 
 export class Profile extends Block {
@@ -99,7 +100,7 @@ export class Profile extends Block {
     this.children.button = new Button({
       label: 'Сохранить',
       events: {
-        click: (evt: Event) => this.handleClick(evt),
+        click: (evt: Event) => handleSubmit(evt),
       },
     });
 
