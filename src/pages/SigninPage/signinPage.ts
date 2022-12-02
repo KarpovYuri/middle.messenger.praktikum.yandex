@@ -5,31 +5,13 @@ import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
 import handleSubmit from '../../utils/handleSubmit';
+import { inputsSignin } from '../../utils/bigData';
 import './signinPage.scss';
 
 export class Signin extends Block {
   constructor() {
     super({
-      fields: [
-        {
-          label: 'Login',
-          name: 'login',
-          type: 'text',
-          placeholder: 'Логин',
-          classModifier: '',
-          validation: 'minlength="3" maxlength="20" pattern="^(?=.*[a-zA-Z])[a-zA-Z0-9_-]+$"',
-          errorMessage: 'Латиница, может содержать цифры, но не состоять из них, (допустимы дефис и нижнее подчёркивание)',
-        },
-        {
-          label: 'Password',
-          name: 'password',
-          type: 'password',
-          placeholder: 'Пароль',
-          classModifier: '',
-          validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
-          errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
-        }
-      ],
+      inputsSignin,
     });
   }
 
@@ -38,7 +20,7 @@ export class Signin extends Block {
       title: 'Авторизация'
     });
 
-    this.props.Input = this.props.fields.map((field: any) => this.children[field.name] = new Input(field));
+    this.props.Input = this.props.inputsSignin.map((input: any) => this.children[input.name] = new Input(input));
 
     this.children.button = new Button({
       label: 'Войти',
