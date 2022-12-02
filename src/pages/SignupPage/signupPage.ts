@@ -4,37 +4,19 @@ import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
-import handleSubmit from '../../utils/handleSubmit';
-import { inputsSignup } from '../../utils/bigData';
+import { signupPageData } from '../../utils/bigData';
 import './signupPage.scss';
 
 export class Signin extends Block {
-  constructor() {
-    super({
-      inputsSignup,
-    });
+  constructor(propsWithChildren: {}) {
+    super({ propsWithChildren });
   }
 
   init() {
-    this.children.title = new Title({
-      title: 'Регистрация'
-    });
-
-    this.props.Input = this.props.inputsSignup.map((input: any) => this.children[input.name] = new Input(input));
-
-    this.children.button = new Button({
-      label: 'Зарегистрироваться',
-      type: 'submit',
-      events: {
-        click: (evt: Event) => handleSubmit(evt),
-      },
-    });
-
-    this.children.formLink = new FormLink({
-      urlTitle: 'Уже зарегистрированы?',
-      urlText: 'Вход',
-      url: "./signin.html"
-    });
+    this.children.title = new Title(this.props.propsWithChildren.title);
+    this.props.propsWithChildren.inputs.map((item: any) => this.children[item.name] = new Input(item));
+    this.children.button = new Button(this.props.propsWithChildren.button);
+    this.children.formLink = new FormLink(this.props.propsWithChildren.formLink);
   }
 
   render() {
@@ -42,6 +24,6 @@ export class Signin extends Block {
   }
 }
 
-  const signup = new Signin();
+  const signup = new Signin(signupPageData);
   document.querySelector('#app')!.append(signup.getContent()!);
   signup.dispatchComponentDidMount();

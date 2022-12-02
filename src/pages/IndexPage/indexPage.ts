@@ -2,31 +2,26 @@ import Block from '../../utils/Block';
 import template from './indexPage.hbs';
 import { Title } from '../../components/Title/title';
 import { NavLink } from '../../components/NavLink/navLink';
-import { links } from '../../utils/bigData';
+import { indexPageData } from '../../utils/bigData';
 import './indexPage.scss';
 
 export class IndexPage extends Block {
-  constructor() {
-    super({
-      links,
-    });
+  constructor(propsWithChildren: {}) {
+    super({ propsWithChildren });
   }
 
   init() {
-
-    this.props.Link = this.props.links.map((link: any, index: number) => this.children[`link${index+1}`] = new NavLink(link));
-
-    this.children.title = new Title({
-      title: 'Страницы'
-    });
-
+    this.children.title = new Title(this.props.propsWithChildren.title);
+    this.props.propsWithChildren.links.map((item: any, index: number) => (
+      this.children[`link${index + 1}`] = new NavLink(item)
+    ));
   }
 
   render() {
-    return this.compile(template, {...this.props});
+    return this.compile(template, { ...this.props });
   }
 }
 
-  const indexPage = new IndexPage();
-  document.querySelector('#app')!.append(indexPage.getContent()!);
-  indexPage.dispatchComponentDidMount();
+const indexPage = new IndexPage(indexPageData);
+document.querySelector('#app')!.append(indexPage.getContent()!);
+indexPage.dispatchComponentDidMount();

@@ -4,37 +4,19 @@ import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { FormLink } from '../../components/FormLink/formLink';
-import handleSubmit from '../../utils/handleSubmit';
-import { inputsProfile } from '../../utils/bigData';
+import { profilePageData } from '../../utils/bigData';
 import './profilePage.scss';
 
 export class Profile extends Block {
-  constructor() {
-    super({
-      inputsProfile,
-    });
+  constructor(propsWithChildren: {}) {
+    super({ propsWithChildren });
   }
 
   init() {
-    this.children.title = new Title({
-      title: 'Профиль'
-    });
-
-    this.props.Input = this.props.inputsProfile.map((input: any) => this.children[input.name] = new Input(input));
-
-    this.children.button = new Button({
-      label: 'Сохранить',
-      type: 'submit',
-      events: {
-        click: (evt: Event) => handleSubmit(evt),
-      },
-    });
-
-    this.children.formLink = new FormLink({
-      urlTitle: 'Внесите изменения и сохраните.',
-      urlText: 'Назад',
-      url: "./chat.html"
-    });
+    this.children.title = new Title(this.props.propsWithChildren.title);
+    this.props.propsWithChildren.inputs.map((item: any) => this.children[item.name] = new Input(item));
+    this.children.button = new Button(this.props.propsWithChildren.button);
+    this.children.formLink = new FormLink(this.props.propsWithChildren.formLink);
   }
 
   render() {
@@ -42,6 +24,6 @@ export class Profile extends Block {
   }
 }
 
-  const profile = new Profile();
+  const profile = new Profile(profilePageData);
   document.querySelector('#app')!.append(profile.getContent()!);
   profile.dispatchComponentDidMount();

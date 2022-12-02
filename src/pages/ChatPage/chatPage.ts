@@ -3,33 +3,23 @@ import template from './chatPage.hbs';
 import { UserCard } from '../../components/UserCard/userCard';
 import { Message } from '../../components/Message/message';
 import { Button } from '../../components/Button/button';
-import handleSubmit from '../../utils/handleSubmit';
-import { userCards } from '../../utils/bigData';
-import { messages } from '../../utils/bigData';
+import { messagePageData } from '../../utils/bigData';
 import './chatPage.scss';
 
 export class ChatPage extends Block {
-  constructor() {
-    super({
-      userCards,
-      messages,
-    });
+  constructor(propsWithChildren: {}) {
+    super({ propsWithChildren });
   }
 
   init() {
 
-    this.props.UserCard = this.props.userCards.map((card: any, index: number) => this.children[`userCard${index+1}`] = new UserCard(card));
-    this.props.Message = this.props.messages.map((message: any, index: number) => this.children[`message${index+1}`] = new Message(message));
-
-    this.children.button = new Button({
-      label: '',
-      className: 'message-enter__send-btn',
-      type: 'submit',
-      disabled: '',
-      events: {
-        click: (evt: Event) => handleSubmit(evt),
-      },
-    });
+    this.props.propsWithChildren.userCards.map((item: any, index: number) => (
+      this.children[`userCard${index+1}`] = new UserCard(item)
+    ));
+    this.props.propsWithChildren.messages.map((item: any, index: number) => (
+      this.children[`message${index+1}`] = new Message(item)
+    ));
+    this.children.button = new Button(this.props.propsWithChildren.button);
   }
 
   render() {
@@ -37,6 +27,6 @@ export class ChatPage extends Block {
   }
 }
 
-const chatPage = new ChatPage();
+const chatPage = new ChatPage(messagePageData);
 document.querySelector('#app')!.append(chatPage.getContent()!);
 chatPage.dispatchComponentDidMount();
