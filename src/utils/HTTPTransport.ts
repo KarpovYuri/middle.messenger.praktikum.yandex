@@ -22,23 +22,25 @@ const queryString = (data: Data) => {
   }
   return '';
 }
+
+type HTTPMethod = (url: string, options?: OptionsWithoutMethod) => Promise<XMLHttpRequest>
 class HTTPTransport {
 
-  public get(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.GET });
-  };
+  public get: HTTPMethod = (url, options = {}) => (
+    this.request(url, { ...options, method: METHOD.GET })
+  );
 
-  public post(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.POST });
-  };
+  public post: HTTPMethod = (url, options = {}) => (
+    this.request(url, { ...options, method: METHOD.POST })
+  );
 
-  public put(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.PUT });
-  };
+  public put: HTTPMethod = (url, options = {}) => (
+    this.request(url, { ...options, method: METHOD.PUT })
+  );
 
-  public delete(url: string, options: OptionsWithoutMethod = {}): Promise<XMLHttpRequest> {
-    return this.request(url, { ...options, method: METHOD.DELETE });
-  };
+  public delete: HTTPMethod = (url, options = {}) => (
+    this.request(url, { ...options, method: METHOD.DELETE })
+  );
 
   request(url: string, options: Options): Promise<XMLHttpRequest> {
     const { method, data } = options;
