@@ -9,7 +9,7 @@ function handleSubmit(evt: Event) {
     return acc;
   }, {});
   console.log(formData);
-  validateForm();
+  validateForm(null);
 }
 
 export default handleSubmit;

@@ -1,9 +1,10 @@
-function validateForm() {
-  const formElement: HTMLInputElement | null = document.querySelector('.form');
+function validateForm(inputElement: HTMLInputElement | null | undefined) {
 
-  if (!formElement) return;
+  if (!inputElement) return;
 
-  const submitButton: HTMLButtonElement | null  = formElement?.querySelector('[type=submit]');
+  const formElement: HTMLFormElement | null = inputElement.closest('form');
+
+  const submitButton: HTMLButtonElement | null | undefined  = formElement?.querySelector('[type=submit]');
   const isValid = formElement?.checkValidity();
 
   if (isValid) {

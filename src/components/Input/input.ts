@@ -45,7 +45,7 @@ export class Input extends Block<InputProps> {
       errorElement?.classList.remove('active');
       inputElement?.classList.remove('field__input_error');
     }
-    validateForm();
+    validateForm(inputElement);
   }
 
   render() {
