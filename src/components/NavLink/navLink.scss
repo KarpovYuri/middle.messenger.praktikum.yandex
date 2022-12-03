@@ -1,0 +1,19 @@
+@import "../../assets/scss/_variables";
+
+.nav-link {
+  height: 40px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $main-color;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  transition: transform 0.25s, opacity 0.25s;
+
+  &:hover {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+}

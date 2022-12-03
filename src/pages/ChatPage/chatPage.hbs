@@ -1,0 +1,43 @@
+<div class="chat">
+  <aside class="chat__left-panel">
+    <a href="/profile.html" class="chat__edit-profile">Профиль</a>
+    <input type="text" class="chat__serch" placeholder="Search">
+    <hr class="chat__line">
+    <ul class="chat__user-cards-list">
+      {{{userCard1}}}
+      {{{userCard2}}}
+      {{{userCard3}}}
+      {{{userCard4}}}
+      {{{userCard5}}}
+      {{{userCard6}}}
+      {{{userCard7}}}
+      {{{userCard8}}}
+      {{{userCard9}}}
+      {{{userCard10}}}
+    </ul>
+  </aside>
+  <main class="chat__main">
+    <div class="chat-header">
+      <div class="chat-header__avatar"></div>
+      <p class="chat-header__name">Доцент</p>
+      <button class="chat-header__btn"></button>
+    </div>
+    <ul class="message-list">
+      {{{message1}}}
+      {{{message2}}}
+      {{{message3}}}
+      {{{message4}}}
+      {{{message5}}}
+      {{{message6}}}
+      {{{message7}}}
+      {{{message8}}}
+    </ul>
+    <div class="message-enter">
+      <button class="message-enter__menu-btn"></button>
+      <form class="message-enter__form" novalidate name="chat">
+        <input type="text" class="message-enter__input input" name="message" placeholder="Message" autocomplete="off" required>
+        {{{button}}}
+      </form>
+    </div>
+  </main>
+</div>

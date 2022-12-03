@@ -1,0 +1,41 @@
+@import "../../assets/scss/variables";
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  max-width: 640px;
+  background-color: $second-bg-color;
+  padding: 10px 26px;
+  border-radius: 0 20px 16px;
+  gap: 8px;
+
+  &_place_right {
+    align-self: flex-end;
+    border-radius: 16px 20px 0;
+    background-color: $third-bg-color;
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 300;
+  }
+
+  &__time {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    color: $second-color;
+    align-self: flex-end;
+
+    &_place_right {
+      background-image: url("../../assets/images/read-icon.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 20px 14px;
+      padding-left: 22px;
+    }
+  }
+}
