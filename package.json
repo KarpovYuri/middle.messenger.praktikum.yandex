@@ -1,10 +1,10 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
-  "description": "Проектная работа Sprint_2. Мидл фронтенд разработчик",
+  "description": "Проектная работа Sprint_3. Мидл фронтенд разработчик",
   "scripts": {
-    "build": "parcel build ./static/pages/*.html",
-    "dev": "parcel ./static/pages/*.html --open --port 3000 --no-cache",
+    "build": "parcel build ./src/index.html",
+    "dev": "parcel ./src/index.html --open --port 3000 --no-cache",
     "start": "npm run build & node ./src/server.js",
     "lint": "eslint ./src",
     "stylelint": "stylelint ./src/**/*.scss"

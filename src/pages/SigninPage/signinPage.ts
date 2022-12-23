@@ -7,7 +7,7 @@ import { FormLink } from '../../components/FormLink/formLink';
 import { signinPageData } from '../../utils/bigData';
 import './signinPage.scss';
 
-export class Signin extends Block {
+export class SigninPage extends Block {
   constructor(propsWithChildren: {}) {
     super({ propsWithChildren });
   }
@@ -24,7 +24,7 @@ export class Signin extends Block {
   }
 }
 
-  const signin = new Signin(signinPageData);
+  const signin = new SigninPage(signinPageData);
   document.querySelector('#app')!.append(signin.getContent()!);
   signin.dispatchComponentDidMount();
 

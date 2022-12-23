@@ -7,7 +7,7 @@ import { FormLink } from '../../components/FormLink/formLink';
 import { profilePageData } from '../../utils/bigData';
 import './profilePage.scss';
 
-export class Profile extends Block {
+export class ProfilePage extends Block {
   constructor(propsWithChildren: {}) {
     super({ propsWithChildren });
   }
@@ -24,6 +24,6 @@ export class Profile extends Block {
   }
 }
 
-  const profile = new Profile(profilePageData);
+  const profile = new ProfilePage(profilePageData);
   document.querySelector('#app')!.append(profile.getContent()!);
   profile.dispatchComponentDidMount();
