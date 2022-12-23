@@ -1,10 +1,10 @@
 import Block from '../../utils/Block';
-import template from './500Page.hbs';
+import template from './serverErrorPage.hbs';
 import { Error } from '../../components/Error/error';
 import { NavLink } from '../../components/NavLink/navLink';
-import './500Page.scss';
+import './serverErrorPage.scss';
 
-export class ErrorPage extends Block {
+export class ServerErrorPage extends Block {
   constructor() {
     super({});
   }
@@ -25,7 +25,3 @@ export class ErrorPage extends Block {
     return this.compile(template, {...this.props});
   }
 }
-
-  const errorPage = new ErrorPage();
-  document.querySelector('#app')!.append(errorPage.getContent()!);
-  errorPage.dispatchComponentDidMount();

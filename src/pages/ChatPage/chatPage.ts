@@ -7,26 +7,22 @@ import { messagePageData } from '../../utils/bigData';
 import './chatPage.scss';
 
 export class ChatPage extends Block {
-  constructor(propsWithChildren: {}) {
-    super({ propsWithChildren });
+  constructor() {
+    super({ messagePageData });
   }
 
   init() {
 
-    this.props.propsWithChildren.userCards.map((item: any, index: number) => (
+    this.props.messagePageData.userCards.map((item: any, index: number) => (
       this.children[`userCard${index+1}`] = new UserCard(item)
     ));
-    this.props.propsWithChildren.messages.map((item: any, index: number) => (
+    this.props.messagePageData.messages.map((item: any, index: number) => (
       this.children[`message${index+1}`] = new Message(item)
     ));
-    this.children.button = new Button(this.props.propsWithChildren.button);
+    this.children.button = new Button(this.props.messagePageData.button);
   }
 
   render() {
     return this.compile(template, { ...this.props });
   }
 }
-
-const chatPage = new ChatPage(messagePageData);
-document.querySelector('#app')!.append(chatPage.getContent()!);
-chatPage.dispatchComponentDidMount();

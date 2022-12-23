@@ -8,22 +8,18 @@ import { signupPageData } from '../../utils/bigData';
 import './signupPage.scss';
 
 export class SignupPage extends Block {
-  constructor(propsWithChildren: {}) {
-    super({ propsWithChildren });
+  constructor() {
+    super({ signupPageData });
   }
 
   init() {
-    this.children.title = new Title(this.props.propsWithChildren.title);
-    this.props.propsWithChildren.inputs.map((item: any) => this.children[item.name] = new Input(item));
-    this.children.button = new Button(this.props.propsWithChildren.button);
-    this.children.formLink = new FormLink(this.props.propsWithChildren.formLink);
+    this.children.title = new Title(this.props.signupPageData.title);
+    this.props.signupPageData.inputs.map((item: any) => this.children[item.name] = new Input(item));
+    this.children.button = new Button(this.props.signupPageData.button);
+    this.children.formLink = new FormLink(this.props.signupPageData.formLink);
   }
 
   render() {
     return this.compile(template, {...this.props});
   }
 }
-
-  const signup = new SignupPage(signupPageData);
-  document.querySelector('#app')!.append(signup.getContent()!);
-  signup.dispatchComponentDidMount();

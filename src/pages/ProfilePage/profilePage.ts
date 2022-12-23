@@ -8,22 +8,18 @@ import { profilePageData } from '../../utils/bigData';
 import './profilePage.scss';
 
 export class ProfilePage extends Block {
-  constructor(propsWithChildren: {}) {
-    super({ propsWithChildren });
+  constructor() {
+    super({ profilePageData });
   }
 
   init() {
-    this.children.title = new Title(this.props.propsWithChildren.title);
-    this.props.propsWithChildren.inputs.map((item: any) => this.children[item.name] = new Input(item));
-    this.children.button = new Button(this.props.propsWithChildren.button);
-    this.children.formLink = new FormLink(this.props.propsWithChildren.formLink);
+    this.children.title = new Title(this.props.profilePageData.title);
+    this.props.profilePageData.inputs.map((item: any) => this.children[item.name] = new Input(item));
+    this.children.button = new Button(this.props.profilePageData.button);
+    this.children.formLink = new FormLink(this.props.profilePageData.formLink);
   }
 
   render() {
     return this.compile(template, {...this.props});
   }
 }
-
-  const profile = new ProfilePage(profilePageData);
-  document.querySelector('#app')!.append(profile.getContent()!);
-  profile.dispatchComponentDidMount();

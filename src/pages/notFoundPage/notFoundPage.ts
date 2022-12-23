@@ -1,10 +1,10 @@
 import Block from '../../utils/Block';
-import template from './404Page.hbs';
+import template from './notFoundPage.hbs';
 import { Error } from '../../components/Error/error';
 import { NavLink } from '../../components/NavLink/navLink';
-import './404Page.scss';
+import './notFoundPage.scss';
 
-export class ErrorPage extends Block {
+export class NotFoundPage extends Block {
   constructor() {
     super({});
   }
@@ -25,7 +25,3 @@ export class ErrorPage extends Block {
     return this.compile(template, {...this.props});
   }
 }
-
-  const errorPage = new ErrorPage();
-  document.querySelector('#app')!.append(errorPage.getContent()!);
-  errorPage.dispatchComponentDidMount();
