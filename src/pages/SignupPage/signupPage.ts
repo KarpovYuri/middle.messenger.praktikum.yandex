@@ -16,7 +16,7 @@ export class SignupPage extends Block {
     this.children.title = new Title(this.props.signupPageData.title);
     this.props.signupPageData.inputs.map((item: any) => this.children[item.name] = new Input(item));
     this.children.button = new Button(this.props.signupPageData.button);
-    this.children.formLink = new Link(this.props.signupPageData.formLink);
+    this.children.link = new Link(this.props.signupPageData.link);
   }
 
   render() {

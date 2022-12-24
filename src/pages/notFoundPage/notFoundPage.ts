@@ -17,7 +17,7 @@ export class NotFoundPage extends Block {
 
     this.children.linkBack = new Link({
       url: '/',
-      urlText: 'Главная'
+      urlText: 'Главная',
     });
   }
 

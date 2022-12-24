@@ -3,6 +3,7 @@ import template from './chatPage.hbs';
 import { UserCard } from '../../components/UserCard/userCard';
 import { Message } from '../../components/Message/message';
 import { Button } from '../../components/Button/button';
+import { Link } from '../../components/Link/Link';
 import { messagePageData } from '../../utils/bigData';
 import './chatPage.scss';
 
@@ -20,6 +21,12 @@ export class ChatPage extends Block {
       this.children[`message${index+1}`] = new Message(item)
     ));
     this.children.button = new Button(this.props.messagePageData.button);
+
+    this.children.link = new Link({
+      url: '/settings',
+      urlText: 'Профиль',
+      addClass: 'chat__edit-profile'
+    });
   }
 
   render() {

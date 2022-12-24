@@ -16,7 +16,7 @@ export class ProfilePage extends Block {
     this.children.title = new Title(this.props.profilePageData.title);
     this.props.profilePageData.inputs.map((item: any) => this.children[item.name] = new Input(item));
     this.children.button = new Button(this.props.profilePageData.button);
-    this.children.formLink = new Link(this.props.profilePageData.formLink);
+    this.children.link = new Link(this.props.profilePageData.link);
   }
 
   render() {

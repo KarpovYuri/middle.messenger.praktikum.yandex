@@ -24,8 +24,7 @@ export const signinPageData = {
       errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
     }
   ],
-  formLink: {
-    urlTitle: 'Ещё не зарегистрированы?',
+  link: {
     urlText: 'Регистрация',
     url: "/sign-up"
   },
@@ -105,8 +104,7 @@ export const signupPageData = {
       click: (evt: Event) => handleSubmit(evt),
     },
   },
-  formLink: {
-    urlTitle: 'Уже зарегистрированы?',
+  link: {
     urlText: 'Вход',
     url: "/"
   },
@@ -198,8 +196,7 @@ export const profilePageData = {
       click: (evt: Event) => handleSubmit(evt),
     },
   },
-  formLink: {
-    urlTitle: 'Внесите изменения и сохраните.',
+  link: {
     urlText: 'Назад',
     url: "/messenger"
   },

@@ -15,5 +15,5 @@ export interface PropsWithRouter {
   router?: typeof Router;
   url: string;
   urlText: string;
-  urlTitle?: string;
+  addClass?: string;
 }
