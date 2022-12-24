@@ -3,7 +3,7 @@ import template from './signupPage.hbs';
 import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
-import { FormLink } from '../../components/FormLink/formLink';
+import { Link } from '../../components/Link/Link';
 import { signupPageData } from '../../utils/bigData';
 import './signupPage.scss';
 
@@ -16,7 +16,7 @@ export class SignupPage extends Block {
     this.children.title = new Title(this.props.signupPageData.title);
     this.props.signupPageData.inputs.map((item: any) => this.children[item.name] = new Input(item));
     this.children.button = new Button(this.props.signupPageData.button);
-    this.children.formLink = new FormLink(this.props.signupPageData.formLink);
+    this.children.formLink = new Link(this.props.signupPageData.formLink);
   }
 
   render() {

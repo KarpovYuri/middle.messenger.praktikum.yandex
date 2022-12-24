@@ -2,7 +2,8 @@ import { SigninPage } from './pages/SigninPage/signinPage';
 import { SignupPage } from './pages/SignupPage/signupPage';
 import { ProfilePage } from './pages/ProfilePage/profilePage';
 import { ChatPage } from './pages/ChatPage/chatPage';
-import { NotFoundPage } from './pages/notFoundPage/notFoundPage';
+// import { NotFoundPage } from './pages/notFoundPage/notFoundPage';
+// import { ServerErrorPage } from './pages/serverErrorPage/serverErrorPage';
 import Router from './utils/Router';
 import AuthController from './controllers/AuthController';
 
@@ -11,7 +12,8 @@ enum Routes {
   Signup = '/sign-up',
   Profile = '/settings',
   Chat = '/messenger',
-  Error = '/*'
+  // Error404 = '/404',
+  // Error500 = '/500'
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -20,7 +22,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     .use(Routes.Signup, SignupPage)
     .use(Routes.Profile, ProfilePage)
     .use(Routes.Chat, ChatPage)
-    .use(Routes.Error, NotFoundPage)
+    // .use(Routes.Error404, NotFoundPage)
+    // .use(Routes.Error500, ServerErrorPage)
 
   let isProtectedRoute = false;
 

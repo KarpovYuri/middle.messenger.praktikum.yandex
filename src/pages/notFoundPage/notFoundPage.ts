@@ -1,7 +1,7 @@
 import Block from '../../utils/Block';
 import template from './notFoundPage.hbs';
 import { Error } from '../../components/Error/error';
-import { NavLink } from '../../components/NavLink/navLink';
+import { Link } from '../../components/Link/Link';
 import './notFoundPage.scss';
 
 export class NotFoundPage extends Block {
@@ -15,9 +15,9 @@ export class NotFoundPage extends Block {
       errorDesc: 'Страница не найдена'
     });
 
-    this.children.linkBack = new NavLink({
-      url: '/index.html',
-      linkText: 'Назад'
+    this.children.linkBack = new Link({
+      url: '/',
+      urlText: 'Главная'
     });
   }
 

@@ -1,37 +1,5 @@
 import handleSubmit from './handleSubmit';
 
-export const indexPageData = {
-  title: {
-    title: 'Страницы'
-  },
-  links: [
-    {
-      url: '/signin.html',
-      linkText: 'Авторизация',
-    },
-    {
-      url: '/signup.html',
-      linkText: 'Регистрация',
-    },
-    {
-      url: '/profile.html',
-      linkText: 'Профиль',
-    },
-    {
-      url: '/chat.html',
-      linkText: 'Чатик',
-    },
-    {
-      url: '/404.html',
-      linkText: 'Ошибка 404',
-    },
-    {
-      url: '/500.html',
-      linkText: 'Ошибка 500',
-    },
-  ],
-}
-
 export const signinPageData = {
   title: {
     title: 'Авторизация'
@@ -59,7 +27,7 @@ export const signinPageData = {
   formLink: {
     urlTitle: 'Ещё не зарегистрированы?',
     urlText: 'Регистрация',
-    url: "/signup.html"
+    url: "/sign-up"
   },
   button: {
     label: 'Войти',
@@ -140,7 +108,7 @@ export const signupPageData = {
   formLink: {
     urlTitle: 'Уже зарегистрированы?',
     urlText: 'Вход',
-    url: "./signin.html"
+    url: "/"
   },
 }
 
@@ -233,7 +201,7 @@ export const profilePageData = {
   formLink: {
     urlTitle: 'Внесите изменения и сохраните.',
     urlText: 'Назад',
-    url: "./chat.html"
+    url: "/messenger"
   },
 }
 
