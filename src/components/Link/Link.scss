@@ -18,6 +18,7 @@
   font-size: 16px;
   transition: transform 0.25s;
   cursor: pointer;
+  display: block;
 
   &:hover {
     transform: scale(1.5);

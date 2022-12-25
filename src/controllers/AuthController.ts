@@ -13,9 +13,9 @@ export class AuthController {
     try {
       await this.api.signin(data);
 
-      router.go('/profile');
-    } catch (e: any) {
-      console.error(e);
+      router.go('/messenger');
+    } catch (error: any) {
+      console.error(error);
     }
   }
 
@@ -25,9 +25,9 @@ export class AuthController {
 
       await this.fetchUser();
 
-      router.go('/profile');
-    } catch (e: any) {
-      console.error(e.message);
+      router.go('/messenger');
+    } catch (error: any) {
+      console.error(error.message);
     }
   }
 

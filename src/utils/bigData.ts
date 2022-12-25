@@ -31,9 +31,6 @@ export const signinPageData = {
   button: {
     label: 'Войти',
     type: 'submit',
-    events: {
-      click: (evt: Event) => handleSubmit(evt),
-    },
   }
 }
 
