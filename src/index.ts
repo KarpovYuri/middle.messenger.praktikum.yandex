@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     // .use(Routes.Error404, NotFoundPage)
     // .use(Routes.Error500, ServerErrorPage)
 
-  let isProtectedRoute = true;
+  let isProtectedRoute = false;
 
   switch (window.location.pathname) {
     case Routes.Index:

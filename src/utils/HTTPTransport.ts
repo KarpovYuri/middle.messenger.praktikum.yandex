@@ -87,8 +87,7 @@ class HTTPTransport {
       if (method === METHOD.GET || !data) {
         xhr.send();
       } else {
-        const data2 = {login: "gsdfgsfdg", password: "ggsfgsdfg"}
-        xhr.send(JSON.stringify(data2));
+        xhr.send(JSON.stringify(data));
       }
     });
   };

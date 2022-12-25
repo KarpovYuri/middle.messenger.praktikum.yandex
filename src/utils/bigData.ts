@@ -41,7 +41,7 @@ export const signupPageData = {
   inputs: [
     {
       label: 'First Name',
-      name: 'firstName',
+      name: 'first_name',
       type: 'text',
       placeholder: 'Имя',
       classModifier: 'field_columns_two',
@@ -50,7 +50,7 @@ export const signupPageData = {
     },
     {
       label: 'Second Name',
-      name: 'secondName',
+      name: 'second_name',
       type: 'text',
       placeholder: 'Фамилия',
       classModifier: 'field_columns_two',
@@ -97,9 +97,6 @@ export const signupPageData = {
   button: {
     label: 'Зарегистрироваться',
     type: 'submit',
-    events: {
-      click: (evt: Event) => handleSubmit(evt),
-    },
   },
   link: {
     urlText: 'Вход',
