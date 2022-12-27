@@ -12,14 +12,14 @@ type Options = {
   data?: unknown;
 };
 
-const queryString = (data: Data) => {
-  if (data) {
-    return Object.entries(data).reduce((accumulator, [key, currentValue], currentIndex, array) => {
-      return `${accumulator}${key}=${currentValue}${currentIndex < array.length - 1 ? '&' : ''}`;
-    }, '?');
-  }
-  return '';
-}
+// const queryString = (data: Data) => {
+//   if (data) {
+//     return Object.entries(data).reduce((accumulator, [key, currentValue], currentIndex, array) => {
+//       return `${accumulator}${key}=${currentValue}${currentIndex < array.length - 1 ? '&' : ''}`;
+//     }, '?');
+//   }
+//   return '';
+// }
 
 class HTTPTransport {
 
@@ -57,12 +57,13 @@ class HTTPTransport {
   private request<Response>(url: string, options: Options = {method: METHOD.GET}): Promise<Response> {
     const { method, data } = options;
 
-    const stringified = (method === METHOD.GET)
-      ? queryString(data as Data) : '';
+    // const stringified = (method === METHOD.GET)
+    //   ? queryString(data as Data) : '';
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open(method, url + stringified);
+      // xhr.open(method, url + stringified);
+      xhr.open(method, url);
 
       xhr.onreadystatechange = () => {
 

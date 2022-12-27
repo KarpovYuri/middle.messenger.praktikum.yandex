@@ -2,8 +2,8 @@ import { SigninPage } from './pages/SigninPage/signinPage';
 import { SignupPage } from './pages/SignupPage/signupPage';
 import { ProfilePage } from './pages/ProfilePage/profilePage';
 import { ChatPage } from './pages/ChatPage/chatPage';
-// import { NotFoundPage } from './pages/notFoundPage/notFoundPage';
-// import { ServerErrorPage } from './pages/serverErrorPage/serverErrorPage';
+import { NotFoundPage } from './pages/notFoundPage/notFoundPage';
+import { ServerErrorPage } from './pages/serverErrorPage/serverErrorPage';
 import Router from './utils/Router';
 import AuthController from './controllers/AuthController';
 
@@ -12,8 +12,8 @@ enum Routes {
   Signup = '/sign-up',
   Profile = '/settings',
   Chat = '/messenger',
-  // Error404 = '/404',
-  // Error500 = '/500'
+  Error404 = '/404',
+  Error500 = '/500'
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -22,10 +22,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     .use(Routes.Signup, SignupPage)
     .use(Routes.Profile, ProfilePage)
     .use(Routes.Chat, ChatPage)
-    // .use(Routes.Error404, NotFoundPage)
-    // .use(Routes.Error500, ServerErrorPage)
+    .use(Routes.Error404, NotFoundPage)
+    .use(Routes.Error500, ServerErrorPage)
 
-  let isProtectedRoute = false;
+  let isProtectedRoute = true;
 
   switch (window.location.pathname) {
     case Routes.Index:
@@ -40,12 +40,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     Router.start();
 
     if (!isProtectedRoute) {
-      Router.go(Routes.Profile)
+      Router.go(Routes.Chat)
     }
   } catch (e) {
     Router.start();
 
-    if (isProtectedRoute) {
+    if (isProtectedRoute
+      && window.location.pathname != Routes.Error404
+      && window.location.pathname != Routes.Error500)
+    {
       Router.go(Routes.Index);
     }
   }
