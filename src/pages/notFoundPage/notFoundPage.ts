@@ -2,23 +2,17 @@ import Block from '../../utils/Block';
 import template from './notFoundPage.hbs';
 import { Error } from '../../components/Error/error';
 import { Link } from '../../components/Link/Link';
+import { notFoundPageData } from '../../utils/bigData';
 import './notFoundPage.scss';
 
 export class NotFoundPage extends Block {
   constructor() {
-    super({});
+    super({ notFoundPageData });
   }
 
   init() {
-    this.children.error404 = new Error({
-      errorTitle: '404',
-      errorDesc: 'Страница не найдена'
-    });
-
-    this.children.linkBack = new Link({
-      url: '/',
-      urlText: 'Главная',
-    });
+    this.children.error = new Error(this.props.notFoundPageData.error);
+    this.children.link = new Link(this.props.notFoundPageData.link);
   }
 
   render() {

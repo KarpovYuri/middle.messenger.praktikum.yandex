@@ -364,3 +364,29 @@ export const messagePageData = {
     },
   },
 }
+
+export const notFoundPageData = {
+  error: {
+    errorTitle: '404',
+    errorDesc: 'Страница не найдена',
+  },
+  link: {
+    urlText: 'Назад',
+    events: {
+      click: () => Router.back()
+    },
+  }
+}
+
+export const serverErrorPageData = {
+  error: {
+    errorTitle: '500',
+    errorDesc: 'Ошибка сервера'
+  },
+  link: {
+    urlText: 'Назад',
+    events: {
+      click: () => Router.back()
+    },
+  }
+}
