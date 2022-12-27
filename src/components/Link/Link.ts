@@ -12,10 +12,10 @@ interface LinkProps extends PropsWithRouter {
 class BaseLink extends Block {
   constructor(props: LinkProps) {
     super({
-      ...props,
       events: {
         click: () => this.navigate()
       },
+      ...props,
     });
   }
 

@@ -13,7 +13,7 @@ export function withRouter(Component: typeof Block<any>) {
 
 export interface PropsWithRouter {
   router?: typeof Router;
-  url: string;
+  url?: string;
   urlText: string;
   addClass?: string;
 }

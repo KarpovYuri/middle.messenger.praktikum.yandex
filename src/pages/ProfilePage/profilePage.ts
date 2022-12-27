@@ -16,10 +16,11 @@ export class ProfilePage extends Block {
     this.children.title = new Title(this.props.profilePageData.title);
     this.props.profilePageData.inputs.map((item: any) => this.children[item.name] = new Input(item));
     this.children.button = new Button(this.props.profilePageData.button);
-    this.children.link = new Link(this.props.profilePageData.link);
+    this.children.linkBack = new Link(this.props.profilePageData.linkBack);
+    this.children.logoutLink = new Link(this.props.profilePageData.logoutLink);
   }
 
   render() {
-    return this.compile(template, {...this.props});
+    return this.compile(template, { ...this.props });
   }
 }

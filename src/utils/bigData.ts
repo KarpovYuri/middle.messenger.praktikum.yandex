@@ -1,4 +1,6 @@
 import handleSubmit from './handleSubmit';
+import Router from './Router';
+import AuthController from '../controllers/AuthController';
 
 export const signinPageData = {
   title: {
@@ -26,11 +28,17 @@ export const signinPageData = {
   ],
   link: {
     urlText: 'Регистрация',
-    url: "/sign-up"
+    url: "/sign-up",
   },
   button: {
     label: 'Войти',
     type: 'submit',
+    events: {
+      click: (evt: Event) => {
+        const data = handleSubmit(evt);
+        AuthController.signin(data);
+      }
+    }
   }
 }
 
@@ -97,6 +105,12 @@ export const signupPageData = {
   button: {
     label: 'Зарегистрироваться',
     type: 'submit',
+    events: {
+      click: (evt: Event) => {
+        const data = handleSubmit(evt);
+        AuthController.signup(data);
+      }
+    }
   },
   link: {
     urlText: 'Вход',
@@ -190,9 +204,18 @@ export const profilePageData = {
       click: (evt: Event) => handleSubmit(evt),
     },
   },
-  link: {
+  linkBack: {
     urlText: 'Назад',
-    url: "/messenger"
+    events: {
+      click: () => Router.back()
+    },
+  },
+  logoutLink: {
+    urlText: 'Выйти',
+    url: '/',
+    events: {
+      click: () => AuthController.logout()
+    },
   },
 }
 
