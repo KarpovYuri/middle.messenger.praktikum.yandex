@@ -9,14 +9,14 @@ import './signupPage.scss';
 
 export class SignupPage extends Block {
   constructor() {
-    super({ signupPageData });
+    super({ ...signupPageData });
   }
 
   init() {
-    this.children.title = new Title(this.props.signupPageData.title);
-    this.props.signupPageData.inputs.map((item: any) => this.children[item.name] = new Input(item));
-    this.children.button = new Button(this.props.signupPageData.button);
-    this.children.link = new Link(this.props.signupPageData.link);
+    this.children.title = new Title(this.props.title);
+    this.props.inputs.map((item: any) => this.children[item.name] = new Input(item));
+    this.children.button = new Button(this.props.button);
+    this.children.link = new Link(this.props.link);
   }
 
   render() {

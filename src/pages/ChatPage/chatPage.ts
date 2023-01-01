@@ -9,24 +9,19 @@ import './chatPage.scss';
 
 export class ChatPage extends Block {
   constructor() {
-    super({ messagePageData });
+    super({ ...messagePageData });
   }
 
   init() {
 
-    this.props.messagePageData.userCards.map((item: any, index: number) => (
+    this.props.userCards.map((item: any, index: number) => (
       this.children[`userCard${index+1}`] = new UserCard(item)
     ));
-    this.props.messagePageData.messages.map((item: any, index: number) => (
+    this.props.messages.map((item: any, index: number) => (
       this.children[`message${index+1}`] = new Message(item)
     ));
-    this.children.button = new Button(this.props.messagePageData.button);
-
-    this.children.link = new Link({
-      url: '/settings',
-      urlText: 'Профиль',
-      addClass: 'chat__edit-profile'
-    });
+    this.children.button = new Button(this.props.button);
+    this.children.link = new Link(this.props.link);
   }
 
   render() {

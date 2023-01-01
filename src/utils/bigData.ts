@@ -1,6 +1,7 @@
 import handleSubmit from './handleSubmit';
 import Router from './Router';
 import AuthController from '../controllers/AuthController';
+import UserController from '../controllers/UserController';
 import noAvatar from '../assets/images/no-avatar.png';
 
 export const signinPageData = {
@@ -219,6 +220,17 @@ export const profilePageData = {
       click: () => AuthController.logout()
     },
   },
+  events: {
+    change: (evt: InputEvent) => {
+      const { files }: { files: FileList | null } = evt.target as HTMLInputElement;
+      if (!files?.length) {
+        return;
+      }
+      const formData = new FormData();
+      formData.append('avatar', files[0]);
+      UserController.updateAvatar(formData);
+    },
+  },
 }
 
 export const messagePageData = {
@@ -365,6 +377,11 @@ export const messagePageData = {
       click: (evt: Event) => handleSubmit(evt),
     },
   },
+  link: {
+    url: '/settings',
+    urlText: 'Профиль',
+    addClass: 'chat__edit-profile'
+  }
 }
 
 export const notFoundPageData = {

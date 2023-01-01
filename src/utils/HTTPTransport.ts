@@ -1,3 +1,5 @@
+import { queryString } from "./helpers";
+
 enum METHOD {
   GET = 'GET',
   POST = 'POST',
@@ -46,9 +48,12 @@ class HTTPTransport {
   private request<Response>(url: string, options: Options = {method: METHOD.GET}): Promise<Response> {
     const { method, data } = options;
 
+    const stringified = (method === METHOD.GET)
+      ? queryString(data as Record<string, string | number>) : '';
+
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open(method, url);
+      xhr.open(method, url + stringified);
 
       xhr.onreadystatechange = () => {
 
@@ -65,7 +70,9 @@ class HTTPTransport {
       xhr.onerror = () => reject({reason: 'network error'});
       xhr.ontimeout = () => reject({reason: 'timeout'});
 
-      xhr.setRequestHeader('Content-Type', 'application/json');
+      if (!(data instanceof FormData)) {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+      }
 
       xhr.withCredentials = true;
       xhr.responseType = 'json';
@@ -73,7 +80,7 @@ class HTTPTransport {
       if (method === METHOD.GET || !data) {
         xhr.send();
       } else {
-        xhr.send(JSON.stringify(data));
+        xhr.send(data instanceof FormData ? data : JSON.stringify(data));
       }
     });
   };

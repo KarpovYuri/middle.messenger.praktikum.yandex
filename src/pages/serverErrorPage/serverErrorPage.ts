@@ -7,12 +7,12 @@ import './serverErrorPage.scss';
 
 export class ServerErrorPage extends Block {
   constructor() {
-    super({ serverErrorPageData });
+    super({ ...serverErrorPageData });
   }
 
   init() {
-    this.children.error = new Error(this.props.serverErrorPageData.error);
-    this.children.link = new Link(this.props.serverErrorPageData.link);
+    this.children.error = new Error(this.props.error);
+    this.children.link = new Link(this.props.link);
   }
 
   render() {

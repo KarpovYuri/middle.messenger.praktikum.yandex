@@ -37,3 +37,12 @@ export function set(object: Indexed | unknown, path: string, value: unknown): In
 
   return merge(object as Indexed, result);
 }
+
+export function queryString(data: Record<string, string | number>) {
+  if (data) {
+    return Object.entries(data).reduce((accumulator, [key, currentValue], currentIndex, array) => {
+      return `${accumulator}${key}=${currentValue}${currentIndex < array.length - 1 ? '&' : ''}`;
+    }, '?');
+  }
+  return '';
+}

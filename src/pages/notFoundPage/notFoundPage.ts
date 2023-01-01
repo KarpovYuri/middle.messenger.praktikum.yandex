@@ -7,12 +7,12 @@ import './notFoundPage.scss';
 
 export class NotFoundPage extends Block {
   constructor() {
-    super({ notFoundPageData });
+    super({ ...notFoundPageData });
   }
 
   init() {
-    this.children.error = new Error(this.props.notFoundPageData.error);
-    this.children.link = new Link(this.props.notFoundPageData.link);
+    this.children.error = new Error(this.props.error);
+    this.children.link = new Link(this.props.link);
   }
 
   render() {

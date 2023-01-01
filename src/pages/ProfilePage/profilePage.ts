@@ -14,7 +14,6 @@ class ProfilePageBase extends Block {
   }
 
   init() {
-    console.log({ ...this.props })
     this.children.title = new Title(this.props.title);
     this.props.inputs.map((item: any) => {
       this.children[item.name] = new Input({ ...item, value: this.props[item.name] });
