@@ -2,6 +2,7 @@ import { SigninPage } from './pages/SigninPage/signinPage';
 import { SignupPage } from './pages/SignupPage/signupPage';
 import { ProfilePage } from './pages/ProfilePage/profilePage';
 import { ChatPage } from './pages/ChatPage/chatPage';
+import { PasswordPage } from './pages/PasswordPage/passwordPage';
 import { NotFoundPage } from './pages/notFoundPage/notFoundPage';
 import { ServerErrorPage } from './pages/serverErrorPage/serverErrorPage';
 import Router from './utils/Router';
@@ -11,6 +12,7 @@ enum Routes {
   Index = '/',
   Signup = '/sign-up',
   Profile = '/settings',
+  Password = '/password',
   Chat = '/messenger',
   Error404 = '/404',
   Error500 = '/500'
@@ -22,6 +24,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     .use(Routes.Signup, SignupPage)
     .use(Routes.Profile, ProfilePage)
     .use(Routes.Chat, ChatPage)
+    .use(Routes.Password, PasswordPage)
     .use(Routes.Error404, NotFoundPage)
     .use(Routes.Error500, ServerErrorPage)
 

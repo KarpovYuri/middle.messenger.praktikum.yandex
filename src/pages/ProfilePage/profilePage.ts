@@ -19,8 +19,9 @@ class ProfilePageBase extends Block {
       this.children[item.name] = new Input({ ...item, value: this.props[item.name] });
     });
     this.children.button = new Button(this.props.button);
-    this.children.linkBack = new Link(this.props.linkBack);
+    this.children.changePasswordLink = new Link(this.props.changePasswordLink);
     this.children.logoutLink = new Link(this.props.logoutLink);
+    this.children.linkBack = new Link(this.props.linkBack);
   }
 
   render() {

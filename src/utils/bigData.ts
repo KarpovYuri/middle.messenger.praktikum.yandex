@@ -149,7 +149,7 @@ export const profilePageData = {
       label: 'Display Name',
       name: 'display_name',
       type: 'text',
-      placeholder: '',
+      placeholder: 'Никнейм',
       classModifier: 'field_columns_two',
       validation: '',
       errorMessage: 'Обязательное поле',
@@ -181,24 +181,6 @@ export const profilePageData = {
       validation: 'pattern="^\\+?[0-9]{10,15}$"',
       errorMessage: 'От 10 до 15 символов, состоит из цифр, может начинаться с символа плюс.',
     },
-    {
-      label: 'Old Password',
-      name: 'old_password',
-      type: 'password',
-      placeholder: '',
-      classModifier: 'field_columns_two',
-      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
-      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
-    },
-    {
-      label: 'New Password',
-      name: 'new_password',
-      type: 'password',
-      placeholder: '',
-      classModifier: 'field_columns_two',
-      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
-      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
-    }
   ],
   button: {
     label: 'Сохранить',
@@ -209,16 +191,18 @@ export const profilePageData = {
   },
   linkBack: {
     urlText: 'Назад',
-    events: {
-      click: () => Router.back()
-    },
+    url: "/messenger"
   },
   logoutLink: {
-    urlText: 'Выйти',
+    urlText: 'Выйти из аккаунта',
     url: '/',
     events: {
       click: () => AuthController.logout()
     },
+  },
+  changePasswordLink: {
+    urlText: 'Изменить пароль',
+    url: '/password',
   },
   events: {
     change: (evt: InputEvent) => {
@@ -231,6 +215,53 @@ export const profilePageData = {
       UserController.updateAvatar(formData);
     },
   },
+}
+
+export const passwordPageData = {
+  title: {
+    title: 'Смена пароля'
+  },
+  inputs: [
+    {
+      label: 'Old Password',
+      name: 'oldPassword',
+      type: 'password',
+      placeholder: 'Старый пароль',
+      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
+      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
+    },
+    {
+      label: 'New Password',
+      name: 'newPassword',
+      type: 'password',
+      placeholder: 'Новый пароль',
+      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
+      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
+    },
+    {
+      label: 'Confirm Password',
+      name: 'confirmPassword',
+      type: 'password',
+      placeholder: 'Подтверждение пароля',
+      classModifier: '',
+      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
+      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
+    }
+  ],
+  link: {
+    urlText: 'Назад',
+    url: "/settings",
+  },
+  button: {
+    label: 'Изменить',
+    type: 'submit',
+    events: {
+      click: (evt: Event) => {
+        const data = handleSubmit(evt);
+        AuthController.signin(data);
+      }
+    }
+  }
 }
 
 export const messagePageData = {
