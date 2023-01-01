@@ -2,7 +2,7 @@
 
 * Макет в Figma: [Ссылка на макет](https://www.figma.com/file/k9as4XTLEBJwQ8zgFJw2RK/Chat_Karpov?node-id=0%3A1)
 * Опубликованное в Netlify приложение: [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
-* [Pull Request](https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/2)
+* [Pull Request](https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/3)
 
 ## Описание
 
@@ -23,6 +23,24 @@
 * Проект переписан с учётом компонентного подхода.
 * Реализована живая валидация форм.
 * Реализован аналог `fetch` запросов к серверу `HTTPTransport.ts`.
+
+## Спринт 3
+
+* Реализован клиентский роутер `utils/Router.ts`
+* Добавлен слой `api`
+* Добавлен слой `controllers`
+* Реализовано хранилище данных `Store.ts`
+* Применен `WebSocket` для сообщений чата
+* В приложении реализован следующий функционал:
+  * Регистрация
+  * Авторизация
+  * Выход пользователя
+  * Обновление данных профиля
+  * Смена пароля
+  * Смена аватара
+  * Создание и удаление чата
+  * Добавление и удаление пользователей в чат
+  * Отправка и получение текстовых сообщений
 
 ## Установка и запуск
 
