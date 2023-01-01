@@ -8,17 +8,26 @@ export interface UpdateProfile {
   phone: string;
   avatar: string;
 }
+
+export interface UpdatePassword {
+  oldPassword: string;
+  newPassword: string;
+}
 export class UserAPI extends BaseAPI {
   constructor() {
     super('/user');
+  }
+
+  updateAvatar(data: FormData) {
+    return this.http.put('/profile/avatar', data);
   }
 
   updateProfile(data: UpdateProfile) {
     return this.http.put('/profile', data);
   }
 
-  updateAvatar(data: FormData) {
-    return this.http.put('/profile/avatar', data);
+  updatePassword(data: UpdatePassword) {
+    return this.http.put('/password', data);
   }
 
   read = undefined;

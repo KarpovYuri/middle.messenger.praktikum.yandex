@@ -241,15 +241,6 @@ export const passwordPageData = {
       validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
       errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
     },
-    {
-      label: 'Confirm Password',
-      name: 'confirmPassword',
-      type: 'password',
-      placeholder: 'Подтверждение пароля',
-      classModifier: '',
-      validation: 'minlength="8" maxlength="40" pattern="^(?=.*[0-9])(?=.*[А-ЯЁA-Z])[а-яА-ЯёЁa-zA-Z0-9]+$"',
-      errorMessage: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
-    }
   ],
   link: {
     urlText: 'Назад',
@@ -261,7 +252,7 @@ export const passwordPageData = {
     events: {
       click: (evt: Event) => {
         const data = handleSubmit(evt);
-        AuthController.signin(data);
+        UserController.updatePassword(data);
       }
     }
   }

@@ -1,4 +1,4 @@
-import API, { UserAPI, UpdateProfile } from '../api/UserAPI';
+import API, { UserAPI, UpdateProfile, UpdatePassword } from '../api/UserAPI';
 import AuthController from './AuthController';
 import router from '../utils/Router';
 
@@ -7,6 +7,15 @@ export class UserController {
 
   constructor() {
     this.api = API;
+  }
+
+  async updateAvatar(data: FormData) {
+    try {
+      await this.api.updateAvatar(data);
+      await AuthController.fetchUser();
+    } catch (error: any) {
+      console.error(error);
+    }
   }
 
   async updateProfile(data: UpdateProfile) {
@@ -19,10 +28,11 @@ export class UserController {
     }
   }
 
-  async updateAvatar(data: FormData) {
+  async updatePassword(data: UpdatePassword) {
     try {
-      await this.api.updateAvatar(data);
+      await this.api.updatePassword(data);
       await AuthController.fetchUser();
+      router.go('/settings');
     } catch (error: any) {
       console.error(error);
     }
