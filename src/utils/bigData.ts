@@ -186,8 +186,11 @@ export const profilePageData = {
     label: 'Сохранить',
     type: 'submit',
     events: {
-      click: (evt: Event) => handleSubmit(evt),
-    },
+      click: (evt: Event) => {
+        const data = handleSubmit(evt);
+        UserController.updateProfile(data);
+      }
+    }
   },
   linkBack: {
     urlText: 'Назад',
