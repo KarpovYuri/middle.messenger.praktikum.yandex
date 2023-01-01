@@ -1,21 +1,20 @@
 <form class="form">
-  <div class="avatar">
-      <div class="avatar__img"></div>
-      <button type="button" aria-label="Кнопка редактирования Аватара" class="avatar__button"></button>
-  </div>
+  <label class="avatar">
+    <input class="avatar__input" type="file" id="avatar" name="avatar" accept="image/*">
+    <img class="avatar__img" src={{#if avatar}}{{avatar}}{{else}}{{noAvatar}}{{/if}} alt="Аватар">
+  </label>
   {{{title}}}
   <fieldset class="form__fieldset form__fieldset_columns_two">
-    {{{firstName}}}
-    {{{secondName}}}
-    {{{displayName}}}
+    {{{first_name}}}
+    {{{second_name}}}
+    {{{display_name}}}
     {{{login}}}
     {{{email}}}
     {{{phone}}}
-    {{{oldPassword}}}
-    {{{newPassword}}}
+    {{{old_password}}}
+    {{{new_password}}}
   </fieldset>
   {{{button}}}
-  {{!-- <p class="form-link">Внесите изменения и сохраните.</p> --}}
   {{{linkBack}}}
   {{{logoutLink}}}
 </form>

@@ -1,6 +1,7 @@
 <div class="field {{classModifier}}">
   <label for={{name}} class="field__label">{{label}}</label>
-  <input type={{type}} id={{name}} name={{name}} class="field__input input" placeholder={{placeholder}}
+  <input {{#if value}}value={{value}}{{/if}}
+  type={{type}} id={{name}} name={{name}} class="field__input input" placeholder="{{placeholder}}"
   autoComplete="off" required {{{validation}}} data-errortext="{{errorMessage}}"/>
   <span class="field__input-error"></span>
 </div>
