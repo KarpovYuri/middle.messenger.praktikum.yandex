@@ -5,7 +5,7 @@ import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { Link } from '../../components/Link/Link';
 import { profilePageData } from '../../utils/bigData';
-import { withStore } from '../../utils/Store';
+import { withStore } from '../../hocs/withStore';
 import './profilePage.scss';
 
 class ProfilePageBase extends Block {

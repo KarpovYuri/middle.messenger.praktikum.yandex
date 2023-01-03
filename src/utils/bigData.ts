@@ -3,6 +3,7 @@ import Router from './Router';
 import AuthController from '../controllers/AuthController';
 import UserController from '../controllers/UserController';
 import noAvatar from '../assets/images/no-avatar.png';
+import ChatsController from '../controllers/ChatsController';
 
 export const signinPageData = {
   title: {
@@ -323,7 +324,7 @@ export const messagePageData = {
     urlText: 'Add chat',
     addClass: 'chat__add-chat',
     events: {
-      click: () => console.log('Чат добавлен'),
+      click: async () => await ChatsController.create('Тестовый Чат'),
     },
   }
 }
