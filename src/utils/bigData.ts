@@ -261,91 +261,13 @@ export const passwordPageData = {
 export const messagePageData = {
   userCards: [
     {
-      userName: 'Косой',
+      userName: 'Чат #1',
       lastMessage: 'Автомашину куплю с магнитофоном, пошью костюм с отливом – и в Ялту!',
       dateLastMessage: '10:49',
       qtyUnreadMessage: '2'
     },
-    {
-      userName: 'Алибаба',
-      lastMessage: 'А в тюрьме сейчас ужин… макароны…',
-      dateLastMessage: '9:00',
-      qtyUnreadMessage: '12'
-    },
-    {
-      userName: 'Хмырь',
-      lastMessage: 'Это тебе не мелочь по карманам тырить!',
-      dateLastMessage: 'ПН',
-      qtyUnreadMessage: '1024'
-    },
-    {
-      userName: 'Трошкин',
-      lastMessage: 'Прошу вас, возьмите в руки космические ложки. Подкрепитесь основательно. Ракета до обеда на землю не вернется.',
-      dateLastMessage: 'ВС',
-      qtyUnreadMessage: '123'
-    },
-    {
-      userName: 'Anonimus',
-      lastMessage: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla magni quae aspernatur vel ab provident
-      quibusdam. Hic fugiat provident deleniti aut, perferendis ratione numquam debitis soluta unde temporibus optio
-      saepe!`,
-      dateLastMessage: 'СБ',
-      qtyUnreadMessage: ''
-    },
-    {
-      userName: 'Косой',
-      lastMessage: 'Автомашину куплю с магнитофоном, пошью костюм с отливом – и в Ялту!',
-      dateLastMessage: '10:49',
-      qtyUnreadMessage: '2'
-    },
-    {
-      userName: 'Алибаба',
-      lastMessage: 'А в тюрьме сейчас ужин… макароны…',
-      dateLastMessage: '9:00',
-      qtyUnreadMessage: '12'
-    },
-    {
-      userName: 'Хмырь',
-      lastMessage: 'Это тебе не мелочь по карманам тырить!',
-      dateLastMessage: 'ПН',
-      qtyUnreadMessage: '1024'
-    },
-    {
-      userName: 'Трошкин',
-      lastMessage: 'Прошу вас, возьмите в руки космические ложки. Подкрепитесь основательно. Ракета до обеда на землю не вернется.',
-      dateLastMessage: 'ВС',
-      qtyUnreadMessage: '123'
-    },
-    {
-      userName: 'Anonimus',
-      lastMessage: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla magni quae aspernatur vel ab provident
-      quibusdam. Hic fugiat provident deleniti aut, perferendis ratione numquam debitis soluta unde temporibus optio
-      saepe!`,
-      dateLastMessage: 'СБ',
-      qtyUnreadMessage: ''
-    }
   ],
   messages: [
-    {
-      messageClassModifier: 'message_place_right',
-      messageTimeClassModifier: 'message__time_place_right',
-      message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quis facilis obcaecati quia et officia
-      accusamus porro animi tempore repellendus sequi corporis praesentium ullam architecto delectus vitae, modi
-      veniam rem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quis facilis obcaecati quia et
-      officia accusamus porro animi tempore repellendus sequi corporis praesentium ullam architecto delectus vitae,
-      modi veniam rem!`,
-      timeMessage: '9:30'
-    },
-    {
-      messageClassModifier: 'message_place_right',
-      messageTimeClassModifier: 'message__time_place_right',
-      message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quis facilis obcaecati quia et officia
-      accusamus porro animi tempore repellendus sequi corporis praesentium ullam architecto delectus vitae, modi
-      veniam rem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quis facilis obcaecati quia et
-      officia accusamus porro animi tempore repellendus sequi corporis praesentium ullam architecto delectus vitae,
-      modi veniam rem!`,
-      timeMessage: '9:25'
-    },
     {
       messageClassModifier: 'message_place_right',
       messageTimeClassModifier: 'message__time_place_right',
@@ -365,16 +287,6 @@ export const messagePageData = {
       messageTimeClassModifier: 'message__time_place_right',
       message: `Круто!!!`,
       timeMessage: '9:10'
-    },
-    {
-      messageClassModifier: '',
-      messageTimeClassModifier: '',
-      message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quis facilis obcaecati quia et officia
-      accusamus porro animi tempore repellendus sequi corporis praesentium ullam architecto delectus vitae, modi
-      veniam rem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quis facilis obcaecati quia et
-      officia accusamus porro animi tempore repellendus sequi corporis praesentium ullam architecto delectus vitae,
-      modi veniam rem!`,
-      timeMessage: '9:05'
     },
     {
       messageClassModifier: '',
@@ -402,10 +314,17 @@ export const messagePageData = {
       click: (evt: Event) => handleSubmit(evt),
     },
   },
-  link: {
+  linkProfile: {
     url: '/settings',
-    urlText: 'Профиль',
+    urlText: 'Profile',
     addClass: 'chat__edit-profile'
+  },
+  linkAddChat: {
+    urlText: 'Add chat',
+    addClass: 'chat__add-chat',
+    events: {
+      click: () => console.log('Чат добавлен'),
+    },
   }
 }
 

@@ -21,7 +21,8 @@ export class ChatPage extends Block {
       this.children[`message${index+1}`] = new Message(item)
     ));
     this.children.button = new Button(this.props.button);
-    this.children.link = new Link(this.props.link);
+    this.children.linkAddChat = new Link(this.props.linkAddChat);
+    this.children.linkProfile = new Link(this.props.linkProfile);
   }
 
   render() {

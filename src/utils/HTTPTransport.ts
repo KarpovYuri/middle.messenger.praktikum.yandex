@@ -39,9 +39,10 @@ class HTTPTransport {
     });
   }
 
-  public delete<Response>(url: string): Promise<Response> {
+  public delete<Response>(url: string, data?: unknown): Promise<Response> {
     return this.request<Response>(this.endpoint + url, {
       method: METHOD.DELETE,
+      data,
     });
   }
 
