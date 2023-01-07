@@ -275,7 +275,13 @@ export const chatPageData = {
 }
 
 export const chatData = {
-  button: {
+  deleteChatBtn: {
+    label: '',
+    className: 'chat-header__delete-chat-btn',
+    type: 'button',
+    disabled: ''
+  },
+  sendBtn: {
     label: '',
     className: 'message-enter__send-btn',
     type: 'submit',

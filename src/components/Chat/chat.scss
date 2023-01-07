@@ -34,12 +34,12 @@
     flex-grow: 1;
   }
 
-  &__btn {
+  &__delete-chat-btn {
     background: none;
-    background-image: url("../../assets/images/btn-menu.svg");
+    background-image: url("../../assets/images/delete-chat-icon.svg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 22px 22px;
+    background-size: 18px 18px;
     background-color: $second-bg-color;
     width: 36px;
     height: 36px;

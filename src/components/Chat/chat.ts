@@ -6,6 +6,7 @@ import { Button } from '../Button/button';
 import MessagesController, { Message as MessageInfo } from '../../controllers/MessagesController';
 import { withStore } from '../../hocs/withStore';
 import { chatData } from '../../utils/bigData';
+import ChatsController from '../../controllers/ChatsController';
 import  './chat.scss'
 
 interface ChatProps {
@@ -25,7 +26,7 @@ class ChatBase extends Block {
     this.children.input = new Input(this.props.input);
 
     this.children.button = new Button({
-      ...this.props.button,
+      ...this.props.sendBtn,
       events: {
         click: (evt: Event) => {
           evt.preventDefault();
@@ -33,6 +34,15 @@ class ChatBase extends Block {
           const message = input.getValue();
           input.setValue('');
           MessagesController.sendMessage(this.props.selectedChat!, message);
+        }
+      }
+    });
+
+    this.children.deleteChatBtn = new Button({
+      ...this.props.deleteChatBtn,
+      events: {
+        click: () => {
+          ChatsController.delete(this.props.selectedChat);
         }
       }
     });
