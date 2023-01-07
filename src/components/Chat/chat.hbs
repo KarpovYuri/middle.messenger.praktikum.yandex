@@ -5,16 +5,14 @@
       <p class="chat-header__name">{{title}} # {{selectedChat}}</p>
       <button class="chat-header__btn"></button>
         {{else}}
-          Выбирете чат
+          <p class="chat-header__selected-chat">Выберите чат</p>
     {{/if}}
   </div>
   {{#if selectedChat }}
     <ul class="message-list">
-      <div>
-        {{#each messages}}
-          {{{this}}}
-        {{/each}}
-      </div>
+      {{#each messages}}
+        {{{this}}}
+      {{/each}}
     </ul>
     <div class="message-enter">
       <button class="message-enter__menu-btn"></button>

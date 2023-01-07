@@ -16,6 +16,11 @@
   border-bottom: 1px solid $second-bg-color;
   min-height: 81px;
 
+  &__selected-chat {
+    width: 100%;
+    text-align: center;
+  }
+
   &__avatar {
     width: 54px;
     height: 54px;
@@ -51,8 +56,8 @@
 
 .message-list {
   display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   flex-grow: 1;
   gap: 10px;
   overflow-y: auto;

@@ -1,4 +1,4 @@
-<li class="message {{messageClassModifier}}">
+<li class="message {{#if isMine}} message_place_right {{/if}}">
   <p class="message__text">{{content}}</p>
-  <data class="message__time {{messageTimeClassModifier}}">{{timeMessage}}</data>
+  <data class="message__time">{{time}}</data>
 </li>

@@ -3,15 +3,13 @@ import template from './message.hbs';
 import  './message.scss';
 
 type MessageProps = {
-  messageClassModifier: string;
-  messageTimeClassModifier: string;
-  message: string;
-  timeMessage: string;
+  content: string;
+  time: string;
 }
 
-export class Message extends Block<MessageProps> {
+export class Message extends Block {
   constructor(props: MessageProps) {
-    super({ ...props });
+    super({ ...props, time: props.time.substring(11, 16) });
   }
 
   render() {

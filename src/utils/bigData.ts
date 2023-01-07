@@ -278,7 +278,7 @@ export const chatData = {
   button: {
     label: '',
     className: 'message-enter__send-btn',
-    type: 'button',
+    type: 'submit',
     disabled: ''
   },
   input: {

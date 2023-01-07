@@ -27,7 +27,8 @@ class ChatBase extends Block {
     this.children.button = new Button({
       ...this.props.button,
       events: {
-        click: () => {
+        click: (evt: Event) => {
+          evt.preventDefault();
           const input =this.children.input as Input;
           const message = input.getValue();
           input.setValue('');
