@@ -1,3 +1,6 @@
+{{#if chatInput}}
+<input type={{type}} class="message-enter__input" name={{name}} placeholder="{{placeholder}}" autocomplete="off">
+{{else}}
 <div class="field {{classModifier}}">
   <label for={{name}} class="field__label">{{label}}</label>
   <input {{#if value}}value={{value}}{{/if}}
@@ -5,3 +8,4 @@
   autoComplete="off" required {{{validation}}} data-errortext="{{errorMessage}}"/>
   <span class="field__input-error"></span>
 </div>
+{{/if}}

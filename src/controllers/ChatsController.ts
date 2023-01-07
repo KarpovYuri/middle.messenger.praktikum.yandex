@@ -41,8 +41,9 @@ class ChatsController {
     return this.api.getToken(id);
   }
 
-  selectChat(id: number) {
+  selectChat(id: number, title: string) {
     store.set('selectedChat', id);
+    store.set('title', title);
   }
 }
 

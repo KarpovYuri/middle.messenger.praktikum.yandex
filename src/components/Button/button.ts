@@ -7,6 +7,9 @@ type ButtonProps = {
   className?: string;
   label: string;
   disabled?: string;
+  events: {
+    click: () => void;
+  };
 }
 
 export class Button extends Block<ButtonProps> {

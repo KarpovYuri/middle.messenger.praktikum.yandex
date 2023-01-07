@@ -1,0 +1,27 @@
+<main class="chat-main">
+  <div class="chat-header">
+    {{#if selectedChat }}
+      <div class="chat-header__avatar"></div>
+      <p class="chat-header__name">{{title}} # {{selectedChat}}</p>
+      <button class="chat-header__btn"></button>
+        {{else}}
+          Выбирете чат
+    {{/if}}
+  </div>
+  {{#if selectedChat }}
+    <ul class="message-list">
+      <div>
+        {{#each messages}}
+          {{{this}}}
+        {{/each}}
+      </div>
+    </ul>
+    <div class="message-enter">
+      <button class="message-enter__menu-btn"></button>
+      <form class="message-enter__form" novalidate name="chat">
+        {{{input}}}
+        {{{button}}}
+      </form>
+    </div>
+  {{/if}}
+</main>

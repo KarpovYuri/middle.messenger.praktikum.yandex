@@ -260,61 +260,6 @@ export const passwordPageData = {
 }
 
 export const chatPageData = {
-  userCards: [
-    {
-      userName: 'Чат #1',
-      lastMessage: 'Автомашину куплю с магнитофоном, пошью костюм с отливом – и в Ялту!',
-      dateLastMessage: '10:49',
-      qtyUnreadMessage: '2'
-    },
-  ],
-  messages: [
-    {
-      messageClassModifier: 'message_place_right',
-      messageTimeClassModifier: 'message__time_place_right',
-      message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quis facilis obcaecati quia et officia
-      accusamus porro animi tempore repellendus sequi corporis praesentium ullam architecto delectus vitae, modi
-      veniam rem!`,
-      timeMessage: '9:20'
-    },
-    {
-      messageClassModifier: 'message_place_right',
-      messageTimeClassModifier: 'message__time_place_right',
-      message: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`,
-      timeMessage: '9:15'
-    },
-    {
-      messageClassModifier: 'message_place_right',
-      messageTimeClassModifier: 'message__time_place_right',
-      message: `Круто!!!`,
-      timeMessage: '9:10'
-    },
-    {
-      messageClassModifier: '',
-      messageTimeClassModifier: '',
-      message: `Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не
-      попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.`,
-      timeMessage: '9:00'
-    },
-    {
-      messageClassModifier: '',
-      messageTimeClassModifier: '',
-      message: `Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила
-      Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью
-      500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с
-      собой забрали только кассеты с пленкой.`,
-      timeMessage: '8:55'
-    }
-  ],
-  button: {
-    label: '',
-    className: 'message-enter__send-btn',
-    type: 'submit',
-    disabled: '',
-    events: {
-      click: (evt: Event) => handleSubmit(evt),
-    },
-  },
   linkProfile: {
     url: '/settings',
     urlText: 'Profile',
@@ -326,6 +271,22 @@ export const chatPageData = {
     events: {
       click: async () => await ChatsController.create('Тестовый Чат'),
     },
+  }
+}
+
+export const chatData = {
+  button: {
+    label: '',
+    className: 'message-enter__send-btn',
+    type: 'button',
+    disabled: ''
+  },
+  input: {
+    type: 'text',
+    placeholder: 'Message',
+    name: 'message',
+    chatInput: true,
+    events: {}
   }
 }
 
