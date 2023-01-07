@@ -1,0 +1,27 @@
+<li class="user-card">
+  <div class="user-card__avatar"></div>
+  <p class="user-card__name">
+    {{#if title }}
+      {{title}} # {{id}}
+    {{else}}
+      Чат # {{id}}
+    {{/if}}
+  </p>
+  <p class="user-card__message">
+    {{#if last_message }}
+      {{last_message}}
+    {{else}}
+      В этом чате еще нет сообщений от пользователей!
+    {{/if}}
+  </p>
+  <data class="user-card__date">
+    {{#if time }}
+      {{time}}
+    {{/if}}
+  </data>
+  <div class="user-card__qty-msg">
+    {{#if unread_count }}
+      {{unread_count}}
+    {{/if}}
+    </div>
+</li>

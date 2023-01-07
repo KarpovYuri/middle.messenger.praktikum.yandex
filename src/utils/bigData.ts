@@ -259,7 +259,7 @@ export const passwordPageData = {
   }
 }
 
-export const messagePageData = {
+export const chatPageData = {
   userCards: [
     {
       userName: 'Чат #1',

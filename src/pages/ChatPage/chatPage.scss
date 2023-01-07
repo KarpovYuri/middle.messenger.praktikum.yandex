@@ -67,7 +67,7 @@
     }
   }
 
-  &__serch {
+  &__search {
     color: $white-color;
     font-size: 18px;
     margin: 26px 16px 36px;
@@ -102,15 +102,6 @@
     border: none;
     background-color: $second-bg-color;
     margin: 0 16px;
-  }
-
-  &__user-cards-list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin: 0;
-    padding: 0 16px 10px;
-    overflow-y: auto;
   }
 
   &__main {
