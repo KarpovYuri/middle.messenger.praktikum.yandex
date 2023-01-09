@@ -42,7 +42,7 @@ export class AddUserPage extends Block {
           delete data.login;
           ChatsController.addUserToChat({
             users: Object.values(data),
-            chatId: localStorage.getItem('selectedChat')
+            chatId: localStorage.selectedChat
           });
         }
       }
