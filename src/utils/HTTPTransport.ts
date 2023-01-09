@@ -46,7 +46,7 @@ class HTTPTransport {
     });
   }
 
-  private request<Response>(url: string, options: Options = {method: METHOD.GET}): Promise<Response> {
+  private request<Response>(url: string, options: Options = { method: METHOD.GET }): Promise<Response> {
     const { method, data } = options;
 
     const stringified = (method === METHOD.GET)
@@ -67,9 +67,9 @@ class HTTPTransport {
         }
       };
 
-      xhr.onabort = () => reject({reason: 'abort'});
-      xhr.onerror = () => reject({reason: 'network error'});
-      xhr.ontimeout = () => reject({reason: 'timeout'});
+      xhr.onabort = () => reject({ reason: 'abort' });
+      xhr.onerror = () => reject({ reason: 'network error' });
+      xhr.ontimeout = () => reject({ reason: 'timeout' });
 
       if (!(data instanceof FormData)) {
         xhr.setRequestHeader('Content-Type', 'application/json');

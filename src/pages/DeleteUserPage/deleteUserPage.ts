@@ -34,7 +34,8 @@ export class DeleteUserPage extends Block {
             chatId: localStorage.getItem('selectedChat')
           });
         }
-      }});
+      }
+    });
     this.children.link = new Link(this.props.link);
     this.props.getUsers = await ChatsController.getUserFromChat(localStorage.selectedChat);
   }
@@ -50,7 +51,7 @@ export class DeleteUserPage extends Block {
         ...data as any,
         checkBox: true,
         events: {
-          change: (evt: Event) => validateForm(evt.target  as HTMLInputElement)
+          change: (evt: Event) => validateForm(evt.target as HTMLInputElement)
         }
       });
     })

@@ -1,9 +1,9 @@
 import Block from '../utils/Block';
-import store, {StoreEvents} from '../utils/Store';
+import store, { StoreEvents } from '../utils/Store';
 
 export function withStore(mapStateToProps: (state: any) => any) {
 
-  return function wrap(Component: typeof Block){
+  return function wrap(Component: typeof Block) {
     let previousState: any;
 
 

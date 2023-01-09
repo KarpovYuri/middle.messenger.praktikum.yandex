@@ -8,7 +8,7 @@ import MessagesController, { Message as MessageInfo } from '../../controllers/Me
 import { withStore } from '../../hocs/withStore';
 import { chatData } from '../../utils/bigData';
 import ChatsController from '../../controllers/ChatsController';
-import  './chat.scss'
+import './chat.scss'
 
 interface ChatProps {
   selectedChat: number | undefined;
@@ -22,7 +22,8 @@ class ChatBase extends Block {
     super({ ...props, ...chatData });
   }
 
-    protected init() {
+  protected init() {
+
     this.children.messages = this.createMessages(this.props);
     this.children.input = new Input(this.props.input);
     this.children.linkAddUser = new Link(this.props.linkAddUser);
@@ -33,7 +34,7 @@ class ChatBase extends Block {
       events: {
         click: (evt: Event) => {
           evt.preventDefault();
-          const input =this.children.input as Input;
+          const input = this.children.input as Input;
           const message = input.getValue();
           input.setValue('');
           MessagesController.sendMessage(this.props.selectedChat!, message);
@@ -58,8 +59,8 @@ class ChatBase extends Block {
   }
 
   private createMessages(props: ChatProps) {
-    return [ ...props.messages ].reverse().map(data => {
-      return new Message({...data, isMine: props.userId === data.user_id });
+    return [...props.messages].reverse().map(data => {
+      return new Message({ ...data, isMine: props.userId === data.user_id });
     })
   }
 

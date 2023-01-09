@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './button.hbs';
-import  './button.scss';
+import './button.scss';
 
 type ButtonProps = {
   type?: string;
@@ -19,7 +19,7 @@ export class Button extends Block<ButtonProps> {
       className: 'button inactive',
       disabled: 'disabled',
       ...props
-     });
+    });
   }
 
   render() {

@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './message.hbs';
-import  './message.scss';
+import './message.scss';
 
 type MessageProps = {
   content: string;

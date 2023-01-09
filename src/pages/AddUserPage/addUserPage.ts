@@ -28,11 +28,12 @@ export class AddUserPage extends Block {
     this.children.findBtn = new Button({
       ...this.props.findBtn,
       events: {
-      click: async (evt: Event) => {
-        let data = handleSubmit(evt);
-        this.props.findUsers = await UserController.search(data);
+        click: async (evt: Event) => {
+          let data = handleSubmit(evt);
+          this.props.findUsers = await UserController.search(data);
+        }
       }
-    } });
+    });
     this.children.addBtn = new Button({
       ...this.props.addBtn,
       events: {
@@ -44,7 +45,8 @@ export class AddUserPage extends Block {
             chatId: localStorage.getItem('selectedChat')
           });
         }
-      }});
+      }
+    });
     this.children.link = new Link(this.props.link);
     this.children.findUsers = this.findUsers(this.props);
   }

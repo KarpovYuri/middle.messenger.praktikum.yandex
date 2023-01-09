@@ -45,11 +45,11 @@ class Block<TProps extends Record<string, unknown> = any> {
       }
     });
 
-    return {props: props as TProps, children};
+    return { props: props as TProps, children };
   }
 
   _addEvents() {
-    const {events = {}} = this.props as TProps & { events: Record<string, () => void> };
+    const { events = {} } = this.props as TProps & { events: Record<string, () => void> };
 
     Object.keys(events).forEach(eventName => {
       this._element?.addEventListener(eventName, events[eventName]);
@@ -68,13 +68,13 @@ class Block<TProps extends Record<string, unknown> = any> {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  protected init() {}
+  protected init() { }
 
   _componentDidMount() {
     this.componentDidMount();
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -125,7 +125,7 @@ class Block<TProps extends Record<string, unknown> = any> {
   }
 
   protected compile(template: (context: any) => string, context: any) {
-    const contextAndStubs = {...context};
+    const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
       if (Array.isArray(component)) {
@@ -181,7 +181,7 @@ class Block<TProps extends Record<string, unknown> = any> {
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop: string, value) {
-        const oldTarget = {...target}
+        const oldTarget = { ...target }
 
         target[prop as keyof TProps] = value;
 

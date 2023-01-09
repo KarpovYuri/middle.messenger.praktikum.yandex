@@ -4,7 +4,7 @@ import { ChatCard } from '../ChatCard/chatCard';
 import { withStore } from '../../hocs/withStore';
 import { ChatInfo } from '../../api/ChatsAPI';
 import ChatsController from '../../controllers/ChatsController';
-import  './chatsList.scss';
+import './chatsList.scss';
 
 interface ChatsListProps {
   chats: ChatInfo[];
@@ -13,7 +13,7 @@ interface ChatsListProps {
 
 class ChatsListBase extends Block {
   constructor(props: ChatsListProps) {
-    super({...props});
+    super({ ...props });
   }
 
   protected init() {
@@ -39,10 +39,10 @@ class ChatsListBase extends Block {
   }
 
   protected render(): DocumentFragment {
-    return this.compile(template, {...this.props });
+    return this.compile(template, { ...this.props });
   }
 }
 
-const withChats = withStore((state) => ({chats: [...(state.chats || [])]}));
+const withChats = withStore((state) => ({ chats: [...(state.chats || [])] }));
 
 export const ChatsList = withChats(ChatsListBase as any);

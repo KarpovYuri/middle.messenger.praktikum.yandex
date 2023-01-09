@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import template from './chatCard.hbs';
 import { withStore } from '../../hocs/withStore';
 import { ChatInfo } from '../../api/ChatsAPI';
-import  './chatCard.scss'
+import './chatCard.scss'
 
 interface ChatCardProps {
   id: number;
@@ -28,7 +28,7 @@ class ChatCardBase extends Block {
 }
 
 export const withSelectedChat = withStore(state => ({
-  selectedChat: (state.chats || []).find(({id}: { id: number; }) => id === state.selectedChat)
+  selectedChat: (state.chats || []).find(({ id }: { id: number; }) => id === state.selectedChat)
 }));
 
 export const ChatCard = withSelectedChat(ChatCardBase as any);

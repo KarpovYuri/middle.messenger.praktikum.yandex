@@ -29,8 +29,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     .use(Routes.Profile, ProfilePage)
     .use(Routes.Chat, ChatPage)
     .use(Routes.Password, PasswordPage)
-    .use(Routes.AddUser, AddUserPage)
-    .use(Routes.DeleteUser, DeleteUserPage)
+    .use(Routes.AddUser, AddUserPage as any)
+    .use(Routes.DeleteUser, DeleteUserPage as any)
     .use(Routes.Error404, NotFoundPage)
     .use(Routes.Error500, ServerErrorPage)
 
@@ -56,8 +56,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     if (isProtectedRoute
       && window.location.pathname != Routes.Error404
-      && window.location.pathname != Routes.Error500)
-    {
+      && window.location.pathname != Routes.Error500) {
       Router.go(Routes.Index);
     }
   }
