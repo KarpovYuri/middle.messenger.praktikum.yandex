@@ -53,7 +53,6 @@ class ChatBase extends Block {
 
   protected componentDidUpdate(_oldProps: ChatProps, _newProps: ChatProps): boolean {
     this.children.messages = this.createMessages(_newProps);
-    // this.children.messages = this.createMessages({ ..._newProps, messages: [ ..._newProps.messages].reverse() });
 
     return true;
   }
@@ -89,4 +88,4 @@ const withSelectedChatMessages = withStore(state => {
   };
 });
 
-export const Chat = withSelectedChatMessages(ChatBase);
+export const Chat = withSelectedChatMessages(ChatBase as any);

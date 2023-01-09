@@ -12,11 +12,13 @@ type InputProps = {
   validation?: string;
   errorMessage?: string;
   chatInput?: boolean;
+  checkBox?: boolean,
   events?: {
-    input: () => void,
-    focusin: () => void,
-    focusout: () => void,
-  },
+    input?: (() => void) | undefined,
+    focusin?: () => void,
+    focusout?: () => void,
+    change?: ((evt: Event) => void) | undefined,
+  } | undefined,
 }
 
 export class Input extends Block<InputProps> {

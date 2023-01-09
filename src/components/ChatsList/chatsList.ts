@@ -45,4 +45,4 @@ class ChatsListBase extends Block {
 
 const withChats = withStore((state) => ({chats: [...(state.chats || [])]}));
 
-export const ChatsList = withChats(ChatsListBase);
+export const ChatsList = withChats(ChatsListBase as any);

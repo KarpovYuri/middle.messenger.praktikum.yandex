@@ -10,6 +10,10 @@ import validateForm from '../../utils/validateForm';
 import ChatsController from '../../controllers/ChatsController';
 import './deleteUserPage.scss';
 
+interface deleteUserProps {
+  getUsers: [];
+}
+
 export class DeleteUserPage extends Block {
   constructor() {
     super({ ...deleteUserPageData, getUsers: [] });
@@ -35,18 +39,18 @@ export class DeleteUserPage extends Block {
     this.props.getUsers = await ChatsController.getUserFromChat(localStorage.selectedChat);
   }
 
-  componentDidUpdate(_oldProps, _newProps): boolean {
+  componentDidUpdate(_oldProps: deleteUserProps, _newProps: deleteUserProps): boolean {
     this.children.getUsers = this.getUsers(_newProps);
     return true;
   }
 
-  getUsers(props) {
+  getUsers(props: deleteUserProps) {
     return props.getUsers.map(data => {
       return new Input({
-        ...data,
+        ...data as any,
         checkBox: true,
         events: {
-          change: (evt: Event) => validateForm(evt.target)
+          change: (evt: Event) => validateForm(evt.target  as HTMLInputElement)
         }
       });
     })

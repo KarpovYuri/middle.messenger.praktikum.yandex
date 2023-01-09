@@ -28,7 +28,7 @@ class ChatCardBase extends Block {
 }
 
 export const withSelectedChat = withStore(state => ({
-  selectedChat: (state.chats || []).find(({id}) => id === state.selectedChat)
+  selectedChat: (state.chats || []).find(({id}: { id: number; }) => id === state.selectedChat)
 }));
 
-export const ChatCard = withSelectedChat(ChatCardBase);
+export const ChatCard = withSelectedChat(ChatCardBase as any);

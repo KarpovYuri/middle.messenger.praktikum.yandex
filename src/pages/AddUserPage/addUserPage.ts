@@ -11,6 +11,10 @@ import validateForm from '../../utils/validateForm';
 import ChatsController from '../../controllers/ChatsController';
 import './addUserPage.scss';
 
+interface addUserProps {
+  findUsers: [];
+}
+
 export class AddUserPage extends Block {
   constructor() {
     super({ ...addUserPageData, findUsers: [] });
@@ -45,18 +49,18 @@ export class AddUserPage extends Block {
     this.children.findUsers = this.findUsers(this.props);
   }
 
-  componentDidUpdate(_oldProps, _newProps): boolean {
+  componentDidUpdate(_oldProps: addUserProps, _newProps: addUserProps): boolean {
     this.children.findUsers = this.findUsers(_newProps);
     return true;
   }
 
-  findUsers(props) {
+  findUsers(props: addUserProps) {
     return props.findUsers.map(data => {
       return new Input({
-        ...data,
+        ...data as any,
         checkBox: true,
         events: {
-          change: (evt: Event) => validateForm(evt.target)
+          change: (evt: Event) => validateForm(evt.target as HTMLInputElement)
         }
       });
     })

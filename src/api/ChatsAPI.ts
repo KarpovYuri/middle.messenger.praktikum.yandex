@@ -13,6 +13,11 @@ export interface ChatInfo {
   }
 }
 
+export interface ChatUsers {
+  chatId: string | null,
+  users: number[]
+}
+
 export class ChatsAPI extends BaseAPI {
   constructor() {
     super('/chats');
@@ -35,11 +40,12 @@ export class ChatsAPI extends BaseAPI {
     return this.http.get(`/${id}/users`)
   }
 
-  addUsers(data): Promise<unknown> {
+  addUsers(data: ChatUsers): Promise<unknown> {
+    console.log(data);
     return this.http.put('/users', data);
   }
 
-  deleteUsers(data): Promise<unknown> {
+  deleteUsers(data: ChatUsers): Promise<unknown> {
     return this.http.delete('/users', data);
   }
 

@@ -1,4 +1,4 @@
-import API, { ChatsAPI } from '../api/ChatsAPI';
+import API, { ChatsAPI, ChatUsers } from '../api/ChatsAPI';
 import store from '../utils/Store';
 import MessagesController from './MessagesController';
 import router from '../utils/Router';
@@ -28,12 +28,12 @@ class ChatsController {
     store.set('chats', chats);
   }
 
-  addUserToChat(data) {
+  addUserToChat(data: ChatUsers) {
     this.api.addUsers(data);
     router.go('/messenger');
   }
 
-  deleteUserToChat(data) {
+  deleteUserToChat(data: ChatUsers) {
     this.api.deleteUsers(data);
     router.go('/messenger');
   }
