@@ -53,12 +53,13 @@ class ChatBase extends Block {
 
   protected componentDidUpdate(_oldProps: ChatProps, _newProps: ChatProps): boolean {
     this.children.messages = this.createMessages(_newProps);
+    // this.children.messages = this.createMessages({ ..._newProps, messages: [ ..._newProps.messages].reverse() });
 
     return true;
   }
 
   private createMessages(props: ChatProps) {
-    return props.messages.map(data => {
+    return [ ...props.messages ].reverse().map(data => {
       return new Message({...data, isMine: props.userId === data.user_id });
     })
   }

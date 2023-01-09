@@ -71,8 +71,7 @@
 
 .message-list {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: column-reverse;
   flex-grow: 1;
   gap: 10px;
   overflow-y: auto;

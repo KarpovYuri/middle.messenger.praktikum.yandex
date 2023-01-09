@@ -20,10 +20,15 @@ class ChatCardBase extends Block {
   }
 
   protected render(): DocumentFragment {
-    return this.compile(template, {...this.props, isSelected: this.props.id === this.props.selectedChat?.id});
+    return this.compile(template, {
+      ...this.props,
+      isSelected: this.props.id === this.props.selectedChat?.id
+    });
   }
 }
 
-export const withSelectedChat = withStore(state => ({selectedChat: (state.chats || []).find(({id}) => id === state.selectedChat)}));
+export const withSelectedChat = withStore(state => ({
+  selectedChat: (state.chats || []).find(({id}) => id === state.selectedChat)
+}));
 
 export const ChatCard = withSelectedChat(ChatCardBase);
