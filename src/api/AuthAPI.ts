@@ -44,8 +44,6 @@ export class AuthAPI extends BaseAPI {
   }
 
   logout() {
-    localStorage.removeItem('selectedChat');
-    localStorage.removeItem('title');
     return this.http.post('/logout');
   }
 

@@ -36,6 +36,10 @@ export class AuthController {
 
   async logout() {
     try {
+      localStorage.removeItem('selectedChat');
+      localStorage.removeItem('title');
+      store.set('selectedChat', '');
+      store.set('title', '');
       await this.api.logout();
 
       router.go('/');

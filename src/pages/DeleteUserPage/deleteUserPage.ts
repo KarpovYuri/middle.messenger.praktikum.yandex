@@ -28,7 +28,6 @@ export class DeleteUserPage extends Block {
       events: {
         click: (evt: Event) => {
           const data = handleSubmit(evt);
-          console.log(data)
           ChatsController.deleteUserToChat({
             users: Object.values(data),
             chatId: localStorage.getItem('selectedChat')

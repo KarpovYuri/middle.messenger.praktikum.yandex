@@ -19,6 +19,7 @@ export class ChatPage extends Block {
     this.children.chatsList = new ChatsList({ isLoaded: false });
     this.children.chat = new Chat({});
 
+
     ChatsController.fetchChats().finally(() => {
       (this.children.chatsList as Block).setProps({
         isLoaded: true

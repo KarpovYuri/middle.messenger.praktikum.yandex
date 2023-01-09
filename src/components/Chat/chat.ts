@@ -28,6 +28,9 @@ class ChatBase extends Block {
     this.children.input = new Input(this.props.input);
     this.children.linkAddUser = new Link(this.props.linkAddUser);
     this.children.linkDeleteUser = new Link(this.props.linkDeleteUser);
+    if(localStorage.selectedChat) {
+      ChatsController.selectChat(localStorage.selectedChat, localStorage.title);
+    } 
 
     this.children.button = new Button({
       ...this.props.sendBtn,
