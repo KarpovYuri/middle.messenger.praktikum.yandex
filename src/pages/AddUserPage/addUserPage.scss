@@ -7,6 +7,10 @@
   gap: 16px;
 }
 
+.form__user {
+  padding: 0;
+}
+
 .form__find-users{
   width: 460px;
   border: 0;
@@ -17,6 +21,7 @@
   flex-wrap: wrap;
   justify-content: center;
   min-height: 100px;
+  margin-top: 50px;
 }
 
 .button_add-btn {

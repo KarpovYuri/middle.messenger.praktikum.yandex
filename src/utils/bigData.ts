@@ -294,6 +294,27 @@ export const addUserPageData = {
   }
 }
 
+export const deleteUserPageData = {
+  title: {
+    title: 'Удаление пользователей из'
+  },
+  link: {
+    urlText: 'Назад',
+    events: {
+      click: () => Router.back()
+    },
+  },
+  findBtn: {
+    label: 'Найти',
+    type: 'submit',
+    className: 'button inactive button_add-btn',
+  },
+  deleteBtn: {
+    label: 'Удалить',
+    type: 'submit',
+  }
+}
+
 export const chatPageData = {
   linkProfile: {
     url: '/settings',

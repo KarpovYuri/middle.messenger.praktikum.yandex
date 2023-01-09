@@ -33,6 +33,15 @@ class ChatsController {
     router.go('/messenger');
   }
 
+  deleteUserToChat(data) {
+    this.api.deleteUsers(data);
+    router.go('/messenger');
+  }
+
+  getUserFromChat(data: number) {
+    return this.api.getUsers(data);
+  }
+
   async delete(id: number) {
     await this.api.delete(id);
     store.set('selectedChat', undefined);

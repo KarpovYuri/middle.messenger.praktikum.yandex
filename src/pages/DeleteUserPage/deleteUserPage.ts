@@ -1,57 +1,47 @@
 import Block from '../../utils/Block';
-import template from './addUserPage.hbs';
+import template from './deleteUserPage.hbs';
 import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { Link } from '../../components/Link/Link';
-import { addUserPageData } from '../../utils/bigData';
+import { deleteUserPageData } from '../../utils/bigData';
 import handleSubmit from '../../utils/handleSubmit';
-import UserController from '../../controllers/UserController';
 import validateForm from '../../utils/validateForm';
 import ChatsController from '../../controllers/ChatsController';
-import './addUserPage.scss';
+import './deleteUserPage.scss';
 
-export class AddUserPage extends Block {
+export class DeleteUserPage extends Block {
   constructor() {
-    super({ ...addUserPageData, findUsers: [] });
+    super({ ...deleteUserPageData, getUsers: [] });
   }
 
-  init() {
+  async init() {
     this.children.title = new Title({
       title: `${this.props.title.title} ${localStorage.title} #${localStorage.selectedChat}`
     });
-    this.props.inputs.map((item: any) => this.children[item.name] = new Input(item));
-    this.children.findBtn = new Button({
-      ...this.props.findBtn,
-      events: {
-      click: async (evt: Event) => {
-        let data = handleSubmit(evt);
-        this.props.findUsers = await UserController.search(data);
-      }
-    } });
-    this.children.addBtn = new Button({
-      ...this.props.addBtn,
+    this.children.deleteBtn = new Button({
+      ...this.props.deleteBtn,
       events: {
         click: (evt: Event) => {
           const data = handleSubmit(evt);
-          delete data.login;
-          ChatsController.addUserToChat({
+          console.log(data)
+          ChatsController.deleteUserToChat({
             users: Object.values(data),
             chatId: localStorage.getItem('selectedChat')
           });
         }
       }});
     this.children.link = new Link(this.props.link);
-    this.children.findUsers = this.findUsers(this.props);
+    this.props.getUsers = await ChatsController.getUserFromChat(localStorage.selectedChat);
   }
 
   componentDidUpdate(_oldProps, _newProps): boolean {
-    this.children.findUsers = this.findUsers(_newProps);
+    this.children.getUsers = this.getUsers(_newProps);
     return true;
   }
 
-  findUsers(props) {
-    return props.findUsers.map(data => {
+  getUsers(props) {
+    return props.getUsers.map(data => {
       return new Input({
         ...data,
         checkBox: true,
