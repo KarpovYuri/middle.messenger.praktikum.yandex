@@ -3,6 +3,7 @@ import template from './chat.hbs';
 import { Message } from '../Message/message';
 import { Input } from '../Input/input';
 import { Button } from '../Button/button';
+import { Link } from '../Link/Link';
 import MessagesController, { Message as MessageInfo } from '../../controllers/MessagesController';
 import { withStore } from '../../hocs/withStore';
 import { chatData } from '../../utils/bigData';
@@ -20,10 +21,12 @@ class ChatBase extends Block {
   constructor(props: ChatProps) {
     super({ ...props, ...chatData });
   }
-  protected init() {
-    this.children.messages = this.createMessages(this.props);
 
+    protected init() {
+    this.children.messages = this.createMessages(this.props);
     this.children.input = new Input(this.props.input);
+    this.children.linkAddUser = new Link(this.props.linkAddUser);
+    this.children.linkDeleteUser = new Link(this.props.linkDeleteUser);
 
     this.children.button = new Button({
       ...this.props.sendBtn,

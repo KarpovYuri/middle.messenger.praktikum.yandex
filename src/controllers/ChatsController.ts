@@ -1,6 +1,7 @@
 import API, { ChatsAPI } from '../api/ChatsAPI';
 import store from '../utils/Store';
 import MessagesController from './MessagesController';
+import router from '../utils/Router';
 
 class ChatsController {
   private readonly api: ChatsAPI;
@@ -27,8 +28,9 @@ class ChatsController {
     store.set('chats', chats);
   }
 
-  addUserToChat(id: number, userId: number) {
-    this.api.addUsers(id, [userId]);
+  addUserToChat(data) {
+    this.api.addUsers(data);
+    router.go('/messenger');
   }
 
   async delete(id: number) {
@@ -42,9 +44,11 @@ class ChatsController {
     return this.api.getToken(id);
   }
 
-  selectChat(id: number, title: string) {
-    store.set('selectedChat', id);
+  selectChat(chatId: number, title: string) {
+    store.set('selectedChat', chatId);
     store.set('title', title);
+    localStorage.setItem('selectedChat', `${chatId}`);
+    localStorage.setItem('title', `${title}`);
   }
 }
 

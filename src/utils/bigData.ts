@@ -195,7 +195,9 @@ export const profilePageData = {
   },
   linkBack: {
     urlText: 'Назад',
-    url: "/messenger"
+    events: {
+      click: () => Router.back()
+    },
   },
   logoutLink: {
     urlText: 'Выйти из аккаунта',
@@ -245,7 +247,9 @@ export const passwordPageData = {
   ],
   link: {
     urlText: 'Назад',
-    url: "/settings",
+    events: {
+      click: () => Router.back()
+    },
   },
   button: {
     label: 'Изменить',
@@ -256,6 +260,37 @@ export const passwordPageData = {
         UserController.updatePassword(data);
       }
     }
+  }
+}
+
+export const addUserPageData = {
+  title: {
+    title: 'Добавление пользователей в'
+  },
+  inputs: [
+    {
+      label: 'User',
+      name: 'login',
+      type: 'text',
+      placeholder: 'Поиск по логину',
+      validation: 'minlength="3" maxlength="20" pattern="^(?=.*[a-zA-Z])[a-zA-Z0-9_-]+$"',
+      errorMessage: 'Латиница, может содержать цифры, но не состоять из них, (допустимы дефис и нижнее подчёркивание)',
+    },
+  ],
+  link: {
+    urlText: 'Назад',
+    events: {
+      click: () => Router.back()
+    },
+  },
+  findBtn: {
+    label: 'Найти',
+    type: 'submit',
+    className: 'button inactive button_add-btn',
+  },
+  addBtn: {
+    label: 'Добавить',
+    type: 'submit',
   }
 }
 
@@ -275,6 +310,16 @@ export const chatPageData = {
 }
 
 export const chatData = {
+  linkAddUser: {
+    url: '/add-user',
+    urlText: 'Add user',
+    addClass: 'chat-header__add-user',
+  },
+  linkDeleteUser: {
+    url: '/delete-user',
+    urlText: 'Delete user',
+    addClass: 'chat-header__add-user',
+  },
   deleteChatBtn: {
     label: '',
     className: 'chat-header__delete-chat-btn',

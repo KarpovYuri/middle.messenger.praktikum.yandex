@@ -1,3 +1,9 @@
+{{#if checkBox}}
+  <div class="form__check-field">
+      <input type="checkbox" class="form__checkbox input" id="{{this.id}}" name="user_{{this.id}}" value="{{this.id}}" >
+      <label for="{{this.id}}">{{{this.login}}}</label>
+   </div>
+{{else}}
 {{#if chatInput}}
 <input type={{type}} class="message-enter__input" name={{name}} placeholder="{{placeholder}}" autocomplete="off">
 {{else}}
@@ -8,4 +14,5 @@
   autoComplete="off" required {{{validation}}} data-errortext="{{errorMessage}}"/>
   <span class="field__input-error"></span>
 </div>
+{{/if}}
 {{/if}}

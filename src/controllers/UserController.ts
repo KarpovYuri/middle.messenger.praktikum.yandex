@@ -1,4 +1,4 @@
-import API, { UserAPI, UpdateProfile, UpdatePassword } from '../api/UserAPI';
+import API, { UserAPI, UpdateProfile, UpdatePassword, SearchUser } from '../api/UserAPI';
 import AuthController from './AuthController';
 import router from '../utils/Router';
 
@@ -7,6 +7,15 @@ export class UserController {
 
   constructor() {
     this.api = API;
+  }
+
+  async search(data: SearchUser) {
+    try {
+      const result = await this.api.search(data);
+      return result;
+    } catch (error: any) {
+      console.error(error);
+    }
   }
 
   async updateAvatar(data: FormData) {

@@ -35,8 +35,8 @@ export class ChatsAPI extends BaseAPI {
     return this.http.get(`/${id}/users`)
   }
 
-  addUsers(id: number, users: number[]): Promise<unknown> {
-    return this.http.put('/users', { users, chatId: id });
+  addUsers(data): Promise<unknown> {
+    return this.http.put('/users', data);
   }
 
   async getToken(id: number): Promise<string> {

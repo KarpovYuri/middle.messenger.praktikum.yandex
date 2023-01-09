@@ -3,9 +3,16 @@ function validateForm(inputElement: HTMLInputElement | null | undefined) {
   if (!inputElement) return;
 
   const formElement: HTMLFormElement | null = inputElement.closest('form');
-
   const submitButton: HTMLButtonElement | null | undefined  = formElement?.querySelector('[type=submit]');
-  const isValid = formElement?.checkValidity();
+  let isValid: boolean | undefined = false;
+
+  if (inputElement.type !== 'checkbox') {
+    isValid = formElement?.checkValidity();
+  } else {
+    const formElements = formElement?.querySelectorAll('input');
+    formElements?.forEach((input) => input.checked ? isValid = true : null );
+  }
+
 
   if (isValid) {
     submitButton!.disabled = false;

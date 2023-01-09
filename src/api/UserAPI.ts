@@ -13,9 +13,17 @@ export interface UpdatePassword {
   oldPassword: string;
   newPassword: string;
 }
+
+export interface SearchUser {
+  login: string;
+}
 export class UserAPI extends BaseAPI {
   constructor() {
     super('/user');
+  }
+
+  search(data: SearchUser) {
+    return this.http.post('/search', data);
   }
 
   updateAvatar(data: FormData) {

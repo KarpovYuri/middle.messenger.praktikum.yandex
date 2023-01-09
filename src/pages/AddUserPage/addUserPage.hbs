@@ -1,0 +1,18 @@
+<div>
+<form class="form" novalidate>
+  {{{title}}}
+  <fieldset class="form__add-user">
+    {{{login}}}
+    {{{findBtn}}}
+  </fieldset>
+</form>
+<form>
+  <fieldset class="form__find-users">
+    {{#each findUsers}}
+      {{{this}}}
+    {{/each}}
+  </fieldset>
+  {{{addBtn}}}
+</form>
+{{{link}}}
+</div>

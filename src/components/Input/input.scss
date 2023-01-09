@@ -83,6 +83,18 @@
   }
 }
 
+.form__check-field {
+  min-height: 20px;
+  width: 100px;
+  display: flex;
+  gap: 8px;
+}
+
+.form__checkbox {
+  width: 18px;
+  outline: none;
+}
+
 @media (max-width: 1024px) {
   .field {
     &_columns_two {
