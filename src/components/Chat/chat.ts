@@ -8,6 +8,7 @@ import MessagesController, { Message as MessageInfo } from '../../controllers/Me
 import { withStore } from '../../hocs/withStore';
 import { chatData } from '../../utils/bigData';
 import ChatsController from '../../controllers/ChatsController';
+import noAvatar from '../../assets/images/no-avatar.png';
 import './chat.scss'
 
 interface ChatProps {
@@ -19,7 +20,7 @@ interface ChatProps {
 
 class ChatBase extends Block {
   constructor(props: ChatProps) {
-    super({ ...props, ...chatData });
+    super({ ...props, ...chatData, noAvatar: noAvatar });
   }
 
   protected init() {
@@ -28,9 +29,6 @@ class ChatBase extends Block {
     this.children.input = new Input(this.props.input);
     this.children.linkAddUser = new Link(this.props.linkAddUser);
     this.children.linkDeleteUser = new Link(this.props.linkDeleteUser);
-    // if(localStorage.selectedChat) {
-    //   ChatsController.selectChat(localStorage.selectedChat, localStorage.title);
-    // }
 
     this.children.button = new Button({
       ...this.props.sendBtn,
@@ -39,6 +37,11 @@ class ChatBase extends Block {
           evt.preventDefault();
           const input = this.children.input as Input;
           const message = input.getValue();
+          if(!message) {
+            input.setValue('Введите сообщение');
+            setTimeout(() => input.setValue(''), 500);
+            return;
+          }
           input.setValue('');
           MessagesController.sendMessage(this.props.selectedChat!, message);
         }
@@ -80,7 +83,8 @@ const withSelectedChatMessages = withStore(state => {
       messages: [],
       selectedChat: undefined,
       userId: state.user.id,
-      title: undefined
+      title: undefined,
+      avatar: null
     };
   }
 
@@ -88,7 +92,8 @@ const withSelectedChatMessages = withStore(state => {
     messages: (state.messages || {})[selectedChatId] || [],
     selectedChat: state.selectedChat,
     userId: state.user.id,
-    title: state.title
+    title: state.title,
+    avatar: state.avatar
   };
 });
 

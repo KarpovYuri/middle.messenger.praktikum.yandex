@@ -24,8 +24,12 @@
   &__avatar {
     width: 54px;
     height: 54px;
-    background-color: $second-bg-color;
     border-radius: 12px;
+    object-fit: cover;
+    object-position: center;
+    box-sizing: border-box;
+    background-color: #292a2f;
+    border: 1px solid #292a2f;
   }
 
   &__name {
