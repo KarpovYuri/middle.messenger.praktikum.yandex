@@ -1,8 +1,10 @@
 <li class="user-card">
-  <div class="user-card__avatar"></div>
+  <img class="user-card__avatar"
+      src="{{#if avatar}}https://ya-praktikum.tech/api/v2/resources{{avatar}}{{else}}{{noAvatar}}{{/if}}"
+      alt="Аватар Чата">
   <p class="user-card__name">
     {{#if title }}
-      {{title}} # {{id}}
+      {{title}}
     {{else}}
       Чат # {{id}}
     {{/if}}

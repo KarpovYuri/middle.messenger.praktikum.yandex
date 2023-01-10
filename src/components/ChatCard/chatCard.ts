@@ -2,6 +2,7 @@ import Block from '../../utils/Block';
 import template from './chatCard.hbs';
 import { withStore } from '../../hocs/withStore';
 import { ChatInfo } from '../../api/ChatsAPI';
+import noAvatar from '../../assets/images/no-avatar.png';
 import './chatCard.scss'
 
 interface ChatCardProps {
@@ -16,7 +17,7 @@ interface ChatCardProps {
 
 class ChatCardBase extends Block {
   constructor(props: ChatCardProps) {
-    super(props);
+    super({ ...props, noAvatar: noAvatar });
   }
 
   protected render(): DocumentFragment {

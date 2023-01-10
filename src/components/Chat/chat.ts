@@ -8,6 +8,7 @@ import MessagesController, { Message as MessageInfo } from '../../controllers/Me
 import { withStore } from '../../hocs/withStore';
 import { chatData } from '../../utils/bigData';
 import ChatsController from '../../controllers/ChatsController';
+import noAvatar from '../../assets/images/no-avatar.png';
 import './chat.scss'
 
 interface ChatProps {
@@ -19,7 +20,7 @@ interface ChatProps {
 
 class ChatBase extends Block {
   constructor(props: ChatProps) {
-    super({ ...props, ...chatData });
+    super({ ...props, ...chatData, noAvatar: noAvatar });
   }
 
   protected init() {
@@ -82,7 +83,8 @@ const withSelectedChatMessages = withStore(state => {
       messages: [],
       selectedChat: undefined,
       userId: state.user.id,
-      title: undefined
+      title: undefined,
+      avatar: null
     };
   }
 
@@ -90,7 +92,8 @@ const withSelectedChatMessages = withStore(state => {
     messages: (state.messages || {})[selectedChatId] || [],
     selectedChat: state.selectedChat,
     userId: state.user.id,
-    title: state.title
+    title: state.title,
+    avatar: state.avatar
   };
 });
 

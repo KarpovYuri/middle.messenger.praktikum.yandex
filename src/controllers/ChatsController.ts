@@ -53,11 +53,13 @@ class ChatsController {
     return this.api.getToken(id);
   }
 
-  selectChat(chatId: number, title: string) {
+  selectChat(chatId: number, title: string, avatar: string) {
     store.set('selectedChat', chatId);
     store.set('title', title);
+    store.set('avatar', avatar);
     localStorage.setItem('selectedChat', `${chatId}`);
     localStorage.setItem('title', `${title}`);
+    localStorage.setItem('avatar', `${avatar}`);
   }
 }
 

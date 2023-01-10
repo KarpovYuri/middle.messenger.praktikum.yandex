@@ -38,8 +38,10 @@ export class AuthController {
     try {
       localStorage.removeItem('selectedChat');
       localStorage.removeItem('title');
+      localStorage.removeItem('avatar');
       store.set('selectedChat', '');
       store.set('title', '');
+      store.set('avatar', '');
       await this.api.logout();
 
       router.go('/');

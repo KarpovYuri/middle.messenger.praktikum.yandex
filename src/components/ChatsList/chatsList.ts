@@ -31,7 +31,7 @@ class ChatsListBase extends Block {
         ...data,
         events: {
           click: () => {
-            ChatsController.selectChat(data.id, data.title);
+            ChatsController.selectChat(data.id, data.title, data.avatar);
           }
         }
       });
