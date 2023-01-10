@@ -28,9 +28,6 @@ class ChatBase extends Block {
     this.children.input = new Input(this.props.input);
     this.children.linkAddUser = new Link(this.props.linkAddUser);
     this.children.linkDeleteUser = new Link(this.props.linkDeleteUser);
-    // if(localStorage.selectedChat) {
-    //   ChatsController.selectChat(localStorage.selectedChat, localStorage.title);
-    // }
 
     this.children.button = new Button({
       ...this.props.sendBtn,
@@ -39,6 +36,11 @@ class ChatBase extends Block {
           evt.preventDefault();
           const input = this.children.input as Input;
           const message = input.getValue();
+          if(!message) {
+            input.setValue('Введите сообщение');
+            setTimeout(() => input.setValue(''), 500);
+            return;
+          }
           input.setValue('');
           MessagesController.sendMessage(this.props.selectedChat!, message);
         }
