@@ -1,0 +1,29 @@
+<main class="chat-main">
+  <div class="chat-header">
+    {{#if selectedChat }}
+    <img class="chat-header__avatar"
+      src="{{#if avatar}}https://ya-praktikum.tech/api/v2/resources{{avatar}}{{else}}{{noAvatar}}{{/if}}"
+      alt="Аватар Чата">
+      <p class="chat-header__name">{{title}}</p>
+      {{{linkAddUser}}}
+      {{{linkDeleteUser}}}
+      {{{deleteChatBtn}}}
+        {{else}}
+          <p class="chat-header__selected-chat">Выберите чат</p>
+    {{/if}}
+  </div>
+  {{#if selectedChat }}
+    <ul class="message-list">
+      {{#each messages}}
+        {{{this}}}
+      {{/each}}
+    </ul>
+    <div class="message-enter">
+      <button class="message-enter__menu-btn"></button>
+      <form class="message-enter__form" novalidate name="chat">
+        {{{input}}}
+        {{{button}}}
+      </form>
+    </div>
+  {{/if}}
+</main>

@@ -1,3 +1,5 @@
+import { queryString } from "./helpers";
+
 enum METHOD {
   GET = 'GET',
   POST = 'POST',
@@ -5,66 +7,81 @@ enum METHOD {
   DELETE = 'DELETE',
 }
 
-type Data = Record<string, string | number>;
-
 type Options = {
   method: METHOD;
   data?: unknown;
 };
 
-type OptionsWithoutMethod = Omit<Options, 'method'>;
-
-const queryString = (data: Data) => {
-  if (data) {
-    return Object.entries(data).reduce((accumulator, [key, currentValue], currentIndex, array) => {
-      return `${accumulator}${key}=${currentValue}${currentIndex < array.length - 1 ? '&' : ''}`;
-    }, '?');
-  }
-  return '';
-}
-
-type HTTPMethod = (url: string, options?: OptionsWithoutMethod) => Promise<XMLHttpRequest>
 class HTTPTransport {
 
-  public get: HTTPMethod = (url, options = {}) => (
-    this.request(url, { ...options, method: METHOD.GET })
-  );
+  static API_URL = 'https://ya-praktikum.tech/api/v2';
+  protected endpoint: string;
 
-  public post: HTTPMethod = (url, options = {}) => (
-    this.request(url, { ...options, method: METHOD.POST })
-  );
+  constructor(endpoint: string) {
+    this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
+  }
 
-  public put: HTTPMethod = (url, options = {}) => (
-    this.request(url, { ...options, method: METHOD.PUT })
-  );
+  public get<Response>(url = '/'): Promise<Response> {
+    return this.request<Response>(this.endpoint + url);
+  }
 
-  public delete: HTTPMethod = (url, options = {}) => (
-    this.request(url, { ...options, method: METHOD.DELETE })
-  );
+  public post<Response = void>(url: string, data?: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + url, {
+      method: METHOD.POST,
+      data,
+    });
+  }
 
-  request(url: string, options: Options): Promise<XMLHttpRequest> {
+  public put<Response = void>(url: string, data: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + url, {
+      method: METHOD.PUT,
+      data,
+    });
+  }
+
+  public delete<Response>(url: string, data?: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + url, {
+      method: METHOD.DELETE,
+      data,
+    });
+  }
+
+  private request<Response>(url: string, options: Options = { method: METHOD.GET }): Promise<Response> {
     const { method, data } = options;
 
     const stringified = (method === METHOD.GET)
-      ? queryString(data as Data) : '';
+      ? queryString(data as Record<string, string | number>) : '';
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url + stringified);
-      xhr.setRequestHeader('Content-Type', 'text/plain');
 
-      xhr.onload = function () {
-        resolve(xhr);
+      xhr.onreadystatechange = () => {
+
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status < 400) {
+            resolve(xhr.response);
+          } else {
+            reject(xhr.response);
+          }
+        }
       };
 
-      xhr.onabort = reject;
-      xhr.onerror = reject;
-      xhr.ontimeout = reject;
+      xhr.onabort = () => reject({ reason: 'abort' });
+      xhr.onerror = () => reject({ reason: 'network error' });
+      xhr.ontimeout = () => reject({ reason: 'timeout' });
+
+      if (!(data instanceof FormData)) {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+      }
+
+      xhr.withCredentials = true;
+      xhr.responseType = 'json';
 
       if (method === METHOD.GET || !data) {
         xhr.send();
       } else {
-        xhr.send(JSON.stringify(data));
+        xhr.send(data instanceof FormData ? data : JSON.stringify(data));
       }
     });
   };

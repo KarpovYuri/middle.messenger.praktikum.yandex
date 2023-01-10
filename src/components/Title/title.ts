@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './title.hbs';
-import  './title.scss';
+import './title.scss';
 
 type TitleProps = {
   title: string;
