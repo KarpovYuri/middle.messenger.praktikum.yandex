@@ -22,7 +22,7 @@ export class AddUserPage extends Block {
 
   init() {
     this.children.title = new Title({
-      title: `${this.props.title.title} ${localStorage.title} #${localStorage.selectedChat}`
+      title: `${this.props.title.title} ${localStorage.title}`
     });
     this.props.inputs.map((item: any) => this.children[item.name] = new Input(item));
     this.children.findBtn = new Button({

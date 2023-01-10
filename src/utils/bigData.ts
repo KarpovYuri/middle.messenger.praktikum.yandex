@@ -325,7 +325,11 @@ export const chatPageData = {
     urlText: 'Add chat',
     addClass: 'chat__add-chat',
     events: {
-      click: async () => await ChatsController.create('Тестовый Чат'),
+      click: async () => {
+        const chatTitle = prompt('Введите название нового чата');
+        if(!chatTitle) return;
+        await ChatsController.create(chatTitle);
+      }
     },
   }
 }

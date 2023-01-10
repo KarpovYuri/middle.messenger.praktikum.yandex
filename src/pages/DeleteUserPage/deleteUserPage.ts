@@ -21,7 +21,7 @@ export class DeleteUserPage extends Block {
 
   async init() {
     this.children.title = new Title({
-      title: `${this.props.title.title} ${localStorage.title} #${localStorage.selectedChat}`
+      title: `${this.props.title.title} ${localStorage.title}`
     });
     this.children.deleteBtn = new Button({
       ...this.props.deleteBtn,
