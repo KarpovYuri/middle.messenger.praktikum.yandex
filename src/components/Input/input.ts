@@ -5,17 +5,20 @@ import './input.scss';
 
 type InputProps = {
   name: string;
-  label: string;
+  label?: string;
   type: string;
   placeholder: string;
-  classModifier: string;
-  validation: string;
-  errorMessage: string;
+  classModifier?: string;
+  validation?: string;
+  errorMessage?: string;
+  chatInput?: boolean;
+  checkBox?: boolean,
   events?: {
-    input: () => void,
-    focusin: () => void,
-    focusout: () => void,
-  },
+    input?: (() => void) | undefined,
+    focusin?: () => void,
+    focusout?: () => void,
+    change?: ((evt: Event) => void) | undefined,
+  } | undefined,
 }
 
 export class Input extends Block<InputProps> {
@@ -27,6 +30,14 @@ export class Input extends Block<InputProps> {
         focusout: () => this._validateInput(),
       }, ...props
     });
+  }
+
+  public setValue(value: string) {
+    return (this.element as HTMLInputElement).value = value;
+  }
+
+  public getValue() {
+    return (this.element as HTMLInputElement).value;
   }
 
   private _validateInput() {

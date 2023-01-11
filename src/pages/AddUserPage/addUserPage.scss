@@ -1,0 +1,30 @@
+.form__add-user {
+  padding: 0;
+  margin: 50px 0 0;
+  min-width: 460px;
+  border: none;
+  display: flex;
+  gap: 16px;
+}
+
+.form__user {
+  padding: 0;
+}
+
+.form__find-users{
+  width: 460px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100px;
+  margin-top: 50px;
+}
+
+.button_add-btn {
+  margin-top: 37px;
+  width: 30%;
+}

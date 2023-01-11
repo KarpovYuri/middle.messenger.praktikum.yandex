@@ -1,0 +1,29 @@
+<li class="user-card">
+  <img class="user-card__avatar"
+      src="{{#if avatar}}https://ya-praktikum.tech/api/v2/resources{{avatar}}{{else}}{{noAvatar}}{{/if}}"
+      alt="Аватар Чата">
+  <p class="user-card__name">
+    {{#if title }}
+      {{title}}
+    {{else}}
+      Чат # {{id}}
+    {{/if}}
+  </p>
+  <p class="user-card__message">
+    {{#if last_message }}
+      {{last_message.content}}
+    {{else}}
+      В этом чате еще нет сообщений от пользователей!
+    {{/if}}
+  </p>
+  <data class="user-card__date">
+    {{#if time }}
+      {{time}}
+    {{/if}}
+  </data>
+  <div class="user-card__qty-msg">
+    {{#if unread_count }}
+      {{unread_count}}
+    {{/if}}
+    </div>
+</li>

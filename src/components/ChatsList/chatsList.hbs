@@ -1,0 +1,9 @@
+<ul class="chats-list">
+  {{#if isLoaded }}
+      {{#each chats}}
+          {{{this}}}
+      {{/each}}
+  {{else}}
+    <li class="chats-list__preloader">Loading...</li>
+  {{/if}}
+</ul>

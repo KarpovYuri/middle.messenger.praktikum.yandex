@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 
   &:first-child {
     margin-top: 0;
@@ -34,7 +35,7 @@
     color: $white-color;
 
     &::placeholder {
-      color: $white-color;
+      color: $third-bg-color;
       opacity: 1;
       transition: opacity 0.25s ease;
     }
@@ -80,6 +81,18 @@
     align-items: center;
     display: none;
   }
+}
+
+.form__check-field {
+  min-height: 20px;
+  width: 100px;
+  display: flex;
+  gap: 8px;
+}
+
+.form__checkbox {
+  width: 18px;
+  outline: none;
 }
 
 @media (max-width: 1024px) {

@@ -1,0 +1,26 @@
+@import "../../assets/scss/_variables";
+
+.form-link {
+  margin: 40px 0 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: grey;
+  letter-spacing: normal;
+}
+
+.link {
+  margin: 15px 0 0;
+  text-decoration: none;
+  color: $main-color;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  transition: transform 0.25s;
+  cursor: pointer;
+  display: block;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}

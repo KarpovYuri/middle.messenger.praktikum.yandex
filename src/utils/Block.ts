@@ -10,9 +10,9 @@ class Block<TProps extends Record<string, unknown> = any> {
     FLOW_RENDER: "flow:render"
   } as const;
 
-  private _id = nanoid(6);
+  private id = nanoid(6);
   protected props: TProps;
-  public children: Record<string, Block>;
+  public children: Record<string, Block | Block[]>;
   private eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
 
@@ -31,12 +31,14 @@ class Block<TProps extends Record<string, unknown> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _getChildrenAndProps(childrenAndProps: TProps): { props: TProps, children: Record<string, Block>} {
+  _getChildrenAndProps(childrenAndProps: TProps): { props: TProps, children: Record<string, Block | Block[]> } {
     const props: Record<string, unknown> = {};
-    const children: Record<string, Block> = {};
+    const children: Record<string, Block | Block[]> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
-      if (value instanceof Block) {
+      if (Array.isArray(value) && value.length > 0 && value.every(v => v instanceof Block)) {
+        children[key as string] = value;
+      } else if (value instanceof Block) {
         children[key as string] = value;
       } else {
         props[key] = value;
@@ -47,7 +49,7 @@ class Block<TProps extends Record<string, unknown> = any> {
   }
 
   _addEvents() {
-    const {events = {}} = this.props as TProps & { events: Record<string, () => void> };
+    const { events = {} } = this.props as TProps & { events: Record<string, () => void> };
 
     Object.keys(events).forEach(eventName => {
       this._element?.addEventListener(eventName, events[eventName]);
@@ -74,18 +76,24 @@ class Block<TProps extends Record<string, unknown> = any> {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  protected init() {}
+  protected init() { }
 
   _componentDidMount() {
     this.componentDidMount();
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 
-    Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
+    Object.values(this.children).forEach(child => {
+      if (Array.isArray(child)) {
+        child.forEach(ch => ch.dispatchComponentDidMount());
+      } else {
+        child.dispatchComponentDidMount();
+      }
+    });
   }
 
   private _componentDidUpdate(oldProps: TProps, newProps: TProps) {
@@ -98,7 +106,7 @@ class Block<TProps extends Record<string, unknown> = any> {
     return true;
   }
 
-  setProps = (nextProps: TProps) => {
+  setProps = (nextProps: Partial<TProps>) => {
     if (!nextProps) {
       return;
     }
@@ -114,10 +122,13 @@ class Block<TProps extends Record<string, unknown> = any> {
     const fragment = this.render();
     this._removeEvents();
     const newElement = fragment.firstElementChild as HTMLElement;
+
     if (this._element && newElement) {
       this._element.replaceWith(newElement);
     }
+
     this._element = newElement;
+
     this._addEvents();
   }
 
@@ -125,7 +136,11 @@ class Block<TProps extends Record<string, unknown> = any> {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
-      contextAndStubs[name] = `<div data-id="${component._id}"></div>`;
+      if (Array.isArray(component)) {
+        contextAndStubs[name] = component.map(child => `<div data-id="${child.id}"></div>`)
+      } else {
+        contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
+      }
     });
 
     const html = template(contextAndStubs);
@@ -134,8 +149,8 @@ class Block<TProps extends Record<string, unknown> = any> {
 
     temp.innerHTML = html;
 
-    Object.entries(this.children).forEach(([_, component]) => {
-      const stub = temp.content.querySelector(`[data-id="${component._id}"]`);
+    const replaceStub = (component: Block) => {
+      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
 
       if (!stub) {
         return;
@@ -144,6 +159,14 @@ class Block<TProps extends Record<string, unknown> = any> {
       component.getContent()?.append(...Array.from(stub.childNodes));
 
       stub.replaceWith(component.getContent()!);
+    }
+
+    Object.entries(this.children).forEach(([_, component]) => {
+      if (Array.isArray(component)) {
+        component.forEach(replaceStub);
+      } else {
+        replaceStub(component);
+      }
     });
 
     return temp.content;
@@ -163,7 +186,7 @@ class Block<TProps extends Record<string, unknown> = any> {
     return new Proxy(props, {
       get(target, prop: string) {
         const value = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop: string, value) {
         const oldTarget = { ...target }
@@ -174,7 +197,7 @@ class Block<TProps extends Record<string, unknown> = any> {
         return true;
       },
       deleteProperty() {
-        throw new Error("Нет доступа");
+        throw new Error('Нет доступа');
       }
     });
   }
