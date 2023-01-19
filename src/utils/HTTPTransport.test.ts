@@ -24,7 +24,7 @@ describe('HTTPTransport', () => {
     requests.length = 0;
   })
 
-  it('.get() should send GET request', () => {
+  it('.get() Должен отправиться GET запрос', () => {
     instance.get('/user');
 
     const [request] = requests;
