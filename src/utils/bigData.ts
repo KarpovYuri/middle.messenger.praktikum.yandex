@@ -271,7 +271,7 @@ export const addUserPageData = {
   findBtn: {
     label: 'Найти',
     type: 'submit',
-    className: 'button inactive button_add-btn',
+    className: 'button inactive add-btn',
   },
   addBtn: {
     label: 'Добавить',
@@ -285,11 +285,6 @@ export const deleteUserPageData = {
     events: {
       click: () => Router.back()
     },
-  },
-  findBtn: {
-    label: 'Найти',
-    type: 'submit',
-    className: 'button inactive button_add-btn',
   },
   deleteBtn: {
     label: 'Удалить',
