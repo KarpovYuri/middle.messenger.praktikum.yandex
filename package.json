@@ -2,18 +2,14 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "Проектная работа Sprint_4. Мидл фронтенд разработчик",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm-run-all test lint:all"
-    }
-  },
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
     "start": "npm run build & node ./src/server.js",
     "lint": "eslint ./src",
     "stylelint": "stylelint ./src/**/*.scss",
-    "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'"
+    "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
