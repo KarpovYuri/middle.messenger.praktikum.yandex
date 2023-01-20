@@ -11,7 +11,7 @@ import Router from './utils/Router';
 import AuthController from './controllers/AuthController';
 import './assets/scss/general.scss';
 import './assets/scss/fonts.scss';
-import '../static/vendor/normalize.css';
+import '../static/vendor/normalize.scss';
 
 enum Routes {
   Index = '/',
