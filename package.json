@@ -2,6 +2,11 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "Проектная работа Sprint_4. Мидл фронтенд разработчик",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint:all"
+    }
+  },
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
@@ -42,6 +47,7 @@
     "eslint-config-airbnb": "=19.0.4",
     "handlebars-loader": "=1.7.3",
     "html-webpack-plugin": "=5.5.0",
+    "husky": "^8.0.3",
     "jsdom": "=21.0.0",
     "mini-css-extract-plugin": "=2.7.2",
     "mocha": "=10.2.0",
