@@ -8,14 +8,18 @@ module.exports = {
   entry: { main: './src/index.ts' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js',
-    publicPath: ''
+    filename: 'main.js'
   },
   mode: 'development',
   resolve: {
     extensions: ['.ts', '.js', '.json'],
   },
   devServer: {
+    historyApiFallback: {
+      rewrites: [
+        { from: '/*', to: '/index.html' },
+      ],
+    },
     static: path.resolve(__dirname, './dist'),
     compress: true,
     port: 3000,
