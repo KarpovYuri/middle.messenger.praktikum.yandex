@@ -1,6 +1,5 @@
 import Block from '../../utils/Block';
 import template from './deleteUserPage.hbs';
-import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { Link } from '../../components/Link/Link';
@@ -20,9 +19,7 @@ export class DeleteUserPage extends Block {
   }
 
   async init() {
-    this.children.title = new Title({
-      title: `${this.props.title.title} ${localStorage.title}`
-    });
+    this.props.titleChat = localStorage.title;
     this.children.deleteBtn = new Button({
       ...this.props.deleteBtn,
       events: {

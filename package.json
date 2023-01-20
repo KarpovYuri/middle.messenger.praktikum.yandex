@@ -1,10 +1,10 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
-  "description": "Проектная работа Sprint_3. Мидл фронтенд разработчик",
+  "description": "Проектная работа Sprint_4. Мидл фронтенд разработчик",
   "scripts": {
-    "build": "parcel build ./src/index.html",
-    "dev": "parcel ./src/index.html --open --port 3000 --no-cache",
+    "build": "webpack --mode production",
+    "dev": "webpack serve",
     "start": "npm run build & node ./src/server.js",
     "lint": "eslint ./src",
     "stylelint": "stylelint ./src/**/*.scss",
@@ -24,11 +24,9 @@
   "dependencies": {
     "express": "=4.18.2",
     "handlebars": "=4.7.7",
-    "nanoid": "=3.0.0"
+    "nanoid": "=3.3.2"
   },
   "devDependencies": {
-    "@anikin/parcel-transformer-handlebars-precompile": "=1.0.1",
-    "@parcel/transformer-sass": "=2.7.0",
     "@types/chai": "=4.3.4",
     "@types/jsdom": "=20.0.1",
     "@types/mocha": "=10.0.1",
@@ -37,17 +35,27 @@
     "@typescript-eslint/eslint-plugin": "=5.44.0",
     "@typescript-eslint/parser": "=5.44.0",
     "chai": "=4.3.7",
+    "clean-webpack-plugin": "=4.0.0",
+    "copy-webpack-plugin": "=11.0.0",
+    "css-loader": "=6.7.3",
     "eslint": "=8.28.0",
     "eslint-config-airbnb": "=19.0.4",
+    "handlebars-loader": "=1.7.3",
+    "html-webpack-plugin": "=5.5.0",
     "jsdom": "=21.0.0",
+    "mini-css-extract-plugin": "=2.7.2",
     "mocha": "=10.2.0",
-    "parcel": "=2.7.0",
     "proxyquire": "=2.1.3",
+    "sass-loader": "=13.2.0",
     "sinon": "=15.0.1",
     "stylelint": "=14.15.0",
     "stylelint-config-standard": "=29.0.0",
     "stylelint-scss": "=4.3.0",
+    "ts-loader": "=9.4.2",
     "ts-node": "=10.9.1",
-    "typescript": "=4.9.3"
+    "typescript": "=4.9.3",
+    "webpack": "=5.75.0",
+    "webpack-cli": "=5.0.1",
+    "webpack-dev-server": "=4.11.1"
   }
 }

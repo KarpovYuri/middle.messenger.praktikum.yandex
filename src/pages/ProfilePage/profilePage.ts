@@ -1,6 +1,5 @@
 import Block from '../../utils/Block';
 import template from './profilePage.hbs';
-import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { Link } from '../../components/Link/Link';
@@ -14,7 +13,6 @@ class ProfilePageBase extends Block {
   }
 
   init() {
-    this.children.title = new Title(this.props.title);
     this.props.inputs.map((item: any) => {
       this.children[item.name] = new Input({ ...item, value: this.props[item.name] });
     });
