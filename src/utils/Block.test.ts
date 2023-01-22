@@ -17,12 +17,13 @@ const { default: Block } = proxyquire('./Block', {
   }
 }) as { default: typeof BlockType };
 
-describe('Block', () => {
+describe('Тестируем Block', () => {
   class ComponentMock extends Block {}
 
-  it('Должно сработать событие init при инициализации',  () => {
+  it('Сработало событие init при инициализации',  () => {
     new ComponentMock({});
 
     expect(eventBusMock.emit.calledWith('init')).to.eq(true);
   });
+
 });

@@ -2,7 +2,7 @@ import Router, { BlockConstructable } from './Router'
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-describe('Router', () => {
+describe('Тестируем Router', () => {
 
   global.window.history.back = () => {
     if (typeof window.onpopstate === 'function') {
@@ -21,29 +21,35 @@ describe('Router', () => {
     getContent = getContentFake;
   } as unknown as BlockConstructable;
 
-  it('use() должен вернуть экземпляр Router', () => {
+  it('.use() - Возврат экземпляра Router', () => {
     const result = Router.use('/', BlockMock);
-
     expect(result).to.eq(Router);
   });
 
-  describe('.back()', () => {
-    it('должен выполниться переход назад по истории', () => {
-      Router
-        .use('/', BlockMock)
-        .start();
-
-      Router.back();
-
-      expect(getContentFake.callCount).to.eq(1);
-    });
-  });
-
-  it('должна отображаться стартовая страница', () => {
+  it('.use() - Переход на стартовую страницу', () => {
     Router
       .use('/', BlockMock)
       .start();
 
     expect(getContentFake.callCount).to.eq(1);
   });
+
+  it('.back() - Переход назад по истории', () => {
+    Router
+      .use('/', BlockMock)
+      .start();
+    Router.back();
+
+    expect(getContentFake.callCount).to.eq(1);
+  });
+
+  it('.forward() - Переход вперед по истории', () => {
+    Router
+      .use('/', BlockMock)
+      .start();
+    Router.forward();
+
+    expect(getContentFake.callCount).to.eq(1);
+  });
+
 });

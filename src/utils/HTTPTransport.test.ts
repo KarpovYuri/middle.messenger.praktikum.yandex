@@ -2,7 +2,7 @@ import sinon, { SinonFakeXMLHttpRequest, SinonFakeXMLHttpRequestStatic } from 's
 import HTTPTransport from './HTTPTransport';
 import { expect } from 'chai';
 
-describe('HTTPTransport', () => {
+describe('Тестируем HTTPTransport', () => {
   let xhr: SinonFakeXMLHttpRequestStatic;
   let instance: HTTPTransport;
   const requests: SinonFakeXMLHttpRequest[] = [];
@@ -24,12 +24,28 @@ describe('HTTPTransport', () => {
     requests.length = 0;
   })
 
-  it('.get() Должен отправиться GET запрос', () => {
+  it('.get() - Отправка GET запроса', () => {
     instance.get('/user');
-
     const [request] = requests;
-
     expect(request.method).to.eq('GET');
+  });
+
+  it('.post() - Отправка POST запроса', () => {
+    instance.post('/user');
+    const [request] = requests;
+    expect(request.method).to.eq('POST');
+  });
+
+  it('.delete() - Отправка DELETE запроса', () => {
+    instance.delete('/user');
+    const [request] = requests;
+    expect(request.method).to.eq('DELETE');
+  });
+
+  it('.put() - Отправка PUT запроса', () => {
+    instance.put('/user');
+    const [request] = requests;
+    expect(request.method).to.eq('PUT');
   });
 
 });
