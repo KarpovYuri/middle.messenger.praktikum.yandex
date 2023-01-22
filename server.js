@@ -11,7 +11,5 @@ app.use(express.static(dirPath));
 app.use(fallback('index.html', { root: dirPath }))
 
 app.listen(PORT, () => {
-  console.log('');
-  console.log(`Адрес сервера для запуска проекта: http://localhost:${PORT}`);
-  console.log('');
+  console.log("listening on ", PORT);
 });
