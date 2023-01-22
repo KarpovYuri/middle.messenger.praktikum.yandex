@@ -1,8 +1,8 @@
-import EventBus from "./EventBus";
+import { EventBus } from "./EventBus";
 import { nanoid } from 'nanoid';
 
 // Нельзя создавать экземпляр данного класса
-class Block<TProps extends Record<string, unknown> = any> {
+class Block<TProps extends Record<string, any> = any> {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",

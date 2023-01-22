@@ -6,9 +6,6 @@ import noAvatar from '../assets/images/no-avatar.png';
 import ChatsController from '../controllers/ChatsController';
 
 export const signinPageData = {
-  title: {
-    title: 'Авторизация'
-  },
   inputs: [
     {
       label: 'Login',
@@ -46,9 +43,6 @@ export const signinPageData = {
 }
 
 export const signupPageData = {
-  title: {
-    title: 'Регистрация'
-  },
   inputs: [
     {
       label: 'First Name',
@@ -124,9 +118,6 @@ export const signupPageData = {
 
 export const profilePageData = {
   noAvatar: noAvatar,
-  title: {
-    title: 'Профиль'
-  },
   inputs: [
     {
       label: 'First Name',
@@ -224,9 +215,6 @@ export const profilePageData = {
 }
 
 export const passwordPageData = {
-  title: {
-    title: 'Смена пароля'
-  },
   inputs: [
     {
       label: 'Old Password',
@@ -264,9 +252,6 @@ export const passwordPageData = {
 }
 
 export const addUserPageData = {
-  title: {
-    title: 'Добавление пользователей в'
-  },
   inputs: [
     {
       label: 'User',
@@ -286,7 +271,7 @@ export const addUserPageData = {
   findBtn: {
     label: 'Найти',
     type: 'submit',
-    className: 'button inactive button_add-btn',
+    className: 'button inactive add-btn',
   },
   addBtn: {
     label: 'Добавить',
@@ -295,19 +280,11 @@ export const addUserPageData = {
 }
 
 export const deleteUserPageData = {
-  title: {
-    title: 'Удаление пользователей из'
-  },
   link: {
     urlText: 'Назад',
     events: {
       click: () => Router.back()
     },
-  },
-  findBtn: {
-    label: 'Найти',
-    type: 'submit',
-    className: 'button inactive button_add-btn',
   },
   deleteBtn: {
     label: 'Удалить',
@@ -328,7 +305,7 @@ export const chatPageData = {
       click: async () => {
         const title = prompt('Введите название нового чата');
         if(!title) return;
-        await ChatsController.create(title); 
+        await ChatsController.create(title);
       },
     },
   }

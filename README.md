@@ -1,8 +1,9 @@
 # Мессенджер
 
 * Макет в Figma: [Ссылка на макет](https://www.figma.com/file/k9as4XTLEBJwQ8zgFJw2RK/Chat_Karpov?node-id=0%3A1)
-* Опубликованное в Netlify приложение: [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
-* [Pull Request](https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/3)
+* Опубликованное в Netlify: [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
+* Опубликованное в Render.com (через контейнер docker): [Ссылка на приложение](https://chat-bung.onrender.com)
+* [Pull Request](https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/4)
 
 ## Описание
 
@@ -31,6 +32,7 @@
 * Добавлен слой `controllers`
 * Реализовано хранилище данных `Store.ts`
 * Применен `WebSocket` для сообщений чата
+* Добавлены правила `Content-Security-Policy`
 * В приложении реализован следующий функционал:
   * Регистрация
   * Авторизация
@@ -42,6 +44,20 @@
   * Добавление и удаление пользователей в чат
   * Отправка и получение текстовых сообщений
 
+## Спринт 4
+
+* Реализован gереход с `Parcel` на `Webpack`
+* Добавлен `Dockerfile` для создания `docker -контейнера` с дистрибутивом и сервером на `Express`
+* Сделан деплой контейнера на `render.com`
+* Настроен pre-commit `husky`
+
+## Планы по доработке проекта
+
+* Пересмотреть Store
+* Возможность изменения аватара чата
+* Отправка файлов в сообщениях
+* Поиск сообщений
+
 ## Установка и запуск
 
 ### Установка
@@ -52,12 +68,24 @@
 npm i
 ```
 
+Установка Husky:
+
+```bash
+npm run prepare
+```
+
 ### Сборка и запуск
 
-Сборка проекта. Используемый сборщик [Parcel](https://parceljs.org/):
+Сборка проекта. Используемый сборщик [Webpack](https://webpack.js.org/):
 
 ```bash
 npm run build
+```
+
+Сборка контейнера docker (./dist + ./server):
+
+```bash
+docker build -t <name>:<tag> .
 ```
 
 Сборка проекта с наблюдением за файлами (Hot Reloading):
@@ -72,6 +100,12 @@ npm run dev
 npm run start
 ```
 
+Запуск тестов:
+
+```bash
+npm run test
+```
+
 Проверка кода на синтаксические и стилистические ошибки:
 
 ```bash
@@ -81,7 +115,3 @@ npm run lint
 ```bash
 npm run stylelint
 ```
-
-**Мессенджер**
-
-- [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)

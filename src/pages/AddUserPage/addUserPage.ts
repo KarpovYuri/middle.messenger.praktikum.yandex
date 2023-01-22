@@ -1,6 +1,5 @@
 import Block from '../../utils/Block';
 import template from './addUserPage.hbs';
-import { Title } from '../../components/Title/title';
 import { Input } from '../../components/Input/input';
 import { Button } from '../../components/Button/button';
 import { Link } from '../../components/Link/Link';
@@ -21,9 +20,7 @@ export class AddUserPage extends Block {
   }
 
   init() {
-    this.children.title = new Title({
-      title: `${this.props.title.title} ${localStorage.title}`
-    });
+    this.props.titleChat = localStorage.title;
     this.props.inputs.map((item: any) => this.children[item.name] = new Input(item));
     this.children.findBtn = new Button({
       ...this.props.findBtn,

@@ -32,7 +32,7 @@ class HTTPTransport {
     });
   }
 
-  public put<Response = void>(url: string, data: unknown): Promise<Response> {
+  public put<Response = void>(url: string, data?: unknown): Promise<Response> {
     return this.request<Response>(this.endpoint + url, {
       method: METHOD.PUT,
       data,

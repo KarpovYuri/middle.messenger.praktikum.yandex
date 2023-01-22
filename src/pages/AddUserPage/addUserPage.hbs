@@ -1,13 +1,13 @@
 <div>
-<form class="form form__user" novalidate>
-  {{{title}}}
-  <fieldset class="form__add-user">
+<form class="form form-user" novalidate>
+  <h1 class="title">Добавление пользователей в {{titleChat}}</h1>
+  <fieldset class="form-add-user">
     {{{login}}}
     {{{findBtn}}}
   </fieldset>
 </form>
 <form>
-  <fieldset class="form__find-users">
+  <fieldset class="form-find-users">
     {{#each findUsers}}
       {{{this}}}
     {{/each}}
