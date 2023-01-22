@@ -1,8 +1,8 @@
 # Мессенджер
 
 * Макет в Figma: [Ссылка на макет](https://www.figma.com/file/k9as4XTLEBJwQ8zgFJw2RK/Chat_Karpov?node-id=0%3A1)
-* Опубликованное в Netlify приложение: [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
-* Опубликованное в Render.com (через контейнер `docker`) приложение: [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
+* Опубликованное в Netlify: [Ссылка на приложение](https://amazing-syrniki-922dd2.netlify.app)
+* Опубликованное в Render.com (через контейнер docker): [Ссылка на приложение](https://chat-bung.onrender.com)
 * [Pull Request](https://github.com/KarpovYuri/middle.messenger.praktikum.yandex/pull/4)
 
 ## Описание
