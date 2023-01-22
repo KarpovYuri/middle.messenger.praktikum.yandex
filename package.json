@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
-    "start": "npm run build & node ./src/server.js",
+    "start": "npm run build & node ./server.js",
     "lint": "eslint ./src",
     "stylelint": "stylelint ./src/**/*.scss",
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
@@ -44,7 +44,7 @@
     "eslint-config-airbnb": "=19.0.4",
     "handlebars-loader": "=1.7.3",
     "html-webpack-plugin": "=5.5.0",
-    "husky": "^8.0.3",
+    "husky": "=8.0.3",
     "jsdom": "=21.0.0",
     "mini-css-extract-plugin": "=2.7.2",
     "mocha": "=10.2.0",

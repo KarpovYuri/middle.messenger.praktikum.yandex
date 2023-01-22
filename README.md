@@ -82,6 +82,12 @@ npm run prepare
 npm run build
 ```
 
+Сборка контейнера docker (./dist + ./server):
+
+```bash
+docker build -t <name>:<tag> .
+```
+
 Сборка проекта с наблюдением за файлами (Hot Reloading):
 
 ```bash
